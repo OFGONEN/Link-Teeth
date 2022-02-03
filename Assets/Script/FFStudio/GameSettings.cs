@@ -29,6 +29,7 @@ namespace FFStudio
         [ BoxGroup( "UI Settings" ), Tooltip( "Percentage of the screen to register a swipe"     ) ] public int swipeThreshold;
 		
         [ BoxGroup( "Patient" ) ] public float patient_movement_duration;
+        [ BoxGroup( "Patient" ) ] public float patient_look_speed;
 
 		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_start;
 		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_end;

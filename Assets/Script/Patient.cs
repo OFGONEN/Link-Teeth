@@ -11,32 +11,50 @@ public class Patient : MonoBehaviour
 {
 #region Fields
     [ BoxGroup( "Setup" ), SerializeField ] private SharedReferenceNotifier table_position_reference;
+
+    // Private Fields \\
+
+    // Components
+    private Animator patient_animator;
+
+    private Transform table_transform;
 #endregion
 
 #region Properties
 #endregion
 
 #region Unity API
+    private void Awake()
+    {
+        patient_animator = GetComponentInChildren< Animator >();
+    }
+
+    private void Start()
+    {
+		table_transform = table_position_reference.SharedValue as Transform;
+	}
 #endregion
 
 #region API
     public void MovementToTable()
     {
-		var table_transform = table_position_reference.SharedValue as Transform;
+		patient_animator.SetBool( "walking", true );
 
-		var sequence = DOTween.Sequence();
-
-		sequence.Append( transform.DOMove( table_transform.position, GameSettings.Instance.patient_movement_duration ) );
-		sequence.Append( transform.DORotate( table_transform.eulerAngles, GameSettings.Instance.patient_movement_duration ) );
-
-		sequence.OnComplete( OnMovementComplete );
+		transform.DOMove( table_transform.position, GameSettings.Instance.patient_movement_duration )
+			.OnUpdate( OnMovement_Update )
+			.OnComplete( OnMovement_Complete );
 	}
 #endregion
 
 #region Implementation
-    private void OnMovementComplete()
+    private void OnMovement_Update()
     {
-        FFLogger.Log( "On Movement To Table Complete" );
+		transform.LookAtOverTimeAxis( table_transform.position + table_transform.forward, Vector3.up, GameSettings.Instance.patient_look_speed );
+	}
+
+    private void OnMovement_Complete()
+    {
+		patient_animator.SetBool( "walking", false );
     }
 #endregion
 

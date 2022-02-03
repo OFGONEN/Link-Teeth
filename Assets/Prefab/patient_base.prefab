@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8088074399311045882}
   - component: {fileID: 2104746678645079765}
+  - component: {fileID: -7595465412850601165}
   m_Layer: 0
   m_Name: patient_base
   m_TagString: Untagged
@@ -44,3 +45,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   table_position_reference: {fileID: 11400000, guid: 3d5cab41749884a198cabc36eb4cb7d1, type: 2}
+--- !u!114 &-7595465412850601165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813531561414272885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a424c5aab848048bf965cabd054575b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPairs:
+  - eventListener:
+      gameEvent: {fileID: 11400000, guid: efef06bf257ee27438d6c2aab4936226, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 2104746678645079765}
+          m_TargetAssemblyTypeName: Patient, Assembly-CSharp
+          m_MethodName: MovementToTable
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
