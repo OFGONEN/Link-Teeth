@@ -27,6 +27,8 @@ namespace FFStudio
 		[ BoxGroup( "UI Settings" ), Tooltip( "Duration of the movement for floating ui element" ) ] public float ui_Entity_FloatingMove_TweenDuration;
 		[ BoxGroup( "UI Settings" ), Tooltip( "Joy Stick"                                        ) ] public float ui_Entity_JoyStick_Gap;
         [ BoxGroup( "UI Settings" ), Tooltip( "Percentage of the screen to register a swipe"     ) ] public int swipeThreshold;
+		
+        [ BoxGroup( "Patient" ) ] public float patient_movement_duration;
 
 		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_start;
 		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_end;
