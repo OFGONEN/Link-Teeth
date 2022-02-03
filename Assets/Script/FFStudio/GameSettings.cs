@@ -28,6 +28,10 @@ namespace FFStudio
 		[ BoxGroup( "UI Settings" ), Tooltip( "Joy Stick"                                        ) ] public float ui_Entity_JoyStick_Gap;
         [ BoxGroup( "UI Settings" ), Tooltip( "Percentage of the screen to register a swipe"     ) ] public int swipeThreshold;
 
+		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_start;
+		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_end;
+		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_duration;
+
         [ BoxGroup( "Debug" ) ] public float debug_ui_text_float_height;
         [ BoxGroup( "Debug" ) ] public float debug_ui_text_float_duration;
 #endregion
