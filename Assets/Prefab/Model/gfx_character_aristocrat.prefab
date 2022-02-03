@@ -86,7 +86,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: char_aristocrat
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5866666021909216657, guid: a4f2e1fb452a248bb9d7249fec41f092, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: da1af6309feaa4425bd5de44b60ac9f9, type: 2}
+    - target: {fileID: 5866666021909216657, guid: a4f2e1fb452a248bb9d7249fec41f092, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6177533736593398609, guid: a4f2e1fb452a248bb9d7249fec41f092, type: 3}
+    - {fileID: -1497090571288712945, guid: a4f2e1fb452a248bb9d7249fec41f092, type: 3}
+    - {fileID: 2259324607723864913, guid: a4f2e1fb452a248bb9d7249fec41f092, type: 3}
+    - {fileID: 6025946709740323145, guid: a4f2e1fb452a248bb9d7249fec41f092, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a4f2e1fb452a248bb9d7249fec41f092, type: 3}
 --- !u!4 &6597069954042212187 stripped
 Transform:

@@ -7,6 +7,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Aristocrat
+    second: {fileID: 2100000, guid: 779d02aba7ffc4c64ab1a7671980dba6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Default-Material
     second: {fileID: 2100000, guid: a2829df0bfae7214390d3aa9dcc77c64, type: 2}
   - first:

@@ -86,7 +86,19 @@ PrefabInstance:
       propertyPath: m_Name
       value: char_punker
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5866666021909216657, guid: 0ef7be2f9ea01405db29267d7fda8af3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: da1af6309feaa4425bd5de44b60ac9f9, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 0ef7be2f9ea01405db29267d7fda8af3, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6177533736593398609, guid: 0ef7be2f9ea01405db29267d7fda8af3, type: 3}
+    - {fileID: -1497090571288712945, guid: 0ef7be2f9ea01405db29267d7fda8af3, type: 3}
+    - {fileID: 2259324607723864913, guid: 0ef7be2f9ea01405db29267d7fda8af3, type: 3}
+    - {fileID: 6025946709740323145, guid: 0ef7be2f9ea01405db29267d7fda8af3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ef7be2f9ea01405db29267d7fda8af3, type: 3}
 --- !u!4 &8178582639092701584 stripped
 Transform:
