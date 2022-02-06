@@ -27,5 +27,6 @@ MonoBehaviour:
   tooth_transparent_end: 0.75
   tooth_transparent_duration: 0.5
   palate_table_movement_duration: 0.7
+  palate_mouth_movement_duration: 0.7
   debug_ui_text_float_height: 1
   debug_ui_text_float_duration: 1

@@ -61,6 +61,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  palate_movement_mouth_end:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 436999f0b230e884988a65bcd5151c43, type: 2}
+        m_TargetAssemblyTypeName: FFStudio.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-2409071845201077104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +97,23 @@ MonoBehaviour:
         - m_Target: {fileID: 569035486013715013}
           m_TargetAssemblyTypeName: Palate, Assembly-CSharp
           m_MethodName: MovementToTable
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventListener:
+      gameEvent: {fileID: 11400000, guid: ee98a0ee2d91a934e85902eb670b15d8, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 569035486013715013}
+          m_TargetAssemblyTypeName: Palate, Assembly-CSharp
+          m_MethodName: MovementToMouth
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

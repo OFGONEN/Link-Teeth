@@ -15,6 +15,7 @@ public class Palate : MonoBehaviour
 	[ BoxGroup( "Setup" ) ] public SharedReferenceNotifier palate_table_position_reference;
 
 	[ BoxGroup( "Fired Events" ) ] public UnityEvent palate_movement_table_end;
+	[ BoxGroup( "Fired Events" ) ] public UnityEvent palate_movement_mouth_end;
 
 #endregion
 
@@ -43,6 +44,17 @@ public class Palate : MonoBehaviour
 		sequence.Append( transform.DOMove( target_transform.position, GameSettings.Instance.palate_table_movement_duration ) );
 		sequence.Join( transform.DORotate( target_transform.eulerAngles, GameSettings.Instance.palate_table_movement_duration ) );
 		sequence.AppendCallback( palate_movement_table_end.Invoke );
+	}
+
+	public void MovementToMouth()
+	{
+		transform.SetParent( palate_mouth_position_reference.SharedValue as Transform );
+
+		var sequence = DOTween.Sequence();
+
+		sequence.Append( transform.DOLocalMove( Vector3.zero, GameSettings.Instance.palate_mouth_movement_duration ) );
+		sequence.Join( transform.DOLocalRotate( Vector3.zero, GameSettings.Instance.palate_mouth_movement_duration ) );
+		sequence.AppendCallback( palate_movement_mouth_end.Invoke );
 	}
 #endregion
 
