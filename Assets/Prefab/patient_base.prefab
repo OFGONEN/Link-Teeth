@@ -76,6 +76,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  palate_mouth_movement_end:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1137175518192003676}
+        m_TargetAssemblyTypeName: AnimatorParameterInterface, Assembly-CSharp
+        m_MethodName: UpdateParameter
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1137175518192003676}
+        m_TargetAssemblyTypeName: AnimatorParameterInterface, Assembly-CSharp
+        m_MethodName: UpdateParameter
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &-7595465412850601165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,6 +205,16 @@ MonoBehaviour:
   - parameterType: 1
     parameter_name: mouth_open
     parameter_bool: 1
+    parameter_int: 0
+    parameter_float: 0
+  - parameterType: 0
+    parameter_name: victory
+    parameter_bool: 0
+    parameter_int: 0
+    parameter_float: 0
+  - parameterType: 0
+    parameter_name: mouth_happy
+    parameter_bool: 0
     parameter_int: 0
     parameter_float: 0
   animator: {fileID: 0}

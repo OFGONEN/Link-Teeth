@@ -15,6 +15,7 @@ public class Patient : MonoBehaviour
 
     [ BoxGroup( "Fired Events" ) ] public UnityEvent palate_table_movement_start;
     [ BoxGroup( "Fired Events" ) ] public UnityEvent palate_mouth_movement_start;
+    [ BoxGroup( "Fired Events" ) ] public UnityEvent palate_mouth_movement_end;
 
 
     // Private Fields \\
@@ -25,6 +26,7 @@ public class Patient : MonoBehaviour
 	
 	// Delegate
 	private UnityMessage onMouthOpen;
+	private UnityMessage onMouthClose;
 #endregion
 
 #region Properties
@@ -35,7 +37,8 @@ public class Patient : MonoBehaviour
     {
         patient_animator = GetComponentInChildren< Animator >();
 
-		onMouthOpen = ExtensionMethods.EmptyMethod;
+		onMouthOpen  = ExtensionMethods.EmptyMethod;
+		onMouthClose = ExtensionMethods.EmptyMethod;
     }
 
     private void Start()
@@ -60,6 +63,11 @@ public class Patient : MonoBehaviour
 	{
 		onMouthOpen();
 	}
+
+	public void OnMouthClose()
+	{
+		onMouthClose();
+	}
 #endregion
 
 #region Implementation
@@ -83,7 +91,9 @@ public class Patient : MonoBehaviour
 	private void OnMouthOpen_PalateMovement_Mouth()
 	{
 		palate_mouth_movement_start.Invoke();
-		onMouthOpen = ExtensionMethods.EmptyMethod;
+
+		onMouthOpen  = ExtensionMethods.EmptyMethod;
+		onMouthClose = palate_mouth_movement_end.Invoke;
 	}
 #endregion
 
