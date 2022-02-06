@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: patient_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1137175518192003676, guid: 70c73d35f224b4419baf888aeeb076e9, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 5822467177227334057}
     - target: {fileID: 8088074399311045882, guid: 70c73d35f224b4419baf888aeeb076e9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -62,6 +66,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8088074399311045882, guid: 70c73d35f224b4419baf888aeeb076e9, type: 3}
   m_PrefabInstance: {fileID: 2661665277563653749}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4162924213809639584 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2104746678645079765, guid: 70c73d35f224b4419baf888aeeb076e9, type: 3}
+  m_PrefabInstance: {fileID: 2661665277563653749}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 246d08cb37a7c4859a0556ffe5045e75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8623700920694239811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72,6 +87,38 @@ PrefabInstance:
     - target: {fileID: 2534861382306586110, guid: fbd480f1377a74955b884ebe15d162f2, type: 3}
       propertyPath: m_Name
       value: gfx_character_punker
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553735896043132353, guid: fbd480f1377a74955b884ebe15d162f2, type: 3}
+      propertyPath: unityEvents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553735896043132353, guid: fbd480f1377a74955b884ebe15d162f2, type: 3}
+      propertyPath: unityEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553735896043132353, guid: fbd480f1377a74955b884ebe15d162f2, type: 3}
+      propertyPath: unityEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553735896043132353, guid: fbd480f1377a74955b884ebe15d162f2, type: 3}
+      propertyPath: unityEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 4162924213809639584}
+    - target: {fileID: 2553735896043132353, guid: fbd480f1377a74955b884ebe15d162f2, type: 3}
+      propertyPath: unityEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553735896043132353, guid: fbd480f1377a74955b884ebe15d162f2, type: 3}
+      propertyPath: unityEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnMouthOpen
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553735896043132353, guid: fbd480f1377a74955b884ebe15d162f2, type: 3}
+      propertyPath: unityEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Patient, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2553735896043132353, guid: fbd480f1377a74955b884ebe15d162f2, type: 3}
+      propertyPath: unityEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2748189606286019537, guid: fbd480f1377a74955b884ebe15d162f2, type: 3}
       propertyPath: m_RootOrder
@@ -119,3 +166,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbd480f1377a74955b884ebe15d162f2, type: 3}
+--- !u!95 &5822467177227334057 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2837273540031529962, guid: fbd480f1377a74955b884ebe15d162f2, type: 3}
+  m_PrefabInstance: {fileID: 8623700920694239811}
+  m_PrefabAsset: {fileID: 0}
