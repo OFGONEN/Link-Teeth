@@ -3,6 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using FFStudio;
 using DG.Tweening;
 using Sirenix.OdinInspector;
@@ -12,6 +13,9 @@ public class Palate : MonoBehaviour
 #region Fields
 	[ BoxGroup( "Setup" ) ] public SharedReferenceNotifier palate_mouth_position_reference;
 	[ BoxGroup( "Setup" ) ] public SharedReferenceNotifier palate_table_position_reference;
+
+	[ BoxGroup( "Fired Events" ) ] public UnityEvent palate_movement_table_end;
+
 #endregion
 
 #region Properties
@@ -37,8 +41,8 @@ public class Palate : MonoBehaviour
 		var sequence = DOTween.Sequence();
 
 		sequence.Append( transform.DOMove( target_transform.position, GameSettings.Instance.palate_table_movement_duration ) );
-		sequence.Append( transform.DORotate( target_transform.eulerAngles, GameSettings.Instance.palate_table_movement_duration ) );
-		sequence.AppendCallback( ExtensionMethods.EmptyMethod ); //todo fire a event
+		sequence.Join( transform.DORotate( target_transform.eulerAngles, GameSettings.Instance.palate_table_movement_duration ) );
+		sequence.AppendCallback( palate_movement_table_end.Invoke );
 	}
 #endregion
 

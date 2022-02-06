@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8088074399311045882
 Transform:
   m_ObjectHideFlags: 0
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   table_position_reference: {fileID: 11400000, guid: 3d5cab41749884a198cabc36eb4cb7d1, type: 2}
+  patient_movement_table_end: {fileID: 11400000, guid: 86e5b9da11fb0bf4a880891a73f10f08, type: 2}
 --- !u!114 &-7595465412850601165
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,8 @@ public class Patient : MonoBehaviour
 #region Fields
     [ BoxGroup( "Setup" ), SerializeField ] private SharedReferenceNotifier table_position_reference;
 
+    [ BoxGroup( "Fired Events" ) ] public GameEvent patient_movement_table_end;
+
     // Private Fields \\
 
     // Components
@@ -54,7 +56,8 @@ public class Patient : MonoBehaviour
     private void OnMovement_Complete()
     {
 		patient_animator.SetBool( "walking", false );
-    }
+		patient_movement_table_end.Raise(); // TODO there is no need for this event, Play open mouth animation
+	}
 #endregion
 
 #region Editor Only
