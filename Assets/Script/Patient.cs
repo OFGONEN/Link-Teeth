@@ -13,7 +13,9 @@ public class Patient : MonoBehaviour
 #region Fields
     [ BoxGroup( "Setup" ), SerializeField ] private SharedReferenceNotifier table_position_reference;
 
-    [ BoxGroup( "Fired Events" ) ] public UnityEvent patient_movement_table_end;
+    [ BoxGroup( "Fired Events" ) ] public UnityEvent palate_table_movement_start;
+    [ BoxGroup( "Fired Events" ) ] public UnityEvent palate_mouth_movement_start;
+
 
     // Private Fields \\
 
@@ -51,7 +53,7 @@ public class Patient : MonoBehaviour
 			.OnUpdate( OnMovement_Update )
 			.OnComplete( OnMovement_Complete );
 
-		onMouthOpen = patient_movement_table_end.Invoke;
+		onMouthOpen = OnMouthOpen_PalateMovement_Table;
 	}
 
 	public void OnMouthOpen()
@@ -70,6 +72,18 @@ public class Patient : MonoBehaviour
     {
 		patient_animator.SetBool( "walking", false );
 		patient_animator.SetBool( "mouth_open", true );
+	}
+
+	private void OnMouthOpen_PalateMovement_Table()
+	{
+		palate_table_movement_start.Invoke();
+		onMouthOpen = OnMouthOpen_PalateMovement_Mouth;
+	}
+
+	private void OnMouthOpen_PalateMovement_Mouth()
+	{
+		palate_mouth_movement_start.Invoke();
+		onMouthOpen = ExtensionMethods.EmptyMethod;
 	}
 #endregion
 
