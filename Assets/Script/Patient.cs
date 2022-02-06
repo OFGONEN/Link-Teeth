@@ -16,7 +16,6 @@ public class Patient : MonoBehaviour
 
     // Components
     private Animator patient_animator;
-
     private Transform table_transform;
 #endregion
 

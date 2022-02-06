@@ -35,6 +35,8 @@ namespace FFStudio
 		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_end;
 		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_duration;
 
+		[ BoxGroup( "Palate" ) ] public float palate_table_movement_duration;
+
         [ BoxGroup( "Debug" ) ] public float debug_ui_text_float_height;
         [ BoxGroup( "Debug" ) ] public float debug_ui_text_float_duration;
 #endregion
