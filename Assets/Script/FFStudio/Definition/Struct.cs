@@ -3,6 +3,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using Sirenix.OdinInspector;
 
 namespace FFStudio
 {
@@ -14,7 +15,7 @@ namespace FFStudio
 		public Vector3 scale; // Local scale.
 	}
 
-	[Serializable]
+	[ Serializable ]
 	public struct EventPair
 	{
 		public EventListenerDelegateResponse eventListener;
@@ -26,7 +27,7 @@ namespace FFStudio
 		}
 	}
 
-	[Serializable]
+	[ Serializable ]
 	public struct ParticleData
 	{
 		public string alias;
@@ -34,5 +35,14 @@ namespace FFStudio
 		public Vector3 offset;
 		public float size;
 	}
-
+	
+	[ Serializable ]
+	public struct AnimationParameterData
+	{
+		public AnimationParameterType parameterType;
+		public string parameter_name;
+		[ ShowIf( "parameterType", AnimationParameterType.Bool  ) ] public bool parameter_bool;
+		[ ShowIf( "parameterType", AnimationParameterType.Int   ) ] public int parameter_int;
+		[ ShowIf( "parameterType", AnimationParameterType.Float ) ] public float parameter_float;
+	}
 }
