@@ -45,4 +45,19 @@ namespace FFStudio
 		[ ShowIf( "parameterType", AnimationParameterType.Int   ) ] public int parameter_int;
 		[ ShowIf( "parameterType", AnimationParameterType.Float ) ] public float parameter_float;
 	}
+
+	[ Serializable ]
+	public struct PalateToothData
+	{
+		public int tooth_index;
+		public int tooth_health;
+		public Color tooth_color;
+	}
+
+	[ Serializable ]
+	public struct GridToothData
+	{
+		public ToothType tooth_type;
+		public Color tooth_color;
+	}
 }

@@ -22,4 +22,12 @@ namespace FFStudio
         Int,
         Float
     }
+
+    public enum ToothType
+    {
+        None,
+        Canine,
+        Molar,
+        PreMolar
+    }
 }
