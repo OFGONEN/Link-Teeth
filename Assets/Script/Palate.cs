@@ -11,6 +11,7 @@ using Sirenix.OdinInspector;
 public class Palate : MonoBehaviour
 {
 #region Fields
+	[ BoxGroup( "Setup" ) ] public PalateData current_palate_data;
 	[ BoxGroup( "Setup" ) ] public SharedReferenceNotifier palate_mouth_position_reference;
 	[ BoxGroup( "Setup" ) ] public SharedReferenceNotifier palate_table_position_reference;
 
