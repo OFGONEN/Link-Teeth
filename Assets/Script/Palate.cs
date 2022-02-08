@@ -11,12 +11,14 @@ using Sirenix.OdinInspector;
 public class Palate : MonoBehaviour
 {
 #region Fields
-	[ BoxGroup( "Setup" ) ] public SharedReferenceNotifier palate_mouth_position_reference;
-	[ BoxGroup( "Setup" ) ] public SharedReferenceNotifier palate_table_position_reference;
+	[ BoxGroup( "SharedData" ) ] public PalateData palate_data_current;
+	[ BoxGroup( "SharedData" ) ] public SharedReferenceNotifier palate_mouth_position_reference;
+	[ BoxGroup( "SharedData" ) ] public SharedReferenceNotifier palate_table_position_reference;
+
+	[ BoxGroup( "Setup" ) ] public Transform palate_parent_gfx;
 
 	[ BoxGroup( "Fired Events" ) ] public UnityEvent palate_movement_table_end;
 	[ BoxGroup( "Fired Events" ) ] public UnityEvent palate_movement_mouth_end;
-
 #endregion
 
 #region Properties
@@ -29,6 +31,8 @@ public class Palate : MonoBehaviour
 
 		transform.localPosition = Vector3.zero;
 		transform.localEulerAngles = Vector3.zero;
+
+		ModifyTeeth();
 	}
 #endregion
 
@@ -59,6 +63,25 @@ public class Palate : MonoBehaviour
 #endregion
 
 #region Implementation
+	private void ModifyTeeth()
+	{
+		var tooth_data_array = palate_data_current.palateToothData;
+
+		for( var i = 0; i < tooth_data_array.Length; i++ )
+		{
+			var data  = tooth_data_array[ i ];
+			var tooth = palate_parent_gfx.GetChild( data.tooth_index );
+
+			var renderer     = tooth.GetComponent<Renderer>();
+			var setter_color = tooth.gameObject.AddComponent<ColorSetter>();
+			var setter_fill  = tooth.gameObject.AddComponent<FillSetter>();
+
+			renderer.sharedMaterial = GameSettings.Instance.material_flashing;
+
+			setter_fill.SetupFillRange( GameSettings.Instance.tooth_fill_value_min, GameSettings.Instance.tooth_fill_value_max );
+			setter_color.SetColor( data.tooth_color );
+		}
+	}
 #endregion
 
 #region Editor Only

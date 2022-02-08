@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10b3ab6127857407da32e3f74f269001, type: 3}
   m_Name: palate_data_1_lower
   m_EditorClassIdentifier: 
-  palateToothData: []
+  palateToothData:
+  - tooth_index: 1
+    tooth_health: 1
+    tooth_color: {r: 1, g: 0, b: 0, a: 1}
+  - tooth_index: 5
+    tooth_health: 0
+    tooth_color: {r: 1, g: 0.90713394, b: 0, a: 1}

@@ -6,9 +6,8 @@ using Sirenix.OdinInspector;
 public class FillSetter : MonoBehaviour
 {
 #region Fields (Inspector Interface)
-    [ TitleGroup( "Setup" ), SerializeField ] private float minimumFillValue;
-    [ TitleGroup( "Setup" ), SerializeField ] private float maximumFillValue;
-    [ TitleGroup( "Setup" ), SerializeField, Range( 0, 1 ) ] private float fillRate;
+    private float minimumFillValue;
+    private float maximumFillValue;
 #endregion
 
 #region Fields (Private)
@@ -28,31 +27,19 @@ public class FillSetter : MonoBehaviour
         
 		propertyBlock = new MaterialPropertyBlock();
 	}
-    
-    private void OnValidate()
-    {
-		renderer_ = GetComponent< Renderer >();
-
-		propertyBlock = new MaterialPropertyBlock();
-
-		SetFillRate();
-	}
 #endregion
 
 #region API
-    // TODO: (OFG) Use the overload you want and delete the other. 
+	public void SetupFillRange( float min, float max )
+	{
+		minimumFillValue = min;
+		maximumFillValue = max;
+	}
 
     public void SetFillRate( float fillRate_Normalized )
     {		
 		renderer_.GetPropertyBlock( propertyBlock );
 		propertyBlock.SetFloat( SHADER_ID_FILLAMOUNT, ActualFillRate( fillRate_Normalized ) );
-		renderer_.SetPropertyBlock( propertyBlock );
-	}
-
-	public void SetFillRate() // Info: This may be more "Unity-Event-friendly".
-	{
-        renderer_.GetPropertyBlock( propertyBlock );
-		propertyBlock.SetFloat( SHADER_ID_FILLAMOUNT, ActualFillRate( fillRate ) );
 		renderer_.SetPropertyBlock( propertyBlock );
 	}
 #endregion
