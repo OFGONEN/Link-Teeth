@@ -57,6 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbe4c3b711e5f49c19019dd4295f5237, type: 3}
+--- !u!4 &436142408295459251 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4084029335499560764, guid: fbe4c3b711e5f49c19019dd4295f5237, type: 3}
+  m_PrefabInstance: {fileID: 4512640083753893519}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5510882621775876077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69,7 +74,15 @@ PrefabInstance:
       value: palate_upper
       objectReference: {fileID: 0}
     - target: {fileID: 569035486013715013, guid: 9b770f04ca8924b4484950578b42d152, type: 3}
+      propertyPath: palate_parent_gfx
+      value: 
+      objectReference: {fileID: 436142408295459251}
+    - target: {fileID: 569035486013715013, guid: 9b770f04ca8924b4484950578b42d152, type: 3}
       propertyPath: current_palate_data
+      value: 
+      objectReference: {fileID: 11400000, guid: 4a9c5f28d9d1d473cb50ca4244632c0a, type: 2}
+    - target: {fileID: 569035486013715013, guid: 9b770f04ca8924b4484950578b42d152, type: 3}
+      propertyPath: palate_data_current
       value: 
       objectReference: {fileID: 11400000, guid: 4a9c5f28d9d1d473cb50ca4244632c0a, type: 2}
     - target: {fileID: 569035486013715013, guid: 9b770f04ca8924b4484950578b42d152, type: 3}

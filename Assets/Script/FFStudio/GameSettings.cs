@@ -34,6 +34,8 @@ namespace FFStudio
 		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_start;
 		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_end;
 		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_duration;
+		[ BoxGroup( "Tooth" ) ] public float tooth_fill_value_min;
+		[ BoxGroup( "Tooth" ) ] public float tooth_fill_value_max;
 
 		[ BoxGroup( "Palate" ) ] public float palate_table_movement_duration;
 		[ BoxGroup( "Palate" ) ] public float palate_mouth_movement_duration;

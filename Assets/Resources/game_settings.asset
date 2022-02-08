@@ -26,6 +26,8 @@ MonoBehaviour:
   tooth_transparent_start: 0.15
   tooth_transparent_end: 0.75
   tooth_transparent_duration: 0.5
+  tooth_fill_value_min: 0.3
+  tooth_fill_value_max: 0.5
   palate_table_movement_duration: 0.7
   palate_mouth_movement_duration: 0.7
   material_flashing: {fileID: 2100000, guid: fb36141c4c0594f9ca0b6b878b8bbe7f, type: 2}
