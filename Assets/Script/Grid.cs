@@ -46,9 +46,11 @@ public class Grid : MonoBehaviour
         {
 			var separator = pool_separator.GetEntity();
 
-			separator.position   = position_start + Vector3.right * i * GameSettings.Instance.grid_square_lenght;
-			separator.forward    = Vector3.forward;
-			separator.localScale = new Vector3( 1, 1, 1 * grid_height );
+			separator.SetParent( transform );
+
+			separator.localPosition = position_start + Vector3.right * i * GameSettings.Instance.grid_square_lenght;
+			separator.forward       = transform.forward;
+			separator.localScale    = new Vector3( 1, 1, 1 * grid_height );
 
 			separator.gameObject.SetActive( true );
 
@@ -59,9 +61,11 @@ public class Grid : MonoBehaviour
         {
 			var separator = pool_separator.GetEntity();
 
-			separator.position   = position_start + Vector3.forward * i * GameSettings.Instance.grid_square_lenght;
-			separator.forward    = Vector3.right;
-			separator.localScale = new Vector3( 1, 1, 1 * grid_width );
+			separator.SetParent( transform );
+
+			separator.localPosition = position_start + Vector3.forward * i * GameSettings.Instance.grid_square_lenght;
+			separator.forward       = transform.right;
+			separator.localScale    = new Vector3( 1, 1, 1 * grid_width );
 
 			separator.gameObject.SetActive( true );
 
