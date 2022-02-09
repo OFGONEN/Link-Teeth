@@ -68,6 +68,12 @@ public class Grid : MonoBehaviour
 			active_separators.Add( separator );
 		}
 	}
+
+	private void ReturnAllSeparators()
+	{
+		for( var i = 0; i < active_separators.Count; i++ )
+			pool_separator.ReturnEntity( active_separators[ i ] );
+	}
 #endregion
 
 #region Editor Only
