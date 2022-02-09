@@ -40,6 +40,8 @@ namespace FFStudio
 		[ BoxGroup( "Palate" ) ] public float palate_table_movement_duration;
 		[ BoxGroup( "Palate" ) ] public float palate_mouth_movement_duration;
 
+		[ BoxGroup( "Grid" ) ] public float grid_square_lenght;
+
         [ BoxGroup( "Material" ) ] public Material material_flashing;
         [ BoxGroup( "Material" ) ] public Material material_filling;
 
