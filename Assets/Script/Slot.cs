@@ -8,9 +8,14 @@ using FFStudio;
 public class Slot : MonoBehaviour
 {
 #region Fields
+
+    // Private \\
+    private GridToothData toothData;
 #endregion
 
 #region Properties
+    public ToothType ToothType => toothData.tooth_type;
+    public Color ToothColor => toothData.tooth_color;
 #endregion
 
 #region Unity API
@@ -19,8 +24,9 @@ public class Slot : MonoBehaviour
 #region API
     public void Spawn( GridToothData data )
     {
-
-    }
+		gameObject.SetActive( true );
+		toothData = data;
+	}
 #endregion
 
 #region Implementation

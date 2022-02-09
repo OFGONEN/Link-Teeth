@@ -46,5 +46,6 @@ MonoBehaviour:
   gameSettings: {fileID: 11400000, guid: 109113abc7450a64db67bb41e0cc2dc0, type: 2}
   currentLevelData: {fileID: 11400000, guid: d35c98ef4c868d94f85bf38a98066033, type: 2}
   shared_transparent_material: {fileID: 2100000, guid: fb36141c4c0594f9ca0b6b878b8bbe7f, type: 2}
+  slotPool: {fileID: 11400000, guid: c7ac4f7789c1b43ada1bc486837e7956, type: 2}
   transformPools:
   - {fileID: 11400000, guid: 5871d5ed84d58df4f94efd39cf6dde1c, type: 2}

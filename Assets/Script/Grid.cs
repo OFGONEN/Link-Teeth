@@ -78,7 +78,34 @@ public class Grid : MonoBehaviour
 	private void Place_Slots( int index )
 	{
 		var level_data = CurrentLevelData.Instance.levelData;
-		var grid_data   = level_data.grid_data_array[ index ];
+		var grid_data  = level_data.grid_data_array[ index ];
+
+		Vector3 position_start = new Vector3(
+            grid_data.GridWidth  / -2f * GameSettings.Instance.grid_square_lenght,
+            0,
+            grid_data.GridHeight / -2f * GameSettings.Instance.grid_square_lenght
+        );
+
+		for( var x = 0; x < grid_data.GridWidth; x++ )
+		{
+			for( var y = 0; y < grid_data.GridHeight; y++ )
+			{
+				var slot = pool_slot.GetEntity();
+
+				slot.transform.SetParent( transform );
+				slot.transform.localEulerAngles = Vector3.zero;
+
+				var grid_length = GameSettings.Instance.grid_square_lenght;
+				Vector3 offset = new Vector3( 
+					x * grid_length + grid_length / 2f, 
+					0,
+					y * grid_length + grid_length / 2f 
+				);
+
+				slot.transform.localPosition = position_start + offset;
+				slot.Spawn( grid_data.gridToothData[ x, y ] );
+			}
+		}
 	}
 
 	private void ReturnAllSeparators()
