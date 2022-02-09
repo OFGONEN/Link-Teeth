@@ -21,6 +21,21 @@ public class GridData : SerializedScriptableObject
 
 		return data;
 	}
+
+
+	private void OnValidate()
+	{
+		var width  = gridToothData.GetLength( 0 );
+		var height = gridToothData.GetLength( 1 );
+
+		for( var x = 0; x < width; x++ )
+		{
+			for( var y = 0; y < height; y++ )
+			{
+				gridToothData[ x, y ].tooth_color = gridToothData[ x, y ].tooth_color.SetAlpha( 1 );
+			}
+		}
+	}
 #endif
 }
 
