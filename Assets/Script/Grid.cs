@@ -9,7 +9,8 @@ using Sirenix.OdinInspector;
 public class Grid : MonoBehaviour
 {
 #region Fields
-    [ BoxGroup( "Setup") ] public TransformPool pool_separator;
+    [ BoxGroup( "Setup" ) ] public TransformPool pool_separator;
+    [ BoxGroup( "Setup" ) ] public SlotPool pool_slot;
 
     private List< Transform > active_separators = new List< Transform >(16);
 #endregion
@@ -21,6 +22,7 @@ public class Grid : MonoBehaviour
     private void Awake()
     {
 		Place_Separators( 0 );
+		Place_Slots( 0 );
 	}
 #endregion
 
@@ -71,6 +73,12 @@ public class Grid : MonoBehaviour
 
 			active_separators.Add( separator );
 		}
+	}
+
+	private void Place_Slots( int index )
+	{
+		var level_data = CurrentLevelData.Instance.levelData;
+		var grid_data   = level_data.grid_data_array[ index ];
 	}
 
 	private void ReturnAllSeparators()
