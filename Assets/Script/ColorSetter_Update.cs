@@ -4,34 +4,39 @@ using UnityEngine;
 using FFStudio;
 using Sirenix.OdinInspector;
 
-public class ColorSetter : MonoBehaviour
+public class ColorSetter_Update : MonoBehaviour
 {
 #region Fields (Inspector Interface)
-    [ TitleGroup( "Setup" ), SerializeField ] private Color color;
+	[TitleGroup( "Setup" ), SerializeField] private Color color;
 #endregion
 
 #region Fields (Private)
-    private static int SHADER_ID_COLOR = Shader.PropertyToID( "_Color" );
+	private static int SHADER_ID_COLOR = Shader.PropertyToID( "_Color" );
 
-    private Renderer _renderer;
-    private MaterialPropertyBlock propertyBlock;
+	private Renderer _renderer;
+	private MaterialPropertyBlock propertyBlock;
 #endregion
 
 #region Properties
 #endregion
 
 #region Unity API
-    private void Awake()
-    {
+	private void Awake()
+	{
 		_renderer = GetComponent< Renderer >();
-        
+
 		propertyBlock = new MaterialPropertyBlock();
+	}
+
+    private void Update()
+    {
+		SetColor();
 	}
 #endregion
 
 #region API
-    public void SetColor( Color color )
-    {
+	public void SetColor( Color color )
+	{
 		this.color = color;
 
 		SetColor();
