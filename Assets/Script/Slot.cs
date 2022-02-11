@@ -4,13 +4,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FFStudio;
+using Sirenix.OdinInspector;
 
 public class Slot : MonoBehaviour
 {
 #region Fields
+    [ BoxGroup( "Setup" ) ] public ColorSetter tooth_selection_plane;
+    [ BoxGroup( "Setup" ) ] public Collider tooth_selection_collider;
 
     // Private \\
-    private GridToothData tooth_data;
+    [ ReadOnly ] private GridToothData tooth_data;
     private Tooth tooth_spawned;
 #endregion
 
@@ -36,7 +39,22 @@ public class Slot : MonoBehaviour
 			SpawnTooth( GameSettings.Instance.tooth_pool_canine );
         else // Tooth type is null
 			SpawnNull();
+
+		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 	}
+
+    public void OnSelect()
+    {
+		FFLogger.Log( "On Select", gameObject );
+		tooth_selection_plane.SetColor( tooth_data.tooth_color );
+
+    }
+
+    public void OnDeSelect()
+    {
+		FFLogger.Log( "On DeSelect", gameObject );
+		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
+    }
 #endregion
 
 #region Implementation

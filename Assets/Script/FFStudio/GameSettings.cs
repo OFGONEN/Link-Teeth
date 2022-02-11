@@ -45,6 +45,7 @@ namespace FFStudio
 		[ BoxGroup( "Palate" ) ] public float palate_mouth_movement_duration;
 
 		[ BoxGroup( "Grid" ) ] public float grid_square_lenght;
+		[ BoxGroup( "Grid" ) ] public Color grid_default_color;
 
         [ BoxGroup( "Material" ) ] public Material material_flashing;
         [ BoxGroup( "Material" ) ] public Material material_filling;
