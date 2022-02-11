@@ -83,7 +83,7 @@ public class Grid : MonoBehaviour
 		Vector3 position_start = new Vector3(
             grid_data.GridWidth  / -2f * GameSettings.Instance.grid_square_lenght,
             0,
-            grid_data.GridHeight / -2f * GameSettings.Instance.grid_square_lenght
+            grid_data.GridHeight / 2f * GameSettings.Instance.grid_square_lenght
         );
 
 		for( var x = 0; x < grid_data.GridWidth; x++ )
@@ -96,10 +96,10 @@ public class Grid : MonoBehaviour
 				slot.transform.localEulerAngles = Vector3.zero;
 
 				var grid_length = GameSettings.Instance.grid_square_lenght;
-				Vector3 offset = new Vector3( 
-					x * grid_length + grid_length / 2f, 
+				Vector3 offset = new Vector3(
+					x * grid_length + grid_length / 2f,
 					0,
-					y * grid_length + grid_length / 2f 
+					( y * grid_length + grid_length / 2f ) * -1f
 				);
 
 				slot.transform.localPosition = position_start + offset;

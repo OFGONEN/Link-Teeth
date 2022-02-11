@@ -26,10 +26,10 @@ MonoBehaviour:
       Data: 0|FFStudio.GridToothData[,], Assembly-CSharp
     - Name: 
       Entry: 12
-      Data: 4
+      Data: 9
     - Name: ranks
       Entry: 1
-      Data: 2|2
+      Data: 3|3
     - Name: 
       Entry: 7
       Data: FFStudio.GridToothData, Assembly-CSharp
@@ -48,6 +48,141 @@ MonoBehaviour:
     - Name: 
       Entry: 4
       Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: FFStudio.GridToothData, Assembly-CSharp
+    - Name: tooth_type
+      Entry: 3
+      Data: 0
+    - Name: tooth_color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: FFStudio.GridToothData, Assembly-CSharp
+    - Name: tooth_type
+      Entry: 3
+      Data: 0
+    - Name: tooth_color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: FFStudio.GridToothData, Assembly-CSharp
+    - Name: tooth_type
+      Entry: 3
+      Data: 0
+    - Name: tooth_color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: FFStudio.GridToothData, Assembly-CSharp
+    - Name: tooth_type
+      Entry: 3
+      Data: 1
+    - Name: tooth_color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: FFStudio.GridToothData, Assembly-CSharp
+    - Name: tooth_type
+      Entry: 3
+      Data: 0
+    - Name: tooth_color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 4
       Data: 1
