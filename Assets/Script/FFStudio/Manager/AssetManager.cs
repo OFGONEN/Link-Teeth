@@ -14,6 +14,7 @@ namespace FFStudio
 
 		public Material shared_transparent_material;
 
+		public ToothPool[] toothPools;
 		public SlotPool slotPool;
 		public TransformPool[] transformPools;
 
@@ -28,6 +29,10 @@ namespace FFStudio
 			
 			for( var i = 0; i < transformPools.Length; i++ )
 				transformPools[ i ].InitPool( transform, false );
+
+			for( var i = 0; i < toothPools.Length; i++ )
+				toothPools[ i ].InitPool( transform, false );
+
 
 			slotPool.InitPool( transform, false );
 		}
