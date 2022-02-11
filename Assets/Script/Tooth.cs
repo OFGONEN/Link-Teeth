@@ -19,6 +19,10 @@ public class Tooth : MonoBehaviour
 #endregion
 
 #region API
+    public void Spawn()
+    {
+		gameObject.SetActive( true );
+	}
 #endregion
 
 #region Implementation
