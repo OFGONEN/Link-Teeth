@@ -28,8 +28,12 @@ MonoBehaviour:
   tooth_transparent_duration: 0.5
   tooth_fill_value_min: 0.3
   tooth_fill_value_max: 0.5
+  tooth_pool_canine: {fileID: 11400000, guid: 8e89686192fb06e4fa4e4cf6f4cc346e, type: 2}
+  tooth_pool_molar: {fileID: 11400000, guid: 218679afc1a140e47b510fd29237f89e, type: 2}
+  tooth_pool_premolar: {fileID: 11400000, guid: fd8cacce86331a44184cad5fc7db32e7, type: 2}
   palate_table_movement_duration: 0.7
   palate_mouth_movement_duration: 0.7
+  grid_square_lenght: 0.125
   material_flashing: {fileID: 2100000, guid: fb36141c4c0594f9ca0b6b878b8bbe7f, type: 2}
   material_filling: {fileID: 2100000, guid: 6af12311064e47246bc73c0bccc431fe, type: 2}
   debug_ui_text_float_height: 1

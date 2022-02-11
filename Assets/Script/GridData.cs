@@ -13,6 +13,9 @@ public class GridData : SerializedScriptableObject
 {
 	[ TitleGroup( "Data"), TableMatrix( DrawElementMethod = "DrawElement" ) ] public GridToothData[,] gridToothData;
 
+	public float GridWidth => gridToothData.GetLength( 0 );
+	public float GridHeight => gridToothData.GetLength( 1 );
+
 #if UNITY_EDITOR
 	static GridToothData DrawElement( Rect rect, GridToothData data )
 	{
@@ -20,6 +23,21 @@ public class GridData : SerializedScriptableObject
 		data.tooth_type = ( ToothType )SirenixEditorFields.EnumDropdown( rect.AddXMin( 100 ), data.tooth_type );
 
 		return data;
+	}
+
+
+	private void OnValidate()
+	{
+		var width  = gridToothData.GetLength( 0 );
+		var height = gridToothData.GetLength( 1 );
+
+		for( var x = 0; x < width; x++ )
+		{
+			for( var y = 0; y < height; y++ )
+			{
+				gridToothData[ x, y ].tooth_color = gridToothData[ x, y ].tooth_color.SetAlpha( 1 );
+			}
+		}
 	}
 #endif
 }

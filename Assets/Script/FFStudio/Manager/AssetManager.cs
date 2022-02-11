@@ -14,13 +14,27 @@ namespace FFStudio
 
 		public Material shared_transparent_material;
 
+		public ToothPool[] toothPools;
+		public SlotPool slotPool;
+		public TransformPool[] transformPools;
+
 
 		private void Awake()
 		{
+			// Flashing material
 			shared_transparent_material.color = shared_transparent_material.color.SetAlpha( GameSettings.Instance.tooth_transparent_start );
 
 			shared_transparent_material.DOFade( GameSettings.Instance.tooth_transparent_end, GameSettings.Instance.tooth_transparent_duration )
 				.SetLoops( -1, LoopType.Yoyo );
+			
+			for( var i = 0; i < transformPools.Length; i++ )
+				transformPools[ i ].InitPool( transform, false );
+
+			for( var i = 0; i < toothPools.Length; i++ )
+				toothPools[ i ].InitPool( transform, false );
+
+
+			slotPool.InitPool( transform, false );
 		}
 #endregion
 	}

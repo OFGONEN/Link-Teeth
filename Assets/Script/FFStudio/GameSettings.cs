@@ -37,8 +37,14 @@ namespace FFStudio
 		[ BoxGroup( "Tooth" ) ] public float tooth_fill_value_min;
 		[ BoxGroup( "Tooth" ) ] public float tooth_fill_value_max;
 
+		[ BoxGroup( "Tooth" ) ] public ToothPool tooth_pool_canine;
+		[ BoxGroup( "Tooth" ) ] public ToothPool tooth_pool_molar;
+		[ BoxGroup( "Tooth" ) ] public ToothPool tooth_pool_premolar;
+
 		[ BoxGroup( "Palate" ) ] public float palate_table_movement_duration;
 		[ BoxGroup( "Palate" ) ] public float palate_mouth_movement_duration;
+
+		[ BoxGroup( "Grid" ) ] public float grid_square_lenght;
 
         [ BoxGroup( "Material" ) ] public Material material_flashing;
         [ BoxGroup( "Material" ) ] public Material material_filling;
