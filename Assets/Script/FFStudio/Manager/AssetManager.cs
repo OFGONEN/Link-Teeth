@@ -15,8 +15,9 @@ namespace FFStudio
 		public Material shared_transparent_material;
 
 		public ToothPool[] toothPools;
-		public SlotPool slotPool;
 		public TransformPool[] transformPools;
+		public SlotPool slotPool;
+		public LinePool linePool;
 
 
 		private void Awake()
@@ -35,6 +36,7 @@ namespace FFStudio
 
 
 			slotPool.InitPool( transform, false );
+			linePool.InitPool( transform, false );
 		}
 #endregion
 	}
