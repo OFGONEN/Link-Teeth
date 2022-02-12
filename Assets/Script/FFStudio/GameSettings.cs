@@ -47,6 +47,8 @@ namespace FFStudio
 		[ BoxGroup( "Grid" ) ] public float grid_square_lenght;
 		[ BoxGroup( "Grid" ) ] public Color grid_default_color;
 
+		[ BoxGroup( "Line" ) ] public float line_width;
+
         [ BoxGroup( "Material" ) ] public Material material_flashing;
         [ BoxGroup( "Material" ) ] public Material material_filling;
 
