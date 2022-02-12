@@ -68,11 +68,12 @@ public class Slot : MonoBehaviour
 		tooth.Spawn();
 
 		tooth_spawned = tooth;
+
+		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 	}
 
     private void SpawnNull()
     {
-
     }
 #endregion
 
