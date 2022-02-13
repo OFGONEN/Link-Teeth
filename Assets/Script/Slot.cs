@@ -65,7 +65,7 @@ public class Slot : MonoBehaviour
 		tooth.transform.position = transform.position;
 		tooth.transform.rotation = transform.rotation;
 
-		tooth.Spawn();
+		tooth.Spawn( tooth_data.tooth_color );
 
 		tooth_spawned = tooth;
 

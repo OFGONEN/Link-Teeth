@@ -10,6 +10,7 @@ public class Tooth : MonoBehaviour
 {
 #region Fields
     [ BoxGroup( "Setup" ) ] public ToothType tooth_type;
+    [ BoxGroup( "Setup" ) ] public ColorSetter tooth_color_setter;
 #endregion
 
 #region Properties
@@ -19,9 +20,11 @@ public class Tooth : MonoBehaviour
 #endregion
 
 #region API
-    public void Spawn()
+    public void Spawn( Color color )
     {
 		gameObject.SetActive( true );
+
+		tooth_color_setter.SetColor( color );
 	}
 #endregion
 

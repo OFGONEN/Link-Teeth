@@ -45,6 +45,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooth_type: 3
+  tooth_color_setter: {fileID: 3977017405296417103}
+--- !u!114 &3977017405296417103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3934434844884305431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e76401b84f9214cb1ba8b1bf86e018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &3879242064621730928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,5 +119,10 @@ PrefabInstance:
 --- !u!4 &2695386201893001267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1203087145742738499, guid: 015d123e7939d4fc5982a9d4f3ceb12c, type: 3}
+  m_PrefabInstance: {fileID: 3879242064621730928}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3934434844884305431 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 237632773353405031, guid: 015d123e7939d4fc5982a9d4f3ceb12c, type: 3}
   m_PrefabInstance: {fileID: 3879242064621730928}
   m_PrefabAsset: {fileID: 0}
