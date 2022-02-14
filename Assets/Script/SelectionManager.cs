@@ -12,7 +12,7 @@ public class SelectionManager : ScriptableObject
 #region Fields
     [ BoxGroup( "Setup" ) ] public LinePool pool_line;
 
-    public Slot selection_current;
+    [ ReadOnly ] private Slot selection_current;
 
     // Delegates
     private SlotMessage onSlot_Select;
@@ -26,15 +26,23 @@ public class SelectionManager : ScriptableObject
 #endregion
 
 #region API
+    public void OnLevelStart()
+    {
+		onSlot_Select   = OnSlot_Select_Initial;
+		onSlot_DeSelect = OnSlot_DeSelect_Initial;
+	}
+
     public void OnSlot_Select( Slot slot )
     {
-    }
+		onSlot_Select( slot );
+	}
 
     public void OnSlot_DeSelect( Slot slot )
     {
-    }
+		onSlot_DeSelect( slot );
+	}
 
-    public void OnSlot_Nothing()
+    public void OnSelectionStop()
     {
     }
 #endregion
@@ -42,10 +50,26 @@ public class SelectionManager : ScriptableObject
 #region Implementation
     private void OnSlot_Select_Initial( Slot slot ) 
     {
-
+        if( slot.ToothType == ToothType.None )
+        {
+            if( slot.SlotOccupied )
+            {
+                FFLogger.Log( "Occupied" );
+            }
+            else
+            {
+				onSlot_Select   = ExtensionMethods.EmptyMethod;
+				onSlot_DeSelect = ExtensionMethods.EmptyMethod;
+			}
+        }
     }
 
     private void OnSlot_Selection_Consecutive( Slot slot )
+    {
+
+    }
+
+    private void OnSlot_DeSelect_Initial( Slot slot )
     {
 
     }
