@@ -11,6 +11,12 @@ public class SelectionManager : ScriptableObject
 {
 #region Fields
     [ BoxGroup( "Setup" ) ] public LinePool pool_line;
+
+    public Slot selection_current;
+
+    // Delegates
+    private SlotMessage onSlot_Select;
+    private SlotMessage onSlot_DeSelect;
 #endregion
 
 #region Properties
@@ -22,16 +28,27 @@ public class SelectionManager : ScriptableObject
 #region API
     public void OnSlot_Select( Slot slot )
     {
-
     }
 
     public void OnSlot_DeSelect( Slot slot )
     {
+    }
 
+    public void OnSlot_Nothing()
+    {
     }
 #endregion
 
 #region Implementation
+    private void OnSlot_Select_Initial( Slot slot ) 
+    {
+
+    }
+
+    private void OnSlot_Selection_Consecutive( Slot slot )
+    {
+
+    }
 #endregion
 
 #region Editor Only
