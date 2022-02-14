@@ -50,16 +50,17 @@ public class Slot : MonoBehaviour
 
     public void OnSelect()
     {
-		FFLogger.Log( "On Select", gameObject );
-		tooth_selection_plane.SetColor( tooth_data.tooth_color );
-
-    }
+		// tooth_selection_plane.SetColor( tooth_data.tooth_color );
+		manager_selection.OnSlot_Select( this );
+	}
 
     public void OnDeSelect()
     {
-		FFLogger.Log( "On DeSelect", gameObject );
-		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
-    }
+		// FFLogger.Log( "On DeSelect", gameObject );
+		// tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
+
+		manager_selection.OnSlot_DeSelect( this );
+	}
 #endregion
 
 #region Implementation

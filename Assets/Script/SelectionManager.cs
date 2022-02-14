@@ -20,6 +20,15 @@ public class SelectionManager : ScriptableObject
 #endregion
 
 #region API
+    public void OnSlot_Select( Slot slot )
+    {
+
+    }
+
+    public void OnSlot_DeSelect( Slot slot )
+    {
+
+    }
 #endregion
 
 #region Implementation
