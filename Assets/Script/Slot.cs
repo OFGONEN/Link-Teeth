@@ -9,6 +9,8 @@ using Sirenix.OdinInspector;
 public class Slot : MonoBehaviour
 {
 #region Fields
+    [ BoxGroup( "Shared" ) ] public SelectionManager manager_selection;
+
     [ BoxGroup( "Setup" ) ] public ColorSetter tooth_selection_plane;
     [ BoxGroup( "Setup" ) ] public Collider tooth_selection_collider;
 
