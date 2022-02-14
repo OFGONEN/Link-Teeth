@@ -15,21 +15,24 @@ public class Slot : MonoBehaviour
     // Private \\
     [ ReadOnly ] private GridToothData tooth_data;
     private Tooth tooth_spawned;
+    private Vector2 grid_index;
 #endregion
 
 #region Properties
     public ToothType ToothType => tooth_data.tooth_type;
     public Color ToothColor => tooth_data.tooth_color;
+    public Vector2 GridIndex => grid_index;
 #endregion
 
 #region Unity API
 #endregion
 
 #region API
-    public void Spawn( GridToothData data )
+    public void Spawn( GridToothData data, int grid_index_x, int grid_index_y )
     {
 		gameObject.SetActive( true );
 		tooth_data = data;
+		grid_index = new Vector2( grid_index_x, grid_index_y );
 
 		if( tooth_data.tooth_type == ToothType.Canine )
 			SpawnTooth( GameSettings.Instance.tooth_pool_canine );
