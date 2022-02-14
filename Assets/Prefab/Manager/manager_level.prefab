@@ -52,3 +52,4 @@ MonoBehaviour:
   levelFailedEvent: {fileID: 11400000, guid: ec850936269bc2e47b26cfebd8bdad97, type: 2}
   levelCompleted: {fileID: 11400000, guid: 28d976b368abc004a924d98b1751a17d, type: 2}
   levelProgress: {fileID: 11400000, guid: 43438d720c16f2e4aa5a19d520e1e15f, type: 2}
+  manager_selection: {fileID: 11400000, guid: 32c547734c2d242a697ffdcf3641fc63, type: 2}
