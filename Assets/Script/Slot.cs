@@ -18,19 +18,22 @@ public class Slot : MonoBehaviour
     [ ReadOnly ] private GridToothData tooth_data;
     private Tooth tooth_spawned;
     private Vector2 grid_index;
+
+    private bool slot_occupied;
 #endregion
 
 #region Properties
     public ToothType ToothType => tooth_data.tooth_type;
     public Color ToothColor => tooth_data.tooth_color;
     public Vector2 GridIndex => grid_index;
-#endregion
+	public bool SlotOccupied => slot_occupied;
+	#endregion
 
-#region Unity API
-#endregion
+	#region Unity API
+	#endregion
 
-#region API
-    public void Spawn( GridToothData data, int grid_index_x, int grid_index_y )
+	#region API
+	public void Spawn( GridToothData data, int grid_index_x, int grid_index_y )
     {
 		gameObject.SetActive( true );
 		tooth_data = data;
@@ -74,13 +77,15 @@ public class Slot : MonoBehaviour
 		tooth.Spawn( tooth_data.tooth_color );
 
 		tooth_spawned = tooth;
+		slot_occupied = true;
 
 		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 	}
 
     private void SpawnNull()
     {
-    }
+		slot_occupied = false;
+	}
 #endregion
 
 #region Editor Only
