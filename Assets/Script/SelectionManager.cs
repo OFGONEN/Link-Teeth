@@ -17,6 +17,7 @@ public class SelectionManager : ScriptableObject
     // Delegates
     private SlotMessage onSlot_Select;
     private SlotMessage onSlot_DeSelect;
+    private UnityMessage onSlot_SelectionStop;
 #endregion
 
 #region Properties
@@ -34,8 +35,7 @@ public class SelectionManager : ScriptableObject
 #region API
     public void OnLevelStart()
     {
-		onSlot_Select   = OnSlot_Select_Initial;
-		onSlot_DeSelect = OnSlot_DeSelect_Initial;
+		ResetSelectionMethods();
 	}
 
     public void OnSlot_Select( Slot slot )
@@ -50,7 +50,8 @@ public class SelectionManager : ScriptableObject
 
     public void OnSelectionStop()
     {
-    }
+		onSlot_SelectionStop();
+	}
 #endregion
 
 #region Implementation
@@ -64,8 +65,9 @@ public class SelectionManager : ScriptableObject
             }
             else
             {
-				onSlot_Select   = ExtensionMethods.EmptyMethod;
-				onSlot_DeSelect = ExtensionMethods.EmptyMethod;
+				onSlot_Select        = ExtensionMethods.EmptyMethod;
+				onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
+				onSlot_SelectionStop = ResetSelectionMethods;
 			}
         }
     }
@@ -78,6 +80,14 @@ public class SelectionManager : ScriptableObject
     private void OnSlot_DeSelect_Initial( Slot slot )
     {
 
+    }
+
+    private void ResetSelectionMethods()
+    {
+        FFLogger.Log( "Selection Reset", this );
+		onSlot_Select        = OnSlot_Select_Initial;
+		onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
+		onSlot_SelectionStop = ExtensionMethods.EmptyMethod;
     }
 #endregion
 
