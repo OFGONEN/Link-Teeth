@@ -195,6 +195,11 @@ namespace FFStudio
 			return value;
 		}
 
+		public static Vector3 AddY( this Vector3 theVector, float addY )
+		{
+			return theVector.SetY( theVector.y + addY );
+		}
+
 		public static Vector3 SetX( this Vector3 theVector, float newX )
 		{
 			theVector.x = newX;
