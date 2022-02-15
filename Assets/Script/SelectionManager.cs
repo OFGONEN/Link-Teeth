@@ -57,24 +57,45 @@ public class SelectionManager : ScriptableObject
 #region Implementation
     private void OnSlot_Select_Initial( Slot slot ) 
     {
-        if( slot.ToothType == ToothType.None )
+        if( slot.SlotOccupied )
         {
-            if( slot.SlotOccupied )
-            {
-                FFLogger.Log( "Occupied" );
-            }
-            else
-            {
-				onSlot_Select        = ExtensionMethods.EmptyMethod;
-				onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
-				onSlot_SelectionStop = ResetSelectionMethods;
-			}
+			onSlot_Select     = OnSlot_Selection_Consecutive;
+			selection_current = slot;
+
+            // slot.Clear();
+        }
+        else
+        {
+			onSlot_Select        = ExtensionMethods.EmptyMethod;
+			onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
+			onSlot_SelectionStop = ResetSelectionMethods;
         }
     }
 
     private void OnSlot_Selection_Consecutive( Slot slot )
     {
+        if( selection_current == slot ) return;
 
+		if( slot.ToothType == ToothType.None )
+        {
+            if( slot.SlotOccupied )
+            {
+
+            }
+            else
+            {
+				selection_current.PairSlot( slot );
+				selection_current = slot;
+			}
+        }
+        else if( slot.ToothType == selection_current.ToothType && slot.ToothColor.CompareColor( selection_current.ToothColor ) )
+        {
+
+        }
+        else
+        {
+
+        }
     }
 
     private void OnSlot_DeSelect_Initial( Slot slot )
@@ -88,7 +109,9 @@ public class SelectionManager : ScriptableObject
 		onSlot_Select        = OnSlot_Select_Initial;
 		onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
 		onSlot_SelectionStop = ExtensionMethods.EmptyMethod;
-    }
+
+		selection_current = null;
+	}
 #endregion
 
 #region Editor Only

@@ -38,7 +38,7 @@ public class Line : MonoBehaviour
     public void Spawn( Vector3 firstPosition, Vector3 secondPosition, Color color )
     {
 		Spawn( firstPosition, color );
-		AppendPoint( secondPosition );
+		UpdatePoint( secondPosition );
 	}
 
     public void DeSpawn()

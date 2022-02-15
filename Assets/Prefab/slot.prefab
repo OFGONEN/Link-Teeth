@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager_selection: {fileID: 11400000, guid: 32c547734c2d242a697ffdcf3641fc63, type: 2}
+  pool_line: {fileID: 11400000, guid: a6a9d9662222d2248818aa71854bca5a, type: 2}
   tooth_selection_plane: {fileID: 8265088222341771376}
   tooth_selection_collider: {fileID: 6848289591456712461}
 --- !u!1 &4318968620913431867

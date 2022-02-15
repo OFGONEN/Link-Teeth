@@ -10,6 +10,7 @@ public class Slot : MonoBehaviour
 {
 #region Fields
     [ BoxGroup( "Shared" ) ] public SelectionManager manager_selection;
+    [ BoxGroup( "Shared" ) ] public LinePool pool_line;
 
     [ BoxGroup( "Setup" ) ] public ColorSetter tooth_selection_plane;
     [ BoxGroup( "Setup" ) ] public Collider tooth_selection_collider;
@@ -20,22 +21,26 @@ public class Slot : MonoBehaviour
     private Vector2 grid_index;
 
     private bool slot_occupied;
+	private Color slot_color;
+	private Slot slot_connected;
 #endregion
 
 #region Properties
     public ToothType ToothType => tooth_data.tooth_type;
-    public Color ToothColor => tooth_data.tooth_color;
-    public Vector2 GridIndex => grid_index;
-	public bool SlotOccupied => slot_occupied;
-	#endregion
+    public Color ToothColor    => tooth_data.tooth_color;
+	public Color SlotColor     => slot_color;
+	public Vector2 GridIndex   => grid_index;
+	public bool SlotOccupied   => slot_occupied;
+#endregion
 
-	#region Unity API
-	#endregion
+#region Unity API
+#endregion
 
-	#region API
+#region API
 	public void Spawn( GridToothData data, int grid_index_x, int grid_index_y )
     {
 		gameObject.SetActive( true );
+
 		tooth_data = data;
 		grid_index = new Vector2( grid_index_x, grid_index_y );
 
@@ -48,21 +53,42 @@ public class Slot : MonoBehaviour
         else // Tooth type is null
 			SpawnNull();
 
+		slot_connected = null;
 		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 	}
 
     public void OnSelect()
     {
-		// tooth_selection_plane.SetColor( tooth_data.tooth_color );
 		manager_selection.OnSlot_Select( this );
 	}
 
     public void OnDeSelect()
     {
-		// FFLogger.Log( "On DeSelect", gameObject );
-		// tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
-
 		manager_selection.OnSlot_DeSelect( this );
+	}
+
+	public void PairSlot( Slot slot )
+	{
+		tooth_selection_plane.SetColor( slot_color );
+		slot_occupied = true;
+
+		slot_connected = slot;
+		slot.ConnectClor( slot_color );
+
+		var line = pool_line.GetEntity();
+		line.Spawn( 
+			transform.position.AddY( GameSettings.Instance.grid_line_height ), 
+			slot.transform.position.AddY( GameSettings.Instance.grid_line_height ),
+			slot_color
+		 );
+	}
+
+	public void ConnectClor( Color color )
+	{
+		tooth_selection_plane.SetColor( color.SetAlpha( GameSettings.Instance.grid_plane_alpha ) );
+
+		slot_color    = color;
+		slot_occupied = true;
 	}
 #endregion
 
@@ -78,13 +104,14 @@ public class Slot : MonoBehaviour
 
 		tooth_spawned = tooth;
 		slot_occupied = true;
-
-		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
+		slot_color    = tooth_data.tooth_color;
 	}
 
     private void SpawnNull()
     {
-		slot_occupied = false;
+		slot_occupied  = false;
+		slot_connected = null;
+		slot_color     = GameSettings.Instance.grid_default_color;
 	}
 #endregion
 
