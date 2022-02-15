@@ -35,8 +35,9 @@ MonoBehaviour:
   palate_mouth_movement_duration: 0.7
   grid_square_lenght: 0.125
   grid_default_color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
-  grid_line_height: 0.1
-  line_width: 0.05
+  grid_plane_alpha: 0.25
+  grid_line_height: 0.0125
+  line_width: 0.0125
   material_flashing: {fileID: 2100000, guid: fb36141c4c0594f9ca0b6b878b8bbe7f, type: 2}
   material_filling: {fileID: 2100000, guid: 6af12311064e47246bc73c0bccc431fe, type: 2}
   debug_ui_text_float_height: 1
