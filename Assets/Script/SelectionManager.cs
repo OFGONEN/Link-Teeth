@@ -23,6 +23,12 @@ public class SelectionManager : ScriptableObject
 #endregion
 
 #region Unity API
+    public void LevelAwake()
+    {
+        onSlot_Select        = ExtensionMethods.EmptyMethod;
+		onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
+		onSlot_SelectionStop = ExtensionMethods.EmptyMethod;
+    }
 #endregion
 
 #region API
