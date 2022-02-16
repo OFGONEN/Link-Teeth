@@ -108,7 +108,7 @@ public class SelectionManager : ScriptableObject
         FFLogger.Log( "Selection Reset", this );
 		onSlot_Select        = OnSlot_Select_Initial;
 		onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
-		onSlot_SelectionStop = ExtensionMethods.EmptyMethod;
+		onSlot_SelectionStop = ResetSelectionMethods;
 
 		selection_current = null;
 	}

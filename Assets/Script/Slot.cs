@@ -22,6 +22,7 @@ public class Slot : MonoBehaviour
 
     private bool slot_occupied;
 	private Color slot_color;
+	private Line slot_line;
 	private Slot slot_connected;
 #endregion
 
@@ -53,6 +54,7 @@ public class Slot : MonoBehaviour
         else // Tooth type is null
 			SpawnNull();
 
+		slot_line = null;
 		slot_connected = null;
 		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 	}
@@ -75,8 +77,8 @@ public class Slot : MonoBehaviour
 		slot_connected = slot;
 		slot.ConnectClor( slot_color );
 
-		var line = pool_line.GetEntity();
-		line.Spawn( 
+		slot_line = pool_line.GetEntity();
+		slot_line.Spawn( 
 			transform.position.AddY( GameSettings.Instance.grid_line_height ), 
 			slot.transform.position.AddY( GameSettings.Instance.grid_line_height ),
 			slot_color
@@ -110,7 +112,6 @@ public class Slot : MonoBehaviour
     private void SpawnNull()
     {
 		slot_occupied  = false;
-		slot_connected = null;
 		slot_color     = GameSettings.Instance.grid_default_color;
 	}
 #endregion
