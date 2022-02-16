@@ -74,7 +74,7 @@ public class SelectionManager : ScriptableObject
 
     private void OnSlot_Selection_Consecutive( Slot slot )
     {
-        if( selection_current == slot ) return;
+        if( selection_current == slot || !CheckIfDiagonal( selection_current, slot ) ) return;
 
 		if( slot.ToothType == ToothType.None )
         {
@@ -82,7 +82,7 @@ public class SelectionManager : ScriptableObject
             {
 
             }
-            else if( CheckIfDiagonal( selection_current, slot ) )
+            else
             {
 				selection_current.PairSlot( slot );
 				selection_current = slot;
@@ -113,7 +113,7 @@ public class SelectionManager : ScriptableObject
 		selection_current = null;
 	}
 
-    private bool CheckIfDiagonal( Slot current, Slot selection ) // Returns false if diagonal
+    private bool CheckIfDiagonal( Slot current, Slot selection ) // Returns true if vertical and horizontal
     {
 		var horizontal = current.GridIndex.x == selection.GridIndex.x && Mathf.Abs( current.GridIndex.y - selection.GridIndex.y ) <= 1;
 		var vertical   = current.GridIndex.y == selection.GridIndex.y && Mathf.Abs( current.GridIndex.x - selection.GridIndex.x ) <= 1;
