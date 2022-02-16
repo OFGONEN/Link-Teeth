@@ -78,19 +78,13 @@ public class SelectionManager : ScriptableObject
 
 		if( slot.ToothType == ToothType.None )
         {
-            if( slot.SlotOccupied )
-            {
+			slot.ClearFrontConnections();
 
-            }
-            else
-            {
-				selection_current.PairSlot( slot );
-				selection_current = slot;
-			}
+			selection_current.PairSlot( slot );
+			selection_current = slot;
         }
         else if( slot.ToothType == selection_current.ToothType && slot.ToothColor.CompareColor( selection_current.ToothColor ) )
         {
-
         }
         else
         {
