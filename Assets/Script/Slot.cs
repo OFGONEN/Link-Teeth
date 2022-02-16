@@ -75,7 +75,7 @@ public class Slot : MonoBehaviour
 		slot_occupied = true;
 
 		slot_connected = slot;
-		slot.ConnectClor( slot_color );
+		slot.ConnectColor( slot_color );
 
 		slot_line = pool_line.GetEntity();
 		slot_line.Spawn( 
@@ -85,12 +85,40 @@ public class Slot : MonoBehaviour
 		 );
 	}
 
-	public void ConnectClor( Color color )
+	public void ConnectColor( Color color )
 	{
 		tooth_selection_plane.SetColor( color.SetAlpha( GameSettings.Instance.grid_plane_alpha ) );
 
 		slot_color    = color;
 		slot_occupied = true;
+	}
+
+	public void ClearFrontConnections()
+	{
+		if( slot_line )
+		{
+			pool_line.ReturnEntity( slot_line );
+			slot_line = null;
+		}
+
+		slot_connected?.Clear();
+		slot_connected = null;
+	}
+
+	public void Clear()
+	{
+		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
+
+		slot_occupied = false || ToothType != ToothType.None;
+
+		if( slot_line )
+		{
+			pool_line.ReturnEntity( slot_line );
+			slot_line = null;
+		}
+
+		slot_connected?.Clear();
+		slot_connected = null;
 	}
 #endregion
 

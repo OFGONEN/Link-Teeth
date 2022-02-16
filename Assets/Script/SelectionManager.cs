@@ -62,7 +62,7 @@ public class SelectionManager : ScriptableObject
 			onSlot_Select     = OnSlot_Selection_Consecutive;
 			selection_current = slot;
 
-            // slot.Clear();
+            slot.ClearFrontConnections();
         }
         else
         {
