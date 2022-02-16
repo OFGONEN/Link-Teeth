@@ -13,7 +13,7 @@ public class Slot : MonoBehaviour
     [ BoxGroup( "Shared" ) ] public LinePool pool_line;
 
     [ BoxGroup( "Setup" ) ] public ColorSetter tooth_selection_plane;
-    [ BoxGroup( "Setup" ) ] public Collider tooth_selection_collider;
+    [ BoxGroup( "Setup" ) ] public BoxCollider tooth_selection_collider;
 
     // Private \\
     [ ReadOnly ] private GridToothData tooth_data;
@@ -35,6 +35,11 @@ public class Slot : MonoBehaviour
 #endregion
 
 #region Unity API
+	private void Awake()
+	{
+		var size   = tooth_selection_collider.size;
+		    size.x = size.z = GameSettings.Instance.grid_square_lenght;
+	}
 #endregion
 
 #region API
