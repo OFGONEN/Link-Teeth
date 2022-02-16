@@ -23,15 +23,17 @@ public class Slot : MonoBehaviour
     private bool slot_occupied;
 	private Color slot_color;
 	private Line slot_line;
-	private Slot slot_connected;
+	[ ShowInInspector, ReadOnly ] private Slot slot_paired;
+	[ ShowInInspector, ReadOnly ] private Slot slot_connected;
 #endregion
 
 #region Properties
     public ToothType ToothType => tooth_data.tooth_type;
+	public Vector2 GridIndex   => grid_index;
     public Color ToothColor    => tooth_data.tooth_color;
 	public Color SlotColor     => slot_color;
-	public Vector2 GridIndex   => grid_index;
 	public bool SlotOccupied   => slot_occupied;
+	public Slot SlotPaired     => slot_paired;
 #endregion
 
 #region Unity API
@@ -59,8 +61,9 @@ public class Slot : MonoBehaviour
         else // Tooth type is null
 			SpawnNull();
 
-		slot_line = null;
+		slot_line      = null;
 		slot_connected = null;
+		slot_paired    = null;
 		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 	}
 
@@ -80,7 +83,7 @@ public class Slot : MonoBehaviour
 		slot_occupied = true;
 
 		slot_connected = slot;
-		slot.ConnectColor( slot_color );
+		slot.ConnectSlot( this );
 
 		slot_line = pool_line.GetEntity();
 		slot_line.Spawn( 
@@ -90,12 +93,18 @@ public class Slot : MonoBehaviour
 		 );
 	}
 
-	public void ConnectColor( Color color )
+	public void ConnectSlot( Slot slot )
 	{
+		var color = slot.SlotColor;
+
 		tooth_selection_plane.SetColor( color.SetAlpha( GameSettings.Instance.grid_plane_alpha ) );
 
-		slot_color    = color;
-		slot_occupied = true;
+		if( slot_paired )
+			slot_paired.ClearPaired();
+
+		slot_paired    = slot;
+		slot_color     = color;
+		slot_occupied  = true;
 	}
 
 	public void ClearFrontConnections()
@@ -123,6 +132,18 @@ public class Slot : MonoBehaviour
 		}
 
 		slot_connected?.Clear();
+		slot_connected = null;
+		slot_paired = null;
+	}
+
+	public void ClearPaired()
+	{
+		if( slot_line )
+		{
+			pool_line.ReturnEntity( slot_line );
+			slot_line = null;
+		}
+
 		slot_connected = null;
 	}
 #endregion

@@ -74,7 +74,7 @@ public class SelectionManager : ScriptableObject
 
     private void OnSlot_Selection_Consecutive( Slot slot )
     {
-        if( selection_current == slot || !CheckIfDiagonal( selection_current, slot ) ) return;
+        if( selection_current == slot || !CheckIfDiagonal( selection_current, slot ) || selection_current.SlotPaired == slot ) return;
 
 		if( slot.ToothType == ToothType.None )
         {
