@@ -109,8 +109,8 @@ public class SelectionManager : ScriptableObject
 
     private bool CheckIfDiagonal( Slot current, Slot selection ) // Returns true if vertical and horizontal
     {
-		var horizontal = current.GridIndex.x == selection.GridIndex.x && Mathf.Abs( current.GridIndex.y - selection.GridIndex.y ) <= 1;
-		var vertical   = current.GridIndex.y == selection.GridIndex.y && Mathf.Abs( current.GridIndex.x - selection.GridIndex.x ) <= 1;
+		var horizontal = current.GridIndex.y == selection.GridIndex.y && Mathf.Abs( current.GridIndex.x - selection.GridIndex.x ) <= 1;
+		var vertical   = current.GridIndex.x == selection.GridIndex.x && Mathf.Abs( current.GridIndex.y - selection.GridIndex.y ) <= 1;
 
 		return horizontal || vertical;
 	}
