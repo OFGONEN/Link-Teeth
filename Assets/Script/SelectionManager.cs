@@ -82,7 +82,7 @@ public class SelectionManager : ScriptableObject
             {
 
             }
-            else
+            else if( CheckIfDiagonal( selection_current, slot ) )
             {
 				selection_current.PairSlot( slot );
 				selection_current = slot;
@@ -111,6 +111,11 @@ public class SelectionManager : ScriptableObject
 		onSlot_SelectionStop = ResetSelectionMethods;
 
 		selection_current = null;
+	}
+
+    private bool CheckIfDiagonal( Slot current, Slot selection ) // Returns false if diagonal
+    {
+		return current.GridIndex.x == selection.GridIndex.x || current.GridIndex.y == selection.GridIndex.y;
 	}
 #endregion
 
