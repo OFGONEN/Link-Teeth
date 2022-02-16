@@ -145,6 +145,12 @@ public class Slot : MonoBehaviour
 		}
 
 		slot_connected = null;
+
+		if( !slot_paired )
+		{
+			tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
+			slot_occupied = false || ToothType != ToothType.None;
+		}
 	}
 #endregion
 
