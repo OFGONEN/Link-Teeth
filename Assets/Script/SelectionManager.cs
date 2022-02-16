@@ -115,7 +115,10 @@ public class SelectionManager : ScriptableObject
 
     private bool CheckIfDiagonal( Slot current, Slot selection ) // Returns false if diagonal
     {
-		return current.GridIndex.x == selection.GridIndex.x || current.GridIndex.y == selection.GridIndex.y;
+		var horizontal = current.GridIndex.x == selection.GridIndex.x && Mathf.Abs( current.GridIndex.y - selection.GridIndex.y ) <= 1;
+		var vertical   = current.GridIndex.y == selection.GridIndex.y && Mathf.Abs( current.GridIndex.x - selection.GridIndex.x ) <= 1;
+
+		return horizontal || vertical;
 	}
 #endregion
 
