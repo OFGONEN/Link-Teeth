@@ -56,8 +56,8 @@ public class Slot : MonoBehaviour
 			SpawnTooth( GameSettings.Instance.tooth_pool_canine );
         else if( tooth_data.tooth_type == ToothType.Molar )
 			SpawnTooth( GameSettings.Instance.tooth_pool_molar );
-        else if( tooth_data.tooth_type == ToothType.Canine )
-			SpawnTooth( GameSettings.Instance.tooth_pool_canine );
+        else if( tooth_data.tooth_type == ToothType.PreMolar )
+			SpawnTooth( GameSettings.Instance.tooth_pool_premolar );
         else // Tooth type is null
 			SpawnNull();
 
