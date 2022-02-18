@@ -18,6 +18,8 @@ public class SelectionManager : ScriptableObject
     private SlotMessage onSlot_Select;
     private SlotMessage onSlot_DeSelect;
     private UnityMessage onSlot_SelectionStop;
+
+    private List< Slot > slots = new List< Slot >( 16 );
 #endregion
 
 #region Properties
@@ -35,6 +37,7 @@ public class SelectionManager : ScriptableObject
 #region API
     public void OnLevelStart()
     {
+		slots.Clear();
 		ResetSelectionMethods();
 	}
 
@@ -83,10 +86,7 @@ public class SelectionManager : ScriptableObject
 			selection_current.PairSlot( slot );
 			selection_current = slot;
         }
-        else if( slot.ToothType == selection_current.ToothType && slot.ToothColor.CompareColor( selection_current.ToothColor ) )
-        {
-        }
-        else
+        else if( slot.ConnectedToothType == selection_current.ConnectedToothType && slot.ToothColor.CompareColor( selection_current.ToothColor ) )
         {
 
         }
@@ -113,6 +113,13 @@ public class SelectionManager : ScriptableObject
 		var vertical   = current.GridIndex.x == selection.GridIndex.x && Mathf.Abs( current.GridIndex.y - selection.GridIndex.y ) <= 1;
 
 		return horizontal || vertical;
+	}
+
+    private void ClearStraySlots( Slot slot )
+    {
+		// Clear stray lines
+
+		slots.Clear();
 	}
 #endregion
 

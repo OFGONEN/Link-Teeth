@@ -3,6 +3,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 using FFStudio;
 using Sirenix.OdinInspector;
 
@@ -22,18 +23,21 @@ public class Slot : MonoBehaviour
 
     private bool slot_occupied;
 	private Color slot_color;
+	private ToothType slot_connected_tooth;
 	private Line slot_line;
 	[ ShowInInspector, ReadOnly ] private Slot slot_paired;
 	[ ShowInInspector, ReadOnly ] private Slot slot_connected;
 #endregion
 
 #region Properties
+	public ToothType ConnectedToothType => slot_connected_tooth;
     public ToothType ToothType => tooth_data.tooth_type;
 	public Vector2 GridIndex   => grid_index;
     public Color ToothColor    => tooth_data.tooth_color;
 	public Color SlotColor     => slot_color;
 	public bool SlotOccupied   => slot_occupied;
 	public Slot SlotPaired     => slot_paired;
+	public Slot SlotConnected  => slot_connected;
 #endregion
 
 #region Unity API
@@ -61,6 +65,7 @@ public class Slot : MonoBehaviour
         else // Tooth type is null
 			SpawnNull();
 
+		slot_connected_tooth = tooth_data.tooth_type;
 		slot_line      = null;
 		slot_connected = null;
 		slot_paired    = null;
@@ -99,6 +104,9 @@ public class Slot : MonoBehaviour
 
 		tooth_selection_plane.SetColor( color.SetAlpha( GameSettings.Instance.grid_plane_alpha ) );
 
+		if( tooth_data.tooth_type == ToothType.None )
+			slot_connected_tooth = slot.ConnectedToothType;
+
 		if( slot_paired )
 			slot_paired.ClearPaired();
 
@@ -123,7 +131,11 @@ public class Slot : MonoBehaviour
 	{
 		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 
-		slot_occupied = false || ToothType != ToothType.None;
+		if( ToothType == ToothType.None )
+		{
+			slot_connected_tooth = ToothType.None;
+			slot_occupied        = false;
+		}
 
 		if( slot_line )
 		{
@@ -149,7 +161,12 @@ public class Slot : MonoBehaviour
 		if( !slot_paired )
 		{
 			tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
-			slot_occupied = false || ToothType != ToothType.None;
+
+			if( ToothType == ToothType.None )
+			{
+				slot_connected_tooth = ToothType.None;
+				slot_occupied = false;
+			}
 		}
 	}
 #endregion
@@ -178,6 +195,10 @@ public class Slot : MonoBehaviour
 
 #region Editor Only
 #if UNITY_EDITOR
+	private void OnDrawGizmos()
+	{
+		Handles.Label( transform.position + Vector3.up * 0.1f, "Tooth Type:" + slot_connected_tooth.ToString() );
+	}
 #endif
 #endregion
 }
