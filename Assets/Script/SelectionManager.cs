@@ -86,10 +86,11 @@ public class SelectionManager : ScriptableObject
 			selection_current.PairSlot( slot );
 			selection_current = slot;
         }
-        else if( slot.ConnectedToothType == selection_current.ConnectedToothType && slot.ToothColor.CompareColor( selection_current.ToothColor ) )
+        else if( slot.ConnectedToothType == selection_current.ConnectedToothType && slot.ConnectedToothColor.CompareColor( selection_current.ConnectedToothColor ) )
         {
-
-        }
+			slot.ClearStrayConnections();
+			selection_current.PairSlot( slot );
+		}
     }
 
     private void OnSlot_DeSelect_Initial( Slot slot )

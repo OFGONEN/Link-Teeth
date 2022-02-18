@@ -23,14 +23,16 @@ public class Slot : MonoBehaviour
 
     private bool slot_occupied;
 	private Color slot_color;
-	private ToothType slot_connected_tooth;
 	private Line slot_line;
+	private Color slot_connected_tooth_color;
+	[ ShowInInspector, ReadOnly ] private ToothType slot_connected_tooth;
 	[ ShowInInspector, ReadOnly ] private Slot slot_paired;
 	[ ShowInInspector, ReadOnly ] private Slot slot_connected;
 #endregion
 
 #region Properties
 	public ToothType ConnectedToothType => slot_connected_tooth;
+	public Color ConnectedToothColor 	=> slot_connected_tooth_color;
     public ToothType ToothType => tooth_data.tooth_type;
 	public Vector2 GridIndex   => grid_index;
     public Color ToothColor    => tooth_data.tooth_color;
@@ -65,7 +67,9 @@ public class Slot : MonoBehaviour
         else // Tooth type is null
 			SpawnNull();
 
-		slot_connected_tooth = tooth_data.tooth_type;
+		slot_connected_tooth       = tooth_data.tooth_type;
+		slot_connected_tooth_color = tooth_data.tooth_color;
+
 		slot_line      = null;
 		slot_connected = null;
 		slot_paired    = null;
@@ -105,7 +109,10 @@ public class Slot : MonoBehaviour
 		tooth_selection_plane.SetColor( color.SetAlpha( GameSettings.Instance.grid_plane_alpha ) );
 
 		if( tooth_data.tooth_type == ToothType.None )
-			slot_connected_tooth = slot.ConnectedToothType;
+		{
+			slot_connected_tooth       = slot.ConnectedToothType;
+			slot_connected_tooth_color = slot.ConnectedToothColor;
+		}
 
 		if( slot_paired )
 			slot_paired.ClearPaired();
@@ -132,10 +139,7 @@ public class Slot : MonoBehaviour
 		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 
 		if( ToothType == ToothType.None )
-		{
-			slot_connected_tooth = ToothType.None;
-			slot_occupied        = false;
-		}
+			ClearNoneType();
 
 		if( slot_line )
 		{
@@ -163,11 +167,27 @@ public class Slot : MonoBehaviour
 			tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 
 			if( ToothType == ToothType.None )
-			{
-				slot_connected_tooth = ToothType.None;
-				slot_occupied = false;
-			}
+				ClearNoneType();
 		}
+	}
+
+	public void ClearStrayConnections()
+	{
+		if( !IsToothConnected() )
+			ClearFrontConnections();
+	}
+
+	public bool IsToothConnected()
+	{
+		if( slot_connected )
+		{
+			if( slot_connected.ToothType != ToothType.None )
+				return true;
+			else
+				return slot_connected.IsToothConnected();
+		}
+		else
+			return false;
 	}
 #endregion
 
@@ -190,6 +210,13 @@ public class Slot : MonoBehaviour
     {
 		slot_occupied  = false;
 		slot_color     = GameSettings.Instance.grid_default_color;
+	}
+
+	private void ClearNoneType()
+	{
+		slot_connected_tooth       = ToothType.None;
+		slot_connected_tooth_color = Color.black;
+		slot_occupied              = false;
 	}
 #endregion
 
