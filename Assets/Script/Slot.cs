@@ -140,6 +140,8 @@ public class Slot : MonoBehaviour
 
 	public void Clear()
 	{
+		if( ToothType != ToothType.None && ( slot_connected || slot_paired ) ) return;
+
 		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 
 		if( ToothType == ToothType.None )
