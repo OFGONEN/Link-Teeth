@@ -88,6 +88,10 @@ public class Slot : MonoBehaviour
 
 	public void PairSlot( Slot slot )
 	{
+		//! this paired tooth == that connected tooth, do not pair!
+		//! Cannot connect to a tooth that is connected to this!
+		if( FindPairedTooth() == slot.FindConnectedTooth() ) return;
+
 		tooth_selection_plane.SetColor( slot_color );
 		slot_occupied = true;
 
@@ -188,6 +192,29 @@ public class Slot : MonoBehaviour
 		}
 		else
 			return false;
+	}
+
+	public Slot FindPairedTooth()
+	{
+		if( ToothType != ToothType.None )
+			return this;
+		else if( slot_paired )
+			return slot_paired.FindPairedTooth();
+		else
+			return null;
+	}
+
+	public Slot FindConnectedTooth()
+	{
+		if( slot_connected )
+		{
+			if( slot_connected.ToothType != ToothType.None )
+				return slot_connected;
+			else
+				return slot_connected.FindConnectedTooth();
+		}
+		else
+			return null;
 	}
 #endregion
 
