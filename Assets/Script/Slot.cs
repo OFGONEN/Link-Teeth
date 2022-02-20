@@ -114,7 +114,7 @@ public class Slot : MonoBehaviour
 			slot_connected_tooth_color = slot.ConnectedToothColor;
 		}
 
-		if( slot_paired )
+		if( slot_paired && ToothType == ToothType.None )
 			slot_paired.ClearPaired();
 
 		slot_paired    = slot;
