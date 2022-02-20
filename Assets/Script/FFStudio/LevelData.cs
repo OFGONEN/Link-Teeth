@@ -14,5 +14,10 @@ namespace FFStudio
         [ BoxGroup( "Level" ) ] public GridData[] grid_data_array;
         [ BoxGroup( "Level" ) ] public PalateData palate_data_upper;
         [ BoxGroup( "Level" ) ] public PalateData palate_data_lower;
-    }
+
+        [ HideInEditorMode ] public int grid_data_index;
+
+		public GridData CurrentGridData => grid_data_array[ grid_data_index ];
+
+	}
 }

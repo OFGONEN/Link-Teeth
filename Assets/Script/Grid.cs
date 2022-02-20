@@ -33,6 +33,7 @@ public class Grid : MonoBehaviour
     private void Place_Separators( int index )
     {
 		var level_data = CurrentLevelData.Instance.levelData;
+		level_data.grid_data_index = index;
 
 		var grid_data   = level_data.grid_data_array[ index ];
 		var grid_width  = grid_data.GridWidth;
