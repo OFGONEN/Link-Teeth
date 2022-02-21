@@ -137,13 +137,15 @@ public class Slot : MonoBehaviour
 			slot_line = null;
 		}
 
-		slot_connected?.Clear();
+		var connected  = slot_connected;
 		slot_connected = null;
+
+		connected?.Clear();
 	}
 
 	public void Clear()
 	{
-		if( ToothType != ToothType.None && ( slot_connected || slot_paired ) ) return;
+		if( ToothType != ToothType.None && SetNewPair() ) return;
 
 		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 
@@ -156,9 +158,12 @@ public class Slot : MonoBehaviour
 			slot_line = null;
 		}
 
-		slot_connected?.Clear();
+		var connected = slot_connected;
+
 		slot_connected = null;
-		slot_paired = null;
+		slot_paired    = null;
+
+		connected?.Clear();
 	}
 
 	public void ClearPaired()
@@ -249,6 +254,22 @@ public class Slot : MonoBehaviour
 		slot_connected_tooth       = ToothType.None;
 		slot_connected_tooth_color = Color.black;
 		slot_occupied              = false;
+	}
+
+	private bool SetNewPair()
+	{
+		var slot = manager_selection.GivePairedSlot( this );
+
+		if( slot )
+		{
+			ConnectSlot( slot );
+			return true;
+		}
+		else
+		{
+			slot_paired = null;
+			return false || slot_connected;
+		}
 	}
 #endregion
 
