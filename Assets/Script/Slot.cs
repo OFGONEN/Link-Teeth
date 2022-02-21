@@ -229,6 +229,9 @@ public class Slot : MonoBehaviour
 
 	public void ReturnToPool()
 	{
+		if( ToothType != ToothType.None )
+			manager_selection.slot_tooth_list.Remove( this );
+
 		pool_slot.ReturnEntity( this );
 	}
 #endregion
@@ -246,6 +249,8 @@ public class Slot : MonoBehaviour
 		tooth_spawned = tooth;
 		slot_occupied = true;
 		slot_color    = tooth_data.tooth_color;
+
+		manager_selection.slot_tooth_list.Add( this );
 	}
 
     private void SpawnNull()

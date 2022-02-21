@@ -13,14 +13,13 @@ public class SelectionManager : ScriptableObject
     [ BoxGroup( "Setup" ) ] public LinePool pool_line;
     [ BoxGroup( "Setup" ) ] public SlotPool pool_slot;
 
+    [ ReadOnly ] public List< Slot > slot_tooth_list = new List< Slot >( 16 );
     [ ReadOnly ] private Slot selection_current;
 
     // Delegates
     private SlotMessage onSlot_Select;
     private SlotMessage onSlot_DeSelect;
     private UnityMessage onSlot_SelectionStop;
-
-    private List< Slot > slots = new List< Slot >( 16 );
 #endregion
 
 #region Properties
@@ -29,7 +28,9 @@ public class SelectionManager : ScriptableObject
 #region Unity API
     public void LevelAwake()
     {
-        onSlot_Select        = ExtensionMethods.EmptyMethod;
+		slot_tooth_list.Clear();
+
+		onSlot_Select        = ExtensionMethods.EmptyMethod;
 		onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
 		onSlot_SelectionStop = ExtensionMethods.EmptyMethod;
     }
@@ -38,7 +39,6 @@ public class SelectionManager : ScriptableObject
 #region API
     public void OnLevelStart()
     {
-		slots.Clear();
 		ResetSelectionMethods();
 	}
 
@@ -91,6 +91,15 @@ public class SelectionManager : ScriptableObject
         {
 			slot.ClearStrayConnections();
 			selection_current.PairSlot( slot );
+
+			int count = 0;
+
+            for( var i = 0; i < slot_tooth_list.Count; i++ )
+                if( slot_tooth_list[ i ].IsToothConnected() )
+					count++;
+                
+            //todo if( count == slot_tooth_list.Count - 1 )
+                //Grid is complete
 		}
     }
 
@@ -115,13 +124,6 @@ public class SelectionManager : ScriptableObject
 		var vertical   = current.GridIndex.x == selection.GridIndex.x && Mathf.Abs( current.GridIndex.y - selection.GridIndex.y ) <= 1;
 
 		return horizontal || vertical;
-	}
-
-    private void ClearStraySlots( Slot slot )
-    {
-		// Clear stray lines
-
-		slots.Clear();
 	}
 
     public Slot GivePairedSlot( Slot slot )
