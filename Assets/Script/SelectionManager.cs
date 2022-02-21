@@ -11,6 +11,7 @@ public class SelectionManager : ScriptableObject
 {
 #region Fields
     [ BoxGroup( "Setup" ) ] public LinePool pool_line;
+    [ BoxGroup( "Setup" ) ] public SlotPool pool_slot;
 
     [ ReadOnly ] private Slot selection_current;
 
@@ -121,6 +122,69 @@ public class SelectionManager : ScriptableObject
 		// Clear stray lines
 
 		slots.Clear();
+	}
+
+    public Slot GivePairedSlot( Slot slot )
+    {
+		var index = slot.GridIndex;
+
+		var grid_data   = CurrentLevelData.Instance.levelData.CurrentGridData;
+		var grid_width  = grid_data.GridWidth;
+		var grid_height = grid_data.GridHeight;
+
+        if( index.x - 1 >= 0 ) // Left slot
+        {
+			Slot slot_left;
+
+			var index_left    = index;
+			    index_left.x -= 1;
+
+            if( pool_slot.pool_dictionary.TryGetValue( index_left, out slot_left ) && slot_left.SlotConnected == slot )
+            {
+				return slot_left;
+			}
+		}
+        
+        if( index.x + 1 < grid_width ) // Right Slot
+        {
+			Slot slot_right;
+
+			var index_right    = index;
+			    index_right.x += 1;
+
+            if( pool_slot.pool_dictionary.TryGetValue( index_right, out slot_right ) && slot_right.SlotConnected == slot )
+            {
+				return slot_right;
+			}
+		}
+        
+        if( index.y - 1 >= 0 ) // Up Slot
+        {
+			Slot slot_up;
+
+			var index_up    = index;
+			    index_up.y -= 1;
+
+            if( pool_slot.pool_dictionary.TryGetValue( index_up, out slot_up ) && slot_up.SlotConnected == slot )
+            {
+				return slot_up;
+			}
+		}
+        
+        if( index.y + 1 < grid_height ) // Down Slot
+        {
+			Slot slot_down;
+
+			var index_down    = index;
+			    index_down.y -= 1;
+
+            if( pool_slot.pool_dictionary.TryGetValue( index_down, out slot_down ) && slot_down.SlotConnected == slot )
+            {
+				return slot_down;
+			}
+		}
+
+		return null;
 	}
 #endregion
 
