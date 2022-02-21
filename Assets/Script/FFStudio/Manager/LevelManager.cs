@@ -19,6 +19,9 @@ namespace FFStudio
 
         [ Header( "Level Releated" ) ]
         public SharedFloatNotifier levelProgress;
+
+        [ Header( "Managers" ) ]
+        public SelectionManager manager_selection;
 #endregion
 
 #region UnityAPI
@@ -41,7 +44,9 @@ namespace FFStudio
             levelLoadedListener.response   = LevelLoadedResponse;
             levelRevealedListener.response = LevelRevealedResponse;
             levelStartedListener.response  = LevelStartedResponse;
-        }
+
+			manager_selection.LevelAwake();
+		}
 #endregion
 
 #region Implementation
@@ -65,8 +70,8 @@ namespace FFStudio
 
         private void LevelStartedResponse()
         {
-
-        }
+			manager_selection.OnLevelStart();
+		}
 #endregion
     }
 }

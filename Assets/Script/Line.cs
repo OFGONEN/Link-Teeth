@@ -35,6 +35,12 @@ public class Line : MonoBehaviour
 		lineRenderer.endColor   = color;
 	}
 
+    public void Spawn( Vector3 firstPosition, Vector3 secondPosition, Color color )
+    {
+		Spawn( firstPosition, color );
+		UpdatePoint( secondPosition );
+	}
+
     public void DeSpawn()
     {
 		lineRenderer.positionCount = 0;

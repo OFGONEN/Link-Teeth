@@ -154,6 +154,11 @@ namespace FFStudio
 			/* Intentionally empty, by definition. */
 		}
 
+		public static void EmptyMethod( Slot slot )
+		{
+			/* Intentionally empty, by definition. */
+		}
+
 		public static Vector2 Clamp( this Vector2 value, Vector2 min, Vector2 max )
 		{
 			value.x = Mathf.Clamp( value.x, min.x, max.x );
@@ -188,6 +193,11 @@ namespace FFStudio
 			value.y = Mathf.Clamp( value.y, min.x, max.x );
 			value.z = Mathf.Clamp( value.z, min.y, max.y );
 			return value;
+		}
+
+		public static Vector3 AddY( this Vector3 theVector, float addY )
+		{
+			return theVector.SetY( theVector.y + addY );
 		}
 
 		public static Vector3 SetX( this Vector3 theVector, float newX )

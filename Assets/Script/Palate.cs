@@ -72,14 +72,14 @@ public class Palate : MonoBehaviour
 			var data  = tooth_data_array[ i ];
 			var tooth = palate_parent_gfx.GetChild( data.tooth_index );
 
-			var renderer     = tooth.GetComponent<Renderer>();
-			var setter_color = tooth.gameObject.AddComponent<ColorSetter>();
-			var setter_fill  = tooth.gameObject.AddComponent<FillSetter>();
+			var renderer     = tooth.GetComponent< Renderer >();
+			var setter_color = tooth.gameObject.AddComponent< ColorSetter_Update >();
+			var setter_fill  = tooth.gameObject.AddComponent< FillSetter >();
 
 			renderer.sharedMaterial = GameSettings.Instance.material_flashing;
 
-			setter_fill.SetupFillRange( GameSettings.Instance.tooth_fill_value_min, GameSettings.Instance.tooth_fill_value_max );
 			setter_color.SetColor( data.tooth_color );
+			setter_fill.SetupFillRange( GameSettings.Instance.tooth_fill_value_min, GameSettings.Instance.tooth_fill_value_max );
 		}
 	}
 #endregion
