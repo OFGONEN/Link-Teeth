@@ -20,7 +20,7 @@ public class Slot : MonoBehaviour
     // Private \\
     [ ReadOnly ] private GridToothData tooth_data;
     private Tooth tooth_spawned;
-    private Vector2 grid_index;
+    private Vector2Int grid_index;
 
     private bool slot_occupied;
 	private Color slot_color;
@@ -35,7 +35,7 @@ public class Slot : MonoBehaviour
 	public ToothType ConnectedToothType => slot_connected_tooth;
 	public Color ConnectedToothColor 	=> slot_connected_tooth_color;
     public ToothType ToothType => tooth_data.tooth_type;
-	public Vector2 GridIndex   => grid_index;
+	public Vector2Int GridIndex   => grid_index;
     public Color ToothColor    => tooth_data.tooth_color;
 	public Color SlotColor     => slot_color;
 	public bool SlotOccupied   => slot_occupied;
@@ -57,7 +57,7 @@ public class Slot : MonoBehaviour
 		gameObject.SetActive( true );
 
 		tooth_data = data;
-		grid_index = new Vector2( grid_index_x, grid_index_y );
+		grid_index = new Vector2Int( grid_index_x, grid_index_y );
 
 		if( tooth_data.tooth_type == ToothType.Canine )
 			SpawnTooth( GameSettings.Instance.tooth_pool_canine );
@@ -225,6 +225,11 @@ public class Slot : MonoBehaviour
 		}
 		else
 			return null;
+	}
+
+	public void ReturnToPool()
+	{
+		pool_slot.ReturnEntity( this );
 	}
 #endregion
 
