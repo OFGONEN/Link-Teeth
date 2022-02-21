@@ -12,6 +12,7 @@ public class Slot : MonoBehaviour
 #region Fields
     [ BoxGroup( "Shared" ) ] public SelectionManager manager_selection;
     [ BoxGroup( "Shared" ) ] public LinePool pool_line;
+    [ BoxGroup( "Shared" ) ] public SlotPool pool_slot;
 
     [ BoxGroup( "Setup" ) ] public ColorSetter tooth_selection_plane;
     [ BoxGroup( "Setup" ) ] public BoxCollider tooth_selection_collider;
@@ -74,6 +75,8 @@ public class Slot : MonoBehaviour
 		slot_connected = null;
 		slot_paired    = null;
 		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
+	
+		pool_slot.pool_dictionary.Add( grid_index, this );
 	}
 
     public void OnSelect()
