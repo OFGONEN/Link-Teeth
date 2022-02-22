@@ -158,6 +158,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2550674473117834217}
     m_Modifications:
+    - target: {fileID: 4390284986999626997, guid: 05ffc375e810d4cd28b0e29c4eecc686, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 10b3455c8e846442d854427fd10fed77, type: 2}
     - target: {fileID: 6946839385194949656, guid: 05ffc375e810d4cd28b0e29c4eecc686, type: 3}
       propertyPath: m_Name
       value: gfx_slot
