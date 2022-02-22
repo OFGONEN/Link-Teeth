@@ -31,6 +31,7 @@ public class Tooth : MonoBehaviour
     {
 		transform.DOMove( transform.position + Vector3.up * GameSettings.Instance.tooth_levitate_amount,
 			GameSettings.Instance.tooth_levitate_duration )
+			.SetDelay( GameSettings.Instance.tooth_levitate_delay )
 			.SetEase( GameSettings.Instance.tooth_levitate_ease );
 	}
 #endregion
