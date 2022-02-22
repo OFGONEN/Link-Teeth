@@ -13,6 +13,8 @@ public class SelectionManager : ScriptableObject
     [ BoxGroup( "Setup" ) ] public LinePool pool_line;
     [ BoxGroup( "Setup" ) ] public SlotPool pool_slot;
 
+    [ BoxGroup( "Fired Events" ) ] public GameEvent puzzle_solved_event;
+
     [ ReadOnly ] public List< Slot > slot_tooth_list = new List< Slot >( 16 );
     [ ReadOnly ] private Slot selection_current;
 
@@ -55,75 +57,6 @@ public class SelectionManager : ScriptableObject
     public void OnSelectionStop()
     {
 		onSlot_SelectionStop();
-	}
-#endregion
-
-#region Implementation
-    private void OnSlot_Select_Initial( Slot slot ) 
-    {
-        if( slot.SlotOccupied )
-        {
-			onSlot_Select     = OnSlot_Selection_Consecutive;
-			selection_current = slot;
-
-            slot.ClearFrontConnections();
-        }
-        else
-        {
-			onSlot_Select        = ExtensionMethods.EmptyMethod;
-			onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
-			onSlot_SelectionStop = ResetSelectionMethods;
-        }
-    }
-
-    private void OnSlot_Selection_Consecutive( Slot slot )
-    {
-        if( selection_current == slot || !CheckIfDiagonal( selection_current, slot ) || selection_current.SlotPaired == slot ) return;
-
-		if( slot.ToothType == ToothType.None )
-        {
-			slot.ClearFrontConnections();
-
-			selection_current.PairSlot( slot );
-			selection_current = slot;
-        }
-        else if( slot.ConnectedToothType == selection_current.ConnectedToothType && slot.ConnectedToothColor.CompareColor( selection_current.ConnectedToothColor ) )
-        {
-			slot.ClearStrayConnections();
-			selection_current.PairSlot( slot );
-
-			int count = 0;
-
-            for( var i = 0; i < slot_tooth_list.Count; i++ )
-                if( slot_tooth_list[ i ].IsToothConnected() )
-					count++;
-                
-            //todo if( count == slot_tooth_list.Count - 1 )
-                //Grid is complete
-		}
-    }
-
-    private void OnSlot_DeSelect_Initial( Slot slot )
-    {
-
-    }
-
-    private void ResetSelectionMethods()
-    {
-        FFLogger.Log( "Selection Reset", this );
-		onSlot_Select        = OnSlot_Select_Initial;
-		onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
-		onSlot_SelectionStop = ResetSelectionMethods;
-
-		selection_current = null;
-	}
-
-    private bool CheckIfDiagonal( Slot current, Slot selection ) // Returns true if vertical and horizontal
-    {
-		var horizontal = current.GridIndex.y == selection.GridIndex.y && Mathf.Abs( current.GridIndex.x - selection.GridIndex.x ) <= 1;
-		var vertical   = current.GridIndex.x == selection.GridIndex.x && Mathf.Abs( current.GridIndex.y - selection.GridIndex.y ) <= 1;
-
-		return horizontal || vertical;
 	}
 
     public Slot GivePairedSlot( Slot slot )
@@ -188,6 +121,91 @@ public class SelectionManager : ScriptableObject
 
 		return null;
 	}
+#endregion
+
+#region Implementation
+    private void OnSlot_Select_Initial( Slot slot ) 
+    {
+        if( slot.SlotOccupied )
+        {
+			onSlot_Select     = OnSlot_Selection_Consecutive;
+			selection_current = slot;
+
+            slot.ClearFrontConnections();
+        }
+        else
+        {
+			onSlot_Select        = ExtensionMethods.EmptyMethod;
+			onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
+			onSlot_SelectionStop = ResetSelectionMethods;
+        }
+    }
+
+    private void OnSlot_Selection_Consecutive( Slot slot )
+    {
+        if( selection_current == slot || !CheckIfDiagonal( selection_current, slot ) || selection_current.SlotPaired == slot ) return;
+
+		if( slot.ToothType == ToothType.None )
+        {
+			slot.ClearFrontConnections();
+
+			selection_current.PairSlot( slot );
+			selection_current = slot;
+        }
+        else if( slot.ConnectedToothType == selection_current.ConnectedToothType && slot.ConnectedToothColor.CompareColor( selection_current.ConnectedToothColor ) )
+        {
+			slot.ClearStrayConnections();
+			selection_current.PairSlot( slot );
+
+			CheckIfPuzzleSolved();
+		}
+    }
+
+    private void OnSlot_DeSelect_Initial( Slot slot )
+    {
+
+    }
+
+    private void ResetSelectionMethods()
+    {
+        FFLogger.Log( "Selection Reset", this );
+		onSlot_Select        = OnSlot_Select_Initial;
+		onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
+		onSlot_SelectionStop = ResetSelectionMethods;
+
+		selection_current = null;
+	}
+
+    private bool CheckIfDiagonal( Slot current, Slot selection ) // Returns true if vertical and horizontal
+    {
+		var horizontal = current.GridIndex.y == selection.GridIndex.y && Mathf.Abs( current.GridIndex.x - selection.GridIndex.x ) <= 1;
+		var vertical   = current.GridIndex.x == selection.GridIndex.x && Mathf.Abs( current.GridIndex.y - selection.GridIndex.y ) <= 1;
+
+		return horizontal || vertical;
+	}
+
+    private void CheckIfPuzzleSolved()
+    {
+		int count = 0;
+
+		for( var i = 0; i < slot_tooth_list.Count; i++ )
+			if( slot_tooth_list[ i ].IsToothConnected() )
+				count++;
+
+		if( count == slot_tooth_list.Count - 1 )
+        {
+            FFLogger.Log( "Puzzle Solved" );
+			NullSelectionMethod();
+			puzzle_solved_event.Raise();
+		}
+	}
+
+    private void NullSelectionMethod()
+    {
+		onSlot_Select        = ExtensionMethods.EmptyMethod;
+		onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
+		onSlot_SelectionStop = ExtensionMethods.EmptyMethod;
+    }
 #endregion
 
 #region Editor Only
