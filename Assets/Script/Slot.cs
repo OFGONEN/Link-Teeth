@@ -74,7 +74,6 @@ public class Slot : MonoBehaviour
 		slot_line      = null;
 		slot_connected = null;
 		slot_paired    = null;
-		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 	
 		pool_slot.pool_dictionary.Add( grid_index, this );
 	}
@@ -95,7 +94,7 @@ public class Slot : MonoBehaviour
 		//! Cannot connect to a tooth that is connected to this!
 		if( FindPairedTooth() == slot.FindConnectedTooth() ) return;
 
-		tooth_selection_plane.SetColor( slot_color );
+		tooth_selection_plane.SetColor( slot_color.SetAlpha( GameSettings.Instance.grid_plane_alpha ) );
 		slot_occupied = true;
 
 		slot_connected = slot;
@@ -250,6 +249,7 @@ public class Slot : MonoBehaviour
 		slot_occupied = true;
 		slot_color    = tooth_data.tooth_color;
 
+		tooth_selection_plane.SetColor( slot_color.SetAlpha( GameSettings.Instance.grid_plane_alpha ) );
 		manager_selection.slot_tooth_list.Add( this );
 	}
 
@@ -257,6 +257,8 @@ public class Slot : MonoBehaviour
     {
 		slot_occupied  = false;
 		slot_color     = GameSettings.Instance.grid_default_color;
+
+		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
 	}
 
 	private void ClearNoneType()
