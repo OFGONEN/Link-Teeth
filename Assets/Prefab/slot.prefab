@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2550674473117834217}
   - component: {fileID: 3462744262752223932}
+  - component: {fileID: 8905190839250762983}
   m_Layer: 0
   m_Name: slot
   m_TagString: Untagged
@@ -50,6 +51,36 @@ MonoBehaviour:
   pool_slot: {fileID: 11400000, guid: c7ac4f7789c1b43ada1bc486837e7956, type: 2}
   tooth_selection_plane: {fileID: 8265088222341771376}
   tooth_selection_collider: {fileID: 6848289591456712461}
+--- !u!114 &8905190839250762983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980065965410941013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a424c5aab848048bf965cabd054575b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPairs:
+  - eventListener:
+      gameEvent: {fileID: 11400000, guid: de06fc325eb584611b4d52fda7ed9e8d, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3462744262752223932}
+          m_TargetAssemblyTypeName: Slot, Assembly-CSharp
+          m_MethodName: ClearLine
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &4318968620913431867
 GameObject:
   m_ObjectHideFlags: 0

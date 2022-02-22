@@ -130,11 +130,7 @@ public class Slot : MonoBehaviour
 
 	public void ClearFrontConnections()
 	{
-		if( slot_line )
-		{
-			pool_line.ReturnEntity( slot_line );
-			slot_line = null;
-		}
+		ClearLine();
 
 		var connected  = slot_connected;
 		slot_connected = null;
@@ -151,11 +147,7 @@ public class Slot : MonoBehaviour
 		if( ToothType == ToothType.None )
 			ClearNoneType();
 
-		if( slot_line )
-		{
-			pool_line.ReturnEntity( slot_line );
-			slot_line = null;
-		}
+		ClearLine();
 
 		var connected = slot_connected;
 
@@ -232,6 +224,15 @@ public class Slot : MonoBehaviour
 			manager_selection.slot_tooth_list.Remove( this );
 
 		pool_slot.ReturnEntity( this );
+	}
+
+	public void ClearLine()
+	{
+		if( slot_line )
+		{
+			pool_line.ReturnEntity( slot_line );
+			slot_line = null;
+		}
 	}
 #endregion
 
