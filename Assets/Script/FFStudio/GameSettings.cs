@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using Sirenix.OdinInspector;
+using DG.Tweening;
 
 namespace FFStudio
 {
@@ -36,6 +37,9 @@ namespace FFStudio
 		[ BoxGroup( "Tooth" ) ] public float tooth_transparent_duration;
 		[ BoxGroup( "Tooth" ) ] public float tooth_fill_value_min;
 		[ BoxGroup( "Tooth" ) ] public float tooth_fill_value_max;
+		[ BoxGroup( "Tooth" ) ] public float tooth_levitate_amount;
+		[ BoxGroup( "Tooth" ) ] public float tooth_levitate_duration;
+		[ BoxGroup( "Tooth" ) ] public Ease  tooth_levitate_ease;
 
 		[ BoxGroup( "Tooth" ) ] public ToothPool tooth_pool_canine;
 		[ BoxGroup( "Tooth" ) ] public ToothPool tooth_pool_molar;

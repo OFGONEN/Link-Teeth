@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 993581856999246675}
   - component: {fileID: 5306542575668483458}
+  - component: {fileID: 6465124264754789338}
   m_Layer: 0
   m_Name: tooth_premolar_1
   m_TagString: Untagged
@@ -46,6 +47,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooth_type: 3
   tooth_color_setter: {fileID: 3977017405296417103}
+--- !u!114 &6465124264754789338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2229827802460490733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a424c5aab848048bf965cabd054575b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eventPairs:
+  - eventListener:
+      gameEvent: {fileID: 11400000, guid: de06fc325eb584611b4d52fda7ed9e8d, type: 2}
+    unityEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 5306542575668483458}
+          m_TargetAssemblyTypeName: Tooth, Assembly-CSharp
+          m_MethodName: OnPuzzleSolved
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &3977017405296417103
 MonoBehaviour:
   m_ObjectHideFlags: 0

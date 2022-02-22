@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FFStudio;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 
 public class Tooth : MonoBehaviour
@@ -23,8 +24,14 @@ public class Tooth : MonoBehaviour
     public void Spawn( Color color )
     {
 		gameObject.SetActive( true );
-
 		tooth_color_setter.SetColor( color );
+	}
+
+    public void OnPuzzleSolved()
+    {
+		transform.DOMove( transform.position + Vector3.up * GameSettings.Instance.tooth_levitate_amount,
+			GameSettings.Instance.tooth_levitate_duration )
+			.SetEase( GameSettings.Instance.tooth_levitate_ease );
 	}
 #endregion
 
