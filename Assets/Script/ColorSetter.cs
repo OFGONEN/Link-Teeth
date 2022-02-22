@@ -37,9 +37,9 @@ public class ColorSetter : MonoBehaviour
 		SetColor();
 	}
 
+	[ Button ]
 	public void SetColor() // Info: This may be more "Unity-Event-friendly".
 	{
-		color = color.SetAlpha( _renderer.sharedMaterial.color.a );
 		_renderer.GetPropertyBlock( propertyBlock );
 		propertyBlock.SetColor( SHADER_ID_COLOR, color );
 		_renderer.SetPropertyBlock( propertyBlock );
