@@ -12,6 +12,7 @@ public class Palate : MonoBehaviour
 {
 #region Fields
 	[ BoxGroup( "SharedData" ) ] public PalateData palate_data_current;
+	[ BoxGroup( "SharedData" ) ] public PalateToothSet palate_tooth_set;
 	[ BoxGroup( "SharedData" ) ] public SharedReferenceNotifier palate_mouth_position_reference;
 	[ BoxGroup( "SharedData" ) ] public SharedReferenceNotifier palate_table_position_reference;
 
@@ -25,6 +26,11 @@ public class Palate : MonoBehaviour
 #endregion
 
 #region Unity API
+	private void Awake()
+	{
+		palate_tooth_set.ClearSet();
+	}
+
     private void Start()
     {
 		transform.SetParent( palate_mouth_position_reference.SharedValue as Transform );
@@ -80,6 +86,8 @@ public class Palate : MonoBehaviour
 
 			setter_color.SetColor( data.tooth_color );
 			setter_fill.SetupFillRange( GameSettings.Instance.tooth_fill_value_min, GameSettings.Instance.tooth_fill_value_max );
+
+			palate_tooth_set.itemList.Add( new PalateTooth( data.tooth_health, setter_fill ) );
 		}
 	}
 #endregion

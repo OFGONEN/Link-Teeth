@@ -74,6 +74,10 @@ PrefabInstance:
       value: palate_upper
       objectReference: {fileID: 0}
     - target: {fileID: 569035486013715013, guid: 9b770f04ca8924b4484950578b42d152, type: 3}
+      propertyPath: palate_tooth_set
+      value: 
+      objectReference: {fileID: 11400000, guid: dd4a0d5e485da4468a69e25abe2ac235, type: 2}
+    - target: {fileID: 569035486013715013, guid: 9b770f04ca8924b4484950578b42d152, type: 3}
       propertyPath: palate_parent_gfx
       value: 
       objectReference: {fileID: 436142408295459251}

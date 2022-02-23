@@ -5,8 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FFStudio;
 
-
-[ CreateAssetMenu( fileName = "tooth_set", menuName = "FF/Data/Set/Tooth" ) ]
-public class ToothSet : RuntimeSet< int, Tooth >
+[CreateAssetMenu( fileName = "palate_tooth_set", menuName = "FF/Data/Set/Palate Tooth" )]
+public class PalateToothSet : RuntimeSet<int, PalateTooth >
 {
 }

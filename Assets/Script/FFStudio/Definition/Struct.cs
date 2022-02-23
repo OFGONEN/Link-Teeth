@@ -55,6 +55,19 @@ namespace FFStudio
 	}
 
 	[ Serializable ]
+	public struct PalateTooth
+	{
+		public int tooth_health;
+		public FillSetter tooth_setter_fill;
+
+		public PalateTooth( int health, FillSetter fill )
+		{
+			tooth_health       = health;
+			tooth_setter_fill  = fill;
+		}
+	}
+
+	[ Serializable ]
 	public struct GridToothData
 	{
 		public ToothType tooth_type;
