@@ -10,8 +10,11 @@ using Sirenix.OdinInspector;
 public class Tooth : MonoBehaviour
 {
 #region Fields
+    [ BoxGroup( "Setup" ) ] public ToothSet tooth_set;
     [ BoxGroup( "Setup" ) ] public ToothType tooth_type;
     [ BoxGroup( "Setup" ) ] public ColorSetter tooth_color_setter;
+
+	[ ReadOnly, ShowInInspector ] private int tooth_index;
 #endregion
 
 #region Properties
@@ -25,6 +28,9 @@ public class Tooth : MonoBehaviour
     {
 		gameObject.SetActive( true );
 		tooth_color_setter.SetColor( color );
+
+		tooth_index = tooth_set.itemList.Count;
+		tooth_set.AddList( this );
 	}
 
     public void OnPuzzleSolved()
