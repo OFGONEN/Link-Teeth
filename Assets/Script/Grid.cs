@@ -11,6 +11,7 @@ public class Grid : MonoBehaviour
 #region Fields
     [ BoxGroup( "Setup" ) ] public TransformPool pool_separator;
     [ BoxGroup( "Setup" ) ] public SlotPool pool_slot;
+    [ BoxGroup( "Setup" ) ] public ToothSet tooth_set;
 
     private List< Transform > active_separators = new List< Transform >(16);
 #endregion
@@ -19,7 +20,7 @@ public class Grid : MonoBehaviour
 #endregion
 
 #region Unity API
-    private void Awake()
+    private void Start()
     {
 		Place_Separators( 0 );
 		Place_Slots( 0 );
@@ -78,6 +79,8 @@ public class Grid : MonoBehaviour
 
 	private void Place_Slots( int index )
 	{
+		tooth_set.ClearSet();
+
 		var level_data = CurrentLevelData.Instance.levelData;
 		var grid_data  = level_data.grid_data_array[ index ];
 
