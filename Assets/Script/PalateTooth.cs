@@ -70,7 +70,7 @@ public class PalateTooth : MonoBehaviour
 		tooth_setter_color.SetFinalColor();
 
 		tooth_renderer.sharedMaterial = GameSettings.Instance.material_filling;
-		// tooth_setter_fill.SetFillRate( 0 );
+		tooth_setter_fill.SetFillRate( 0 );
 	}
 #endregion
 

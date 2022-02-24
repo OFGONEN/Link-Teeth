@@ -26,8 +26,8 @@ MonoBehaviour:
   tooth_transparent_start: 0.15
   tooth_transparent_end: 0.75
   tooth_transparent_duration: 0.5
-  tooth_fill_value_min: 0.3
-  tooth_fill_value_max: 0.5
+  tooth_fill_value_min: -0.5
+  tooth_fill_value_max: -0.452
   tooth_levitate_amount: 0.1
   tooth_levitate_duration: 0.5
   tooth_levitate_delay: 0.35
