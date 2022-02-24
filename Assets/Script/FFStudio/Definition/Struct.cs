@@ -59,11 +59,13 @@ namespace FFStudio
 	{
 		public int tooth_health;
 		public FillSetter tooth_setter_fill;
+		public ColorSetter_Update tooth_setter_collor;
 
-		public PalateTooth( int health, FillSetter fill )
+		public PalateTooth( int health, FillSetter fill, ColorSetter_Update color )
 		{
-			tooth_health       = health;
-			tooth_setter_fill  = fill;
+			tooth_health        = health;
+			tooth_setter_fill   = fill;
+			tooth_setter_collor = color;
 		}
 	}
 

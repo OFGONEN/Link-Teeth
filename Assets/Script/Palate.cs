@@ -87,7 +87,7 @@ public class Palate : MonoBehaviour
 			setter_color.SetColor( data.tooth_color );
 			setter_fill.SetupFillRange( GameSettings.Instance.tooth_fill_value_min, GameSettings.Instance.tooth_fill_value_max );
 
-			palate_tooth_set.itemList.Add( new PalateTooth( data.tooth_health, setter_fill ) );
+			palate_tooth_set.itemList.Add( new PalateTooth( data.tooth_health, setter_fill, setter_color ) );
 		}
 	}
 #endregion
