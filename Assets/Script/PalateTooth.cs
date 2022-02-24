@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using FFStudio;
 using Sirenix.OdinInspector;
+using DG.Tweening;
+
 
 public class PalateTooth : MonoBehaviour
 {
@@ -14,7 +16,9 @@ public class PalateTooth : MonoBehaviour
     [ ShowInInspector, ReadOnly ] private ColorSetter_Update tooth_setter_color;
     [ ShowInInspector, ReadOnly ] private FillSetter tooth_setter_fill;
 
-    private PalateToothData tooth_data;
+	private EventListenerDelegateResponse puzzle_solved_listener = new EventListenerDelegateResponse();
+
+	private PalateToothData tooth_data;
 	private int tooth_health;
 #endregion
 
@@ -25,6 +29,7 @@ public class PalateTooth : MonoBehaviour
 	private void OnDisable()
 	{
 		tooth_set.RemoveList( this );
+		puzzle_solved_listener.OnDisable();
 	}
 #endregion
 
@@ -44,10 +49,21 @@ public class PalateTooth : MonoBehaviour
 		tooth_setter_fill.SetupFillRange( GameSettings.Instance.tooth_fill_value_min, GameSettings.Instance.tooth_fill_value_max );
 
 		tooth_set.AddList( this );
+
+		puzzle_solved_listener.gameEvent = GameSettings.Instance.puzzle_solved_event;
+		puzzle_solved_listener.response  = PuzzleSolvedResponse;
+
+		puzzle_solved_listener.OnEnable();
 	}
 #endregion
 
 #region Implementation
+	private void PuzzleSolvedResponse()
+	{
+		transform.DOMoveY( GameSettings.Instance.palateTooth_levitate_amount, GameSettings.Instance.palateTooth_levitate_duration )
+			.SetEase( GameSettings.Instance.palateTooth_levitate_ease )
+			.SetRelative();
+	}
 #endregion
 
 #region Editor Only
