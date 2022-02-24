@@ -30,7 +30,7 @@ public class FillSetter : MonoBehaviour
 #endregion
 
 #region API
-	public void SetupFillRange( float min, float max )
+	public void SetupFillRange( float min, float max ) //todo: Set up top and tilt color from proprtyBlock
 	{
 		minimumFillValue = min;
 		maximumFillValue = max;

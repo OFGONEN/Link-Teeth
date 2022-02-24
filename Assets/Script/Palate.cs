@@ -26,11 +26,6 @@ public class Palate : MonoBehaviour
 #endregion
 
 #region Unity API
-	private void Awake()
-	{
-		palate_tooth_set.ClearSet();
-	}
-
     private void Start()
     {
 		transform.SetParent( palate_mouth_position_reference.SharedValue as Transform );
@@ -78,16 +73,9 @@ public class Palate : MonoBehaviour
 			var data  = tooth_data_array[ i ];
 			var tooth = palate_parent_gfx.GetChild( data.tooth_index );
 
-			var renderer     = tooth.GetComponent< Renderer >();
-			var setter_color = tooth.gameObject.AddComponent< ColorSetter_Update >();
-			var setter_fill  = tooth.gameObject.AddComponent< FillSetter >();
+			var palate_tooth = tooth.gameObject.AddComponent< PalateTooth >();
 
-			renderer.sharedMaterial = GameSettings.Instance.material_flashing;
-
-			setter_color.SetColor( data.tooth_color );
-			setter_fill.SetupFillRange( GameSettings.Instance.tooth_fill_value_min, GameSettings.Instance.tooth_fill_value_max );
-
-			palate_tooth_set.itemList.Add( new PalateTooth( data.tooth_health, setter_fill, setter_color ) );
+			palate_tooth.Spawn( palate_tooth_set, data );
 		}
 	}
 #endregion
