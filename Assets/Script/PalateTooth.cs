@@ -60,9 +60,17 @@ public class PalateTooth : MonoBehaviour
 #region Implementation
 	private void PuzzleSolvedResponse()
 	{
-		transform.DOMoveY( GameSettings.Instance.palateTooth_levitate_amount, GameSettings.Instance.palateTooth_levitate_duration )
+		transform.DOMoveY( GameSettings.Instance.palateTooth_levitate_position, GameSettings.Instance.palateTooth_levitate_duration )
 			.SetEase( GameSettings.Instance.palateTooth_levitate_ease )
-			.SetRelative();
+			.OnComplete( OnPuzzleSolvedComplete );
+	}
+
+	private void OnPuzzleSolvedComplete()
+	{
+		tooth_setter_color.SetFinalColor();
+
+		tooth_renderer.sharedMaterial = GameSettings.Instance.material_filling;
+		// tooth_setter_fill.SetFillRate( 0 );
 	}
 #endregion
 

@@ -49,7 +49,7 @@ namespace FFStudio
 		[ BoxGroup( "Palate" ) ] public float palate_table_movement_duration;
 		[ BoxGroup( "Palate" ) ] public float palate_mouth_movement_duration;
 
-		[ BoxGroup( "Palate Tooth" ) ] public float palateTooth_levitate_amount;
+		[ BoxGroup( "Palate Tooth" ) ] public float palateTooth_levitate_position;
 		[ BoxGroup( "Palate Tooth" ) ] public float palateTooth_levitate_duration;
 		[ BoxGroup( "Palate Tooth" ) ] public Ease palateTooth_levitate_ease;
 
