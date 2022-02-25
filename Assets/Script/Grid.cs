@@ -9,21 +9,37 @@ using Sirenix.OdinInspector;
 public class Grid : MonoBehaviour
 {
 #region Fields
+    [ BoxGroup( "Setup" ) ] public EventListenerDelegateResponse puzzle_fill_complete_listener;
     [ BoxGroup( "Setup" ) ] public TransformPool pool_separator;
     [ BoxGroup( "Setup" ) ] public SlotPool pool_slot;
     [ BoxGroup( "Setup" ) ] public ToothSet tooth_set;
 
-    private List< Transform > active_separators = new List< Transform >(16);
+    private List< Transform > active_separators = new List< Transform >( 16 );
+    private List< Slot > active_slots = new List< Slot >( 20 );
 #endregion
 
 #region Properties
 #endregion
 
 #region Unity API
+	private void OnEnable()
+	{
+		puzzle_fill_complete_listener.OnEnable();
+	}
+
+	private void Awake()
+	{
+		puzzle_fill_complete_listener.response = PuzzleFilledCompleteListener;
+	}
+
+	private void OnDisable()
+	{
+		puzzle_fill_complete_listener.OnDisable();
+	}
+
     private void Start()
     {
-		Place_Separators( 0 );
-		Place_Slots( 0 );
+		Place_Puzzle( 0 );
 	}
 #endregion
 
@@ -31,10 +47,17 @@ public class Grid : MonoBehaviour
 #endregion
 
 #region Implementation
+	private void Place_Puzzle( int index )
+	{
+		CurrentLevelData.Instance.levelData.grid_data_index = index;
+
+		Place_Separators( index );
+		Place_Slots( index );
+	}
+
     private void Place_Separators( int index )
     {
 		var level_data = CurrentLevelData.Instance.levelData;
-		level_data.grid_data_index = index;
 
 		var grid_data   = level_data.grid_data_array[ index ];
 		var grid_width  = grid_data.GridWidth;
@@ -79,8 +102,6 @@ public class Grid : MonoBehaviour
 
 	private void Place_Slots( int index )
 	{
-		tooth_set.ClearSet();
-
 		var level_data = CurrentLevelData.Instance.levelData;
 		var grid_data  = level_data.grid_data_array[ index ];
 
@@ -108,6 +129,8 @@ public class Grid : MonoBehaviour
 
 				slot.transform.localPosition = position_start + offset;
 				slot.Spawn( grid_data.gridToothData[ x, y ], x , y );
+
+				active_slots.Add( slot );
 			}
 		}
 	}
@@ -116,6 +139,32 @@ public class Grid : MonoBehaviour
 	{
 		for( var i = 0; i < active_separators.Count; i++ )
 			pool_separator.ReturnEntity( active_separators[ i ] );
+
+		active_separators.Clear();
+	}
+
+	private void ReturnAllSlots()
+	{
+		for( var i = 0; i < active_slots.Count; i++ )
+			active_slots[ i ].ReturnToPool();
+
+		active_slots.Clear();
+	}
+
+	private void PuzzleFilledCompleteListener()
+	{
+		ReturnAllSeparators();
+		ReturnAllSlots();
+
+		var level_data = CurrentLevelData.Instance.levelData;
+
+		if( level_data.grid_data_index + 1 < level_data.grid_data_array.Length )
+		{
+			FFLogger.Log( "New Puzzle" );
+			Place_Puzzle( level_data.grid_data_index + 1 );
+		}
+		else
+			FFLogger.Log( "No puzzle left!Q" );
 	}
 #endregion
 

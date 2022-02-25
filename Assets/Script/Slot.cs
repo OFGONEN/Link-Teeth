@@ -75,7 +75,7 @@ public class Slot : MonoBehaviour
 		slot_connected = null;
 		slot_paired    = null;
 	
-		pool_slot.pool_dictionary.Add( grid_index, this );
+		pool_slot.pool_dictionary.Add( grid_index, this ); // Removed when returned to pool
 	}
 
     public void OnSelect()
