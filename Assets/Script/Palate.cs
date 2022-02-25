@@ -12,6 +12,7 @@ public class Palate : MonoBehaviour
 {
 #region Fields
 	[ BoxGroup( "SharedData" ) ] public PalateData palate_data_current;
+	[ BoxGroup( "SharedData" ) ] public PalateToothSet palate_tooth_set;
 	[ BoxGroup( "SharedData" ) ] public SharedReferenceNotifier palate_mouth_position_reference;
 	[ BoxGroup( "SharedData" ) ] public SharedReferenceNotifier palate_table_position_reference;
 
@@ -72,14 +73,9 @@ public class Palate : MonoBehaviour
 			var data  = tooth_data_array[ i ];
 			var tooth = palate_parent_gfx.GetChild( data.tooth_index );
 
-			var renderer     = tooth.GetComponent< Renderer >();
-			var setter_color = tooth.gameObject.AddComponent< ColorSetter_Update >();
-			var setter_fill  = tooth.gameObject.AddComponent< FillSetter >();
+			var palate_tooth = tooth.gameObject.AddComponent< PalateTooth >();
 
-			renderer.sharedMaterial = GameSettings.Instance.material_flashing;
-
-			setter_color.SetColor( data.tooth_color );
-			setter_fill.SetupFillRange( GameSettings.Instance.tooth_fill_value_min, GameSettings.Instance.tooth_fill_value_max );
+			palate_tooth.Spawn( palate_tooth_set, data );
 		}
 	}
 #endregion

@@ -39,9 +39,14 @@ public class SelectionManager : ScriptableObject
 #endregion
 
 #region API
-    public void OnLevelStart()
+    public void ResetSelectionMethods()
     {
-		ResetSelectionMethods();
+        FFLogger.Log( "Selection Reset", this );
+		onSlot_Select        = OnSlot_Select_Initial;
+		onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
+		onSlot_SelectionStop = ResetSelectionMethods;
+
+		selection_current = null;
 	}
 
     public void OnSlot_Select( Slot slot )
@@ -165,16 +170,6 @@ public class SelectionManager : ScriptableObject
     {
 
     }
-
-    private void ResetSelectionMethods()
-    {
-        FFLogger.Log( "Selection Reset", this );
-		onSlot_Select        = OnSlot_Select_Initial;
-		onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
-		onSlot_SelectionStop = ResetSelectionMethods;
-
-		selection_current = null;
-	}
 
     private bool CheckIfDiagonal( Slot current, Slot selection ) // Returns true if vertical and horizontal
     {

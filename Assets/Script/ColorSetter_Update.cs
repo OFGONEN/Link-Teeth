@@ -49,6 +49,16 @@ public class ColorSetter_Update : MonoBehaviour
 		propertyBlock.SetColor( SHADER_ID_COLOR, color );
 		_renderer.SetPropertyBlock( propertyBlock );
 	}
+
+	public void SetFinalColor()
+	{
+		color = color.SetAlpha( 1 );
+		_renderer.GetPropertyBlock( propertyBlock );
+		propertyBlock.SetColor( SHADER_ID_COLOR, color );
+		_renderer.SetPropertyBlock( propertyBlock );
+
+		enabled = false;
+	}
 #endregion
 
 #region Implementation

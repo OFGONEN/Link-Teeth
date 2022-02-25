@@ -26,22 +26,30 @@ MonoBehaviour:
   tooth_transparent_start: 0.15
   tooth_transparent_end: 0.75
   tooth_transparent_duration: 0.5
-  tooth_fill_value_min: 0.3
-  tooth_fill_value_max: 0.5
+  tooth_fill_value_min: -0.5
+  tooth_fill_value_max: -0.452
   tooth_levitate_amount: 0.1
   tooth_levitate_duration: 0.5
   tooth_levitate_delay: 0.35
   tooth_levitate_ease: 12
+  tooth_jump_duration: 1.2
+  tooth_jump_delay: 0.2
+  tooth_jump_ease: 23
+  tooth_jump_power: 0.4
   tooth_pool_canine: {fileID: 11400000, guid: 8e89686192fb06e4fa4e4cf6f4cc346e, type: 2}
   tooth_pool_molar: {fileID: 11400000, guid: 218679afc1a140e47b510fd29237f89e, type: 2}
   tooth_pool_premolar: {fileID: 11400000, guid: fd8cacce86331a44184cad5fc7db32e7, type: 2}
   palate_table_movement_duration: 0.7
   palate_mouth_movement_duration: 0.7
+  palateTooth_levitate_position: 1.15
+  palateTooth_levitate_duration: 0.5
+  palateTooth_levitate_ease: 28
   grid_square_lenght: 0.125
   grid_default_color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   grid_plane_alpha: 0.3
   grid_line_height: 0.0125
   line_width: 0.0125
+  puzzle_solved_event: {fileID: 11400000, guid: de06fc325eb584611b4d52fda7ed9e8d, type: 2}
   material_flashing: {fileID: 2100000, guid: fb36141c4c0594f9ca0b6b878b8bbe7f, type: 2}
   material_filling: {fileID: 2100000, guid: 6af12311064e47246bc73c0bccc431fe, type: 2}
   debug_ui_text_float_height: 1

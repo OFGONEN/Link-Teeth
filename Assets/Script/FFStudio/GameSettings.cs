@@ -41,6 +41,10 @@ namespace FFStudio
 		[ BoxGroup( "Tooth" ) ] public float tooth_levitate_duration;
 		[ BoxGroup( "Tooth" ) ] public float tooth_levitate_delay;
 		[ BoxGroup( "Tooth" ) ] public Ease  tooth_levitate_ease;
+		[ BoxGroup( "Tooth" ) ] public float tooth_jump_duration;
+		[ BoxGroup( "Tooth" ) ] public float tooth_jump_delay;
+		[ BoxGroup( "Tooth" ) ] public Ease tooth_jump_ease;
+		[ BoxGroup( "Tooth" ) ] public float tooth_jump_power;
 
 		[ BoxGroup( "Tooth" ) ] public ToothPool tooth_pool_canine;
 		[ BoxGroup( "Tooth" ) ] public ToothPool tooth_pool_molar;
@@ -49,12 +53,18 @@ namespace FFStudio
 		[ BoxGroup( "Palate" ) ] public float palate_table_movement_duration;
 		[ BoxGroup( "Palate" ) ] public float palate_mouth_movement_duration;
 
+		[ BoxGroup( "Palate Tooth" ) ] public float palateTooth_levitate_position;
+		[ BoxGroup( "Palate Tooth" ) ] public float palateTooth_levitate_duration;
+		[ BoxGroup( "Palate Tooth" ) ] public Ease palateTooth_levitate_ease;
+
 		[ BoxGroup( "Grid" ) ] public float grid_square_lenght;
 		[ BoxGroup( "Grid" ) ] public Color grid_default_color;
 		[ BoxGroup( "Grid" ) ] public float grid_plane_alpha;
 		[ BoxGroup( "Grid" ) ] public float grid_line_height;
 
 		[ BoxGroup( "Line" ) ] public float line_width;
+
+		[ BoxGroup( "Puzzle" ) ] public GameEvent puzzle_solved_event;
 
         [ BoxGroup( "Material" ) ] public Material material_flashing;
         [ BoxGroup( "Material" ) ] public Material material_filling;

@@ -75,7 +75,7 @@ public class Slot : MonoBehaviour
 		slot_connected = null;
 		slot_paired    = null;
 	
-		pool_slot.pool_dictionary.Add( grid_index, this );
+		pool_slot.pool_dictionary.Add( grid_index, this ); // Removed when returned to pool
 	}
 
     public void OnSelect()
@@ -244,7 +244,7 @@ public class Slot : MonoBehaviour
 		tooth.transform.position = transform.position;
 		tooth.transform.rotation = transform.rotation;
 
-		tooth.Spawn( tooth_data.tooth_color );
+		tooth.Spawn( tooth_data );
 
 		tooth_spawned = tooth;
 		slot_occupied = true;
