@@ -70,7 +70,6 @@ namespace FFStudio
 
         private void LevelStartedResponse()
         {
-			manager_selection.OnLevelStart();
 		}
 #endregion
     }

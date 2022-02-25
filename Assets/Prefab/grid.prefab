@@ -45,6 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puzzle_fill_complete_listener:
     gameEvent: {fileID: 11400000, guid: 1d38b70f5cb9b4a298fb857feb32a86f, type: 2}
+  palate_movement_table_listener:
+    gameEvent: {fileID: 11400000, guid: 7325aaa2c584b6c45975e98bd7ebb2d7, type: 2}
+  manager_selection: {fileID: 11400000, guid: 32c547734c2d242a697ffdcf3641fc63, type: 2}
   pool_separator: {fileID: 11400000, guid: 5871d5ed84d58df4f94efd39cf6dde1c, type: 2}
   pool_slot: {fileID: 11400000, guid: c7ac4f7789c1b43ada1bc486837e7956, type: 2}
   tooth_set: {fileID: 11400000, guid: cd918f2d1ec6f46ada855b712c51e816, type: 2}

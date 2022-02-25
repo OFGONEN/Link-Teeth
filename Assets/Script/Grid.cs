@@ -10,6 +10,8 @@ public class Grid : MonoBehaviour
 {
 #region Fields
     [ BoxGroup( "Setup" ) ] public EventListenerDelegateResponse puzzle_fill_complete_listener;
+    [ BoxGroup( "Setup" ) ] public EventListenerDelegateResponse palate_movement_table_listener;
+    [ BoxGroup( "Setup" ) ] public SelectionManager manager_selection;
     [ BoxGroup( "Setup" ) ] public TransformPool pool_separator;
     [ BoxGroup( "Setup" ) ] public SlotPool pool_slot;
     [ BoxGroup( "Setup" ) ] public ToothSet tooth_set;
@@ -25,20 +27,24 @@ public class Grid : MonoBehaviour
 	private void OnEnable()
 	{
 		puzzle_fill_complete_listener.OnEnable();
+		palate_movement_table_listener.OnEnable();
 	}
 
 	private void Awake()
 	{
-		puzzle_fill_complete_listener.response = PuzzleFilledCompleteListener;
+		puzzle_fill_complete_listener.response  = PuzzleFilledCompleteListener;
+		palate_movement_table_listener.response = manager_selection.ResetSelectionMethods;
 	}
 
 	private void OnDisable()
 	{
 		puzzle_fill_complete_listener.OnDisable();
+		palate_movement_table_listener.OnDisable();
 	}
 
     private void Start()
     {
+		tooth_set.ClearSet();
 		Place_Puzzle( 0 );
 	}
 #endregion
@@ -162,6 +168,7 @@ public class Grid : MonoBehaviour
 		{
 			FFLogger.Log( "New Puzzle" );
 			Place_Puzzle( level_data.grid_data_index + 1 );
+			manager_selection.ResetSelectionMethods();
 		}
 		else
 			FFLogger.Log( "No puzzle left!Q" );
