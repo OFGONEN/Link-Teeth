@@ -10,9 +10,11 @@ using Sirenix.OdinInspector;
 public class Tooth : MonoBehaviour
 {
 #region Fields
-    [ BoxGroup( "Setup" ) ] public ToothPool tooth_pool;
-    [ BoxGroup( "Setup" ) ] public ToothSet tooth_set;
-    [ BoxGroup( "Setup" ) ] public PalateToothSet palateTooth_set;
+    [ BoxGroup( "Shared Variables" ) ] public GameEvent tooth_jump_complete;
+    [ BoxGroup( "Shared Variables" ) ] public ToothPool tooth_pool;
+    [ BoxGroup( "Shared Variables" ) ] public ToothSet tooth_set;
+    [ BoxGroup( "Shared Variables" ) ] public PalateToothSet palateTooth_set;
+
     [ BoxGroup( "Setup" ) ] public ToothType tooth_type;
     [ BoxGroup( "Setup" ) ] public ColorSetter tooth_color_setter;
 
@@ -65,11 +67,6 @@ public class Tooth : MonoBehaviour
 				.OnComplete( OnJumpTweenComplete );
 				break;
 			}
-			else
-			{
-				FFLogger.Log( "No Jump found", transform );
-				FFLogger.Log( $"Type:{tooth_data.tooth_type == palateTooth.ToothType} - Filled:{palateTooth.IsEmpty} - Same Color:{palateTooth.Color.CompareColor( color )}", palateTooth );
-			}
 		}
 	}
 
@@ -77,6 +74,9 @@ public class Tooth : MonoBehaviour
 	{
 		tooth_set.RemoveList( this );
 		tooth_pool.ReturnEntity( this );
+
+		if( tooth_set.itemList.Count == 0 )
+			tooth_jump_complete.Raise();
 	}
 #endregion
 
