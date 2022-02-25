@@ -10,11 +10,14 @@ using Sirenix.OdinInspector;
 public class Tooth : MonoBehaviour
 {
 #region Fields
+    [ BoxGroup( "Setup" ) ] public ToothPool tooth_pool;
     [ BoxGroup( "Setup" ) ] public ToothSet tooth_set;
+    [ BoxGroup( "Setup" ) ] public PalateToothSet palateTooth_set;
     [ BoxGroup( "Setup" ) ] public ToothType tooth_type;
     [ BoxGroup( "Setup" ) ] public ColorSetter tooth_color_setter;
 
 	[ ReadOnly, ShowInInspector ] private int tooth_index;
+	[ ReadOnly, ShowInInspector ] private GridToothData tooth_data;
 #endregion
 
 #region Properties
@@ -24,25 +27,57 @@ public class Tooth : MonoBehaviour
 #endregion
 
 #region API
-    public void Spawn( Color color )
+    public void Spawn( GridToothData data )
     {
 		gameObject.SetActive( true );
-		tooth_color_setter.SetColor( color );
+		tooth_color_setter.SetColor( data.tooth_color );
 
+		tooth_data  = data;
 		tooth_index = tooth_set.itemList.Count;
 		tooth_set.AddList( this );
 	}
 
-    public void OnPuzzleSolved()
+    public void OnPuzzleSolved() // Called from Unity Event
     {
-		transform.DOMove( transform.position + Vector3.up * GameSettings.Instance.tooth_levitate_amount,
+		//Info PuzzleSolvedTween
+		transform.DOMove( transform.position + Vector3.up * GameSettings.Instance.tooth_levitate_amount, 
 			GameSettings.Instance.tooth_levitate_duration )
 			.SetDelay( GameSettings.Instance.tooth_levitate_delay )
-			.SetEase( GameSettings.Instance.tooth_levitate_ease );
+			.SetEase( GameSettings.Instance.tooth_levitate_ease )
+			.OnComplete( OnPuzzleSolvedComplete );
 	}
 #endregion
 
 #region Implementation
+	private void OnPuzzleSolvedComplete()
+	{
+		var color = tooth_data.tooth_color;
+
+		foreach( var palateTooth in palateTooth_set.itemList )
+		{
+			if( tooth_data.tooth_type == palateTooth.ToothType && palateTooth.IsEmpty && palateTooth.Color.CompareColor( color ) )
+			{
+				palateTooth.Fill();
+				//Info JumpTween
+				transform.DOJump( palateTooth.transform.position, GameSettings.Instance.tooth_jump_power, 1, GameSettings.Instance.tooth_jump_duration )
+				.SetEase( GameSettings.Instance.tooth_jump_ease )
+				.SetDelay( GameSettings.Instance.tooth_jump_delay * tooth_index )
+				.OnComplete( OnJumpTweenComplete );
+				break;
+			}
+			else
+			{
+				FFLogger.Log( "No Jump found", transform );
+				FFLogger.Log( $"Type:{tooth_data.tooth_type == palateTooth.ToothType} - Filled:{palateTooth.IsEmpty} - Same Color:{palateTooth.Color.CompareColor( color )}", palateTooth );
+			}
+		}
+	}
+
+	private void OnJumpTweenComplete()
+	{
+		tooth_set.RemoveList( this );
+		tooth_pool.ReturnEntity( this );
+	}
 #endregion
 
 #region Editor Only

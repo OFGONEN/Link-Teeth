@@ -45,7 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d56986b769b8b248941afe1c81efa01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tooth_pool: {fileID: 11400000, guid: fd8cacce86331a44184cad5fc7db32e7, type: 2}
   tooth_set: {fileID: 11400000, guid: cd918f2d1ec6f46ada855b712c51e816, type: 2}
+  palateTooth_set: {fileID: 11400000, guid: dd4a0d5e485da4468a69e25abe2ac235, type: 2}
   tooth_type: 3
   tooth_color_setter: {fileID: 3977017405296417103}
 --- !u!114 &6465124264754789338

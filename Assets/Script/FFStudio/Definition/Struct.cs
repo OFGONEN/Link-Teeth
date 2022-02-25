@@ -51,6 +51,7 @@ namespace FFStudio
 	{
 		public int tooth_index;
 		public int tooth_health;
+		public ToothType tooth_type;
 		public Color tooth_color;
 	}
 

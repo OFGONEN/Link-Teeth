@@ -32,6 +32,10 @@ MonoBehaviour:
   tooth_levitate_duration: 0.5
   tooth_levitate_delay: 0.35
   tooth_levitate_ease: 12
+  tooth_jump_duration: 1.2
+  tooth_jump_delay: 0.2
+  tooth_jump_ease: 23
+  tooth_jump_power: 0.4
   tooth_pool_canine: {fileID: 11400000, guid: 8e89686192fb06e4fa4e4cf6f4cc346e, type: 2}
   tooth_pool_molar: {fileID: 11400000, guid: 218679afc1a140e47b510fd29237f89e, type: 2}
   tooth_pool_premolar: {fileID: 11400000, guid: fd8cacce86331a44184cad5fc7db32e7, type: 2}
