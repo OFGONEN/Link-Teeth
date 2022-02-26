@@ -134,7 +134,7 @@ public class Grid : MonoBehaviour
 				);
 
 				slot.transform.localPosition = position_start + offset;
-				slot.Spawn( grid_data.gridToothData[ x, y ], x , y );
+				slot.Spawn( grid_data.gridToothData[ x + ( y * grid_data.GridWidth) ], x , y );
 
 				active_slots.Add( slot );
 			}
