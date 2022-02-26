@@ -20,6 +20,7 @@ public class PalateTooth : MonoBehaviour
 	[ ShowInInspector, ReadOnly ] private PalateToothData tooth_data;
 
 	private Vector3 start_position_local;
+	private GameObject tooth_transparent_child;
 
 	private EventListenerDelegateResponse puzzle_solved_listener = new EventListenerDelegateResponse();
 	private EventListenerDelegateResponse puzzle_fill_listener   = new EventListenerDelegateResponse();
@@ -74,6 +75,17 @@ public class PalateTooth : MonoBehaviour
 		onPuzzleSolvedComplete = ChangeToFillMaterial;
 
 		start_position_local = transform.localPosition;
+
+
+		// Add transparent child
+		tooth_transparent_child = GameObject.Instantiate( GameSettings.Instance.palateTooth_transparent_prefab );
+
+		tooth_transparent_child.transform.SetParent( tooth_renderer.transform );
+		tooth_transparent_child.transform.localPosition    = Vector3.zero;
+		tooth_transparent_child.transform.localEulerAngles = Vector3.zero;
+
+		tooth_transparent_child.GetComponent< MeshFilter >().sharedMesh = tooth_renderer.GetComponent< MeshFilter >().sharedMesh;
+		tooth_transparent_child.SetActive( false );
 	}
 
 	public void Fill()
@@ -115,6 +127,7 @@ public class PalateTooth : MonoBehaviour
 		tooth_setter_fill.SetFillRate( 0 );
 
 		onPuzzleSolvedComplete = ExtensionMethods.EmptyMethod;
+		tooth_transparent_child.SetActive( true );
 	}
 #endregion
 
