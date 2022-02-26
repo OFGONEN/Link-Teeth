@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5795942b9d1234114894cce73df776c5, type: 3}
-  m_Name: grid_data_37
+  m_Name: grid_data_34
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -26,16 +26,124 @@ MonoBehaviour:
       Data: 0|FFStudio.GridToothData[,], Assembly-CSharp
     - Name: 
       Entry: 12
-      Data: 9
+      Data: 16
     - Name: ranks
       Entry: 1
-      Data: 3|3
+      Data: 4|4
     - Name: 
       Entry: 7
       Data: FFStudio.GridToothData, Assembly-CSharp
     - Name: tooth_type
       Entry: 3
       Data: 1
+    - Name: tooth_color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: FFStudio.GridToothData, Assembly-CSharp
+    - Name: tooth_type
+      Entry: 3
+      Data: 0
+    - Name: tooth_color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: FFStudio.GridToothData, Assembly-CSharp
+    - Name: tooth_type
+      Entry: 3
+      Data: 1
+    - Name: tooth_color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: FFStudio.GridToothData, Assembly-CSharp
+    - Name: tooth_type
+      Entry: 3
+      Data: 0
+    - Name: tooth_color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: FFStudio.GridToothData, Assembly-CSharp
+    - Name: tooth_type
+      Entry: 3
+      Data: 3
     - Name: tooth_color
       Entry: 7
       Data: UnityEngine.Color, UnityEngine.CoreModule
@@ -89,7 +197,34 @@ MonoBehaviour:
       Data: FFStudio.GridToothData, Assembly-CSharp
     - Name: tooth_type
       Entry: 3
+      Data: 0
+    - Name: tooth_color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
       Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: FFStudio.GridToothData, Assembly-CSharp
+    - Name: tooth_type
+      Entry: 3
+      Data: 3
     - Name: tooth_color
       Entry: 7
       Data: UnityEngine.Color, UnityEngine.CoreModule
@@ -102,6 +237,33 @@ MonoBehaviour:
     - Name: 
       Entry: 4
       Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: FFStudio.GridToothData, Assembly-CSharp
+    - Name: tooth_type
+      Entry: 3
+      Data: 0
+    - Name: tooth_color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 1
     - Name: 
       Entry: 4
       Data: 1
@@ -179,6 +341,33 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: FFStudio.GridToothData, Assembly-CSharp
+    - Name: tooth_type
+      Entry: 3
+      Data: 2
+    - Name: tooth_color
+      Entry: 7
+      Data: UnityEngine.Color, UnityEngine.CoreModule
+    - Name: 
+      Entry: 4
+      Data: 1
+    - Name: 
+      Entry: 4
       Data: 0
     - Name: 
       Entry: 4
@@ -197,19 +386,19 @@ MonoBehaviour:
       Data: FFStudio.GridToothData, Assembly-CSharp
     - Name: tooth_type
       Entry: 3
-      Data: 3
+      Data: 2
     - Name: tooth_color
       Entry: 7
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
-    - Name: 
-      Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 4
       Data: 1
+    - Name: 
+      Entry: 4
+      Data: 0
     - Name: 
       Entry: 4
       Data: 1
@@ -251,16 +440,16 @@ MonoBehaviour:
       Data: FFStudio.GridToothData, Assembly-CSharp
     - Name: tooth_type
       Entry: 3
-      Data: 3
+      Data: 0
     - Name: tooth_color
       Entry: 7
       Data: UnityEngine.Color, UnityEngine.CoreModule
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 4
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 4
       Data: 1
