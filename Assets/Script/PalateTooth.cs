@@ -19,8 +19,10 @@ public class PalateTooth : MonoBehaviour
 	[ ShowInInspector, ReadOnly ] private int tooth_health_visual;
 	[ ShowInInspector, ReadOnly ] private PalateToothData tooth_data;
 
-	private EventListenerDelegateResponse puzzle_solved_listener = new EventListenerDelegateResponse();
+	private Vector3 start_position_local;
 
+	private EventListenerDelegateResponse puzzle_solved_listener = new EventListenerDelegateResponse();
+	private EventListenerDelegateResponse puzzle_fill_listener   = new EventListenerDelegateResponse();
 #endregion
 
 #region Properties
@@ -34,6 +36,7 @@ public class PalateTooth : MonoBehaviour
 	{
 		tooth_set.RemoveList( this );
 		puzzle_solved_listener.OnDisable();
+		puzzle_fill_listener.OnDisable();
 	}
 #endregion
 
@@ -55,10 +58,18 @@ public class PalateTooth : MonoBehaviour
 
 		tooth_set.AddList( this );
 
+		// Puzzle solved
 		puzzle_solved_listener.gameEvent = GameSettings.Instance.puzzle_solved_event;
 		puzzle_solved_listener.response  = PuzzleSolvedResponse;
-
 		puzzle_solved_listener.OnEnable();
+
+		// Palate tooth fill is done
+		puzzle_fill_listener.gameEvent = GameSettings.Instance.puzzle_fill_event;
+		puzzle_fill_listener.response  = PuzzleFilledResponse;
+		puzzle_fill_listener.OnEnable();
+
+
+		start_position_local = transform.localPosition;
 	}
 
 	public void Fill()
@@ -80,6 +91,11 @@ public class PalateTooth : MonoBehaviour
 		transform.DOMoveY( GameSettings.Instance.palateTooth_levitate_position, GameSettings.Instance.palateTooth_levitate_duration )
 			.SetEase( GameSettings.Instance.palateTooth_levitate_ease )
 			.OnComplete( OnPuzzleSolvedComplete );
+	}
+	private void PuzzleFilledResponse()
+	{
+		FFLogger.Log( "Puzzle Fill Response" );
+		transform.DOLocalMove( start_position_local, GameSettings.Instance.palateTooth_levitate_duration );
 	}
 
 	private void OnPuzzleSolvedComplete()

@@ -65,6 +65,7 @@ namespace FFStudio
 		[ BoxGroup( "Line" ) ] public float line_width;
 
 		[ BoxGroup( "Puzzle" ) ] public GameEvent puzzle_solved_event;
+		[ BoxGroup( "Puzzle" ) ] public GameEvent puzzle_fill_event;
 
         [ BoxGroup( "Material" ) ] public Material material_flashing;
         [ BoxGroup( "Material" ) ] public Material material_filling;
