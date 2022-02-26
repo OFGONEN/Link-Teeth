@@ -57,7 +57,7 @@ public class PalateTooth : MonoBehaviour
 
 		tooth_renderer.sharedMaterial = GameSettings.Instance.material_flashing;
 		tooth_setter_color.SetColor( data.tooth_color );
-		tooth_setter_fill.SetupFillRange( GameSettings.Instance.tooth_fill_value_min, GameSettings.Instance.tooth_fill_value_max );
+		tooth_setter_fill.SetupFillRange( GameSettings.Instance.tooth_fill_value_min, GameSettings.Instance.tooth_fill_value_max, data.tooth_color );
 
 		tooth_set.AddList( this );
 
