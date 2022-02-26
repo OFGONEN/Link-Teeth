@@ -23,6 +23,9 @@ public class PalateTooth : MonoBehaviour
 
 	private EventListenerDelegateResponse puzzle_solved_listener = new EventListenerDelegateResponse();
 	private EventListenerDelegateResponse puzzle_fill_listener   = new EventListenerDelegateResponse();
+
+	// Delegates
+	private UnityMessage onPuzzleSolvedComplete;
 #endregion
 
 #region Properties
@@ -68,6 +71,7 @@ public class PalateTooth : MonoBehaviour
 		puzzle_fill_listener.response  = PuzzleFilledResponse;
 		puzzle_fill_listener.OnEnable();
 
+		onPuzzleSolvedComplete = ChangeToFillMaterial;
 
 		start_position_local = transform.localPosition;
 	}
@@ -100,10 +104,17 @@ public class PalateTooth : MonoBehaviour
 
 	private void OnPuzzleSolvedComplete()
 	{
+		onPuzzleSolvedComplete();
+	}
+
+	private void ChangeToFillMaterial()
+	{
 		tooth_setter_color.SetFinalColor();
 
 		tooth_renderer.sharedMaterial = GameSettings.Instance.material_filling;
 		tooth_setter_fill.SetFillRate( 0 );
+
+		onPuzzleSolvedComplete = ExtensionMethods.EmptyMethod;
 	}
 #endregion
 
