@@ -13,8 +13,8 @@ public class GridData : SerializedScriptableObject
 {
 	[ TitleGroup( "Data"), TableMatrix( DrawElementMethod = "DrawElement" ) ] public GridToothData[,] gridToothData;
 
-	public float GridWidth => gridToothData.GetLength( 0 );
-	public float GridHeight => gridToothData.GetLength( 1 );
+	public int GridWidth => gridToothData.GetLength( 0 );
+	public int GridHeight => gridToothData.GetLength( 1 );
 
 #if UNITY_EDITOR
 	// static GridToothData DrawElement( Rect rect, GridToothData data )
