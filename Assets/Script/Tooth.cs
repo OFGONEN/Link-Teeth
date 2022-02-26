@@ -19,6 +19,7 @@ public class Tooth : MonoBehaviour
     [ BoxGroup( "Setup" ) ] public ColorSetter tooth_color_setter;
 
 	[ ReadOnly, ShowInInspector ] private int tooth_index;
+	[ ReadOnly, ShowInInspector ] private PalateTooth target_palateTooth;
 	[ ReadOnly, ShowInInspector ] private GridToothData tooth_data;
 #endregion
 
@@ -59,6 +60,7 @@ public class Tooth : MonoBehaviour
 		{
 			if( tooth_data.tooth_type == palateTooth.ToothType && palateTooth.IsEmpty && palateTooth.Color.CompareColor( color ) )
 			{
+				target_palateTooth = palateTooth;
 				palateTooth.Fill();
 				//Info JumpTween
 				transform.DOJump( palateTooth.transform.position, GameSettings.Instance.tooth_jump_power, 1, GameSettings.Instance.tooth_jump_duration )
@@ -74,6 +76,7 @@ public class Tooth : MonoBehaviour
 	{
 		tooth_set.RemoveList( this );
 		tooth_pool.ReturnEntity( this );
+		target_palateTooth.Fill_Visual();
 
 		if( tooth_set.itemList.Count == 0 )
 			tooth_jump_complete.Raise();

@@ -16,6 +16,7 @@ public class PalateTooth : MonoBehaviour
     [ ShowInInspector, ReadOnly ] private ColorSetter_Update tooth_setter_color;
     [ ShowInInspector, ReadOnly ] private FillSetter tooth_setter_fill;
 	[ ShowInInspector, ReadOnly ] private int tooth_health;
+	[ ShowInInspector, ReadOnly ] private int tooth_health_visual;
 	[ ShowInInspector, ReadOnly ] private PalateToothData tooth_data;
 
 	private EventListenerDelegateResponse puzzle_solved_listener = new EventListenerDelegateResponse();
@@ -39,9 +40,10 @@ public class PalateTooth : MonoBehaviour
 #region API
     public void Spawn( PalateToothSet set, PalateToothData data )
     {
-		tooth_set    = set;
-		tooth_data   = data;
-		tooth_health = 0;
+		tooth_set           = set;
+		tooth_data          = data;
+		tooth_health        = 0;
+		tooth_health_visual = 0;
 
 		tooth_renderer     = GetComponent< Renderer >();
 		tooth_setter_color = gameObject.AddComponent< ColorSetter_Update >();
@@ -62,9 +64,13 @@ public class PalateTooth : MonoBehaviour
 	public void Fill()
 	{
 		tooth_health++;
+	}
 
+	public void Fill_Visual()
+	{
+		tooth_health_visual++;
 		var tooth_health_max = tooth_data.tooth_health;
-		tooth_setter_fill.SetFillRate( Mathf.Min( tooth_health, tooth_health_max ) / ( float )tooth_health_max );
+		tooth_setter_fill.SetFillRate( Mathf.Min( tooth_health_visual, tooth_health_max ) / ( float )tooth_health_max );
 	}
 #endregion
 
