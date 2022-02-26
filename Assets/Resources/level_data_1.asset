@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneIndex: 1
   overrideAsActiveScene: 0
-  grid_data_array: []
+  grid_data_array:
+  - {fileID: 11400000, guid: a80bfefd640ae49c3b903810937bb384, type: 2}
   palate_data_upper: {fileID: 11400000, guid: 5d728b67caed54ab7829abd648b784d0, type: 2}
   palate_data_lower: {fileID: 11400000, guid: 1472a5ea08fea4ff48fe4265e904496e, type: 2}
   grid_data_index: 0

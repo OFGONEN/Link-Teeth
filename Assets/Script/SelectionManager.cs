@@ -181,13 +181,21 @@ public class SelectionManager : ScriptableObject
 
     private void CheckIfPuzzleSolved()
     {
-		int count = 0;
+		bool puzzleSolved = true;
 
 		for( var i = 0; i < slot_tooth_list.Count; i++ )
-			if( slot_tooth_list[ i ].IsToothConnected() )
-				count++;
+		{
+			var slot = slot_tooth_list[ i ];
+			var solved = slot.IsToothConnected() || slot.IsToothPaired();
 
-		if( count == slot_tooth_list.Count - 1 )
+			if( !solved )
+			{
+				puzzleSolved = false;
+				break;
+			}
+		}
+
+		if( puzzleSolved )
         {
             FFLogger.Log( "Puzzle Solved" );
 			NullSelectionMethod();

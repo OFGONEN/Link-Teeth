@@ -195,6 +195,19 @@ public class Slot : MonoBehaviour
 			return false;
 	}
 
+	public bool IsToothPaired()
+	{
+		if( slot_paired )
+		{
+			if( slot_paired.ToothType != ToothType.None )
+				return true;
+			else
+				return slot_paired.IsToothPaired();
+		}
+		else
+			return false;
+	}
+
 	public Slot FindPairedTooth()
 	{
 		if( ToothType != ToothType.None )
