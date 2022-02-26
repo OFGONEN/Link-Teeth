@@ -25,6 +25,18 @@ public class GridData : SerializedScriptableObject
 	// 	return data;
 	// }
 
+	[ Button() ]
+	private void LogGridToothData()
+	{
+		for( var x = 0; x < GridWidth; x++ )
+		{
+			for( var y = 0; y < GridHeight; y++ )
+			{
+				FFLogger.Log( $"Data({x},{y})- Color:{gridToothData[ x, y ].tooth_color} - Type:{gridToothData[ x, y ].tooth_type.ToString()}" );
+			}
+		}
+	}
+
 
 	private void OnValidate()
 	{
