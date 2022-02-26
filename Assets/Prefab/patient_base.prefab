@@ -117,7 +117,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eventPairs:
   - eventListener:
-      gameEvent: {fileID: 11400000, guid: efef06bf257ee27438d6c2aab4936226, type: 2}
+      gameEvent: {fileID: 11400000, guid: be5502ede7f194b4cad32082aa9196eb, type: 2}
     unityEvent:
       m_PersistentCalls:
         m_Calls:
