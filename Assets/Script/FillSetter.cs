@@ -12,6 +12,7 @@ public class FillSetter : MonoBehaviour
 
 #region Fields (Private)
     private static int SHADER_ID_FILLAMOUNT = Shader.PropertyToID( "_FillAmount" );
+	private static int SHADER_ID_TOP_COLOR  = Shader.PropertyToID( "_TopColor" );
 
     private Renderer renderer_;
     private MaterialPropertyBlock propertyBlock;
@@ -30,10 +31,15 @@ public class FillSetter : MonoBehaviour
 #endregion
 
 #region API
-	public void SetupFillRange( float min, float max ) //todo: Set up top and tilt color from proprtyBlock
+	[ Button() ]
+	public void SetupFillRange( float min, float max, Color color )
 	{
 		minimumFillValue = min;
 		maximumFillValue = max;
+
+		renderer_.GetPropertyBlock( propertyBlock );
+		propertyBlock.SetColor( SHADER_ID_TOP_COLOR, color );
+		renderer_.SetPropertyBlock( propertyBlock );
 	}
 
     public void SetFillRate( float fillRate_Normalized )
@@ -53,6 +59,16 @@ public class FillSetter : MonoBehaviour
 
 #region Editor Only
 #if UNITY_EDITOR
+	[ ShowInInspector, Range( 0, 1 ) ] private float fillRate_test;
+
+	private void OnValidate()
+	{
+		renderer_ = GetComponent< Renderer >();
+
+		propertyBlock = new MaterialPropertyBlock();
+
+		SetFillRate( fillRate_test );
+	}
 #endif
 #endregion
 }
