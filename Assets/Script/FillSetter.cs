@@ -12,7 +12,8 @@ public class FillSetter : MonoBehaviour
 
 #region Fields (Private)
     private static int SHADER_ID_FILLAMOUNT = Shader.PropertyToID( "_FillAmount" );
-	private static int SHADER_ID_TOP_COLOR  = Shader.PropertyToID( "_TopColor" );
+	private static int SHADER_ID_TOP_COLOR  = Shader.PropertyToID( "_TintColor" );
+	private static int SHADER_ID_TINT_COLOR = Shader.PropertyToID( "_TopColor" );
 
     private Renderer renderer_;
     private MaterialPropertyBlock propertyBlock;
@@ -38,6 +39,7 @@ public class FillSetter : MonoBehaviour
 		maximumFillValue = max;
 
 		renderer_.GetPropertyBlock( propertyBlock );
+		propertyBlock.SetColor( SHADER_ID_TINT_COLOR, color );
 		propertyBlock.SetColor( SHADER_ID_TOP_COLOR, color );
 		renderer_.SetPropertyBlock( propertyBlock );
 	}
