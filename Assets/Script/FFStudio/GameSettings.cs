@@ -62,6 +62,9 @@ namespace FFStudio
 		[ BoxGroup( "Grid" ) ] public Color grid_default_color;
 		[ BoxGroup( "Grid" ) ] public float grid_plane_alpha;
 		[ BoxGroup( "Grid" ) ] public float grid_line_height;
+		[ BoxGroup( "Grid" ) ] public float grid_spawn_distance;
+		[ BoxGroup( "Grid" ) ] public float grid_spawn_duration;
+		[ BoxGroup( "Grid" ) ] public Ease grid_spawn_ease;
 
 		[ BoxGroup( "Line" ) ] public float line_width;
 

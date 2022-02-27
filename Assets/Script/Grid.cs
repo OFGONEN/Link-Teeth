@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FFStudio;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 
 public class Grid : MonoBehaviour
@@ -19,6 +20,8 @@ public class Grid : MonoBehaviour
 
     private List< Transform > active_separators = new List< Transform >( 16 );
     private List< Slot > active_slots = new List< Slot >( 20 );
+
+	private Vector3 position_start;
 #endregion
 
 #region Properties
@@ -34,7 +37,9 @@ public class Grid : MonoBehaviour
 	private void Awake()
 	{
 		puzzle_fill_complete_listener.response  = PuzzleFilledCompleteListener;
-		palate_movement_table_listener.response = manager_selection.ResetSelectionMethods;
+		palate_movement_table_listener.response = PalateMovementEndListener;
+
+		position_start = transform.position;
 	}
 
 	private void OnDisable()
@@ -46,7 +51,6 @@ public class Grid : MonoBehaviour
     private void Start()
     {
 		tooth_set.ClearSet();
-		Place_Puzzle( 0 );
 	}
 #endregion
 
@@ -56,10 +60,15 @@ public class Grid : MonoBehaviour
 #region Implementation
 	private void Place_Puzzle( int index )
 	{
+		transform.position = transform.position + transform.right * GameSettings.Instance.grid_spawn_distance;
+
 		CurrentLevelData.Instance.levelData.grid_data_index = index;
 
 		Place_Separators( index );
 		Place_Slots( index );
+
+		transform.DOMove( position_start, GameSettings.Instance.grid_spawn_duration )
+			.SetEase( GameSettings.Instance.grid_spawn_ease );
 	}
 
     private void Place_Separators( int index )
@@ -175,6 +184,14 @@ public class Grid : MonoBehaviour
 		}
 		else
 			FFLogger.Log( "No puzzle left!Q" );
+	}
+
+	private void PalateMovementEndListener()
+	{
+		manager_selection.ResetSelectionMethods();
+		Place_Puzzle( 0 );
+
+		palate_movement_table_listener.response = ExtensionMethods.EmptyMethod;
 	}
 #endregion
 
