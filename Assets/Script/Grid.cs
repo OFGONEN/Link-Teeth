@@ -15,6 +15,7 @@ public class Grid : MonoBehaviour
     [ BoxGroup( "Setup" ) ] public TransformPool pool_separator;
     [ BoxGroup( "Setup" ) ] public SlotPool pool_slot;
     [ BoxGroup( "Setup" ) ] public ToothSet tooth_set;
+    [ BoxGroup( "Setup" ) ] public SharedFloatNotifier level_progress;
 
     private List< Transform > active_separators = new List< Transform >( 16 );
     private List< Slot > active_slots = new List< Slot >( 20 );
@@ -163,6 +164,8 @@ public class Grid : MonoBehaviour
 		ReturnAllSlots();
 
 		var level_data = CurrentLevelData.Instance.levelData;
+
+		level_progress.SharedValue = ( level_data.grid_data_index + 1 ) / ( float ) level_data.grid_data_array.Length;
 
 		if( level_data.grid_data_index + 1 < level_data.grid_data_array.Length )
 		{
