@@ -9,6 +9,39 @@ EditorBuildSettings:
     path: Assets/Scenes/app.unity
     guid: ad0d37aebbbd4c54396618f1c151ebb7
   - enabled: 1
-    path: Assets/Test/test_physics_scene_template.unity
-    guid: f6d6d1cc999fec74c83da6a285824402
+    path: Assets/Scenes/game_house_1_patient_1.unity
+    guid: 2ef87304a7ae440c9806b3d46a064ada
+  - enabled: 1
+    path: Assets/Scenes/game_house_1_patient_2.unity
+    guid: ea20f4ee394fe49878ebce35c2c74a8c
+  - enabled: 1
+    path: Assets/Scenes/game_house_1_patient_3.unity
+    guid: 78086fe843f2f4c78b6645ba8a0dbb6e
+  - enabled: 1
+    path: Assets/Scenes/game_house_1_patient_4.unity
+    guid: bf10bdf4d60ca43a7b8abfca755d35a4
+  - enabled: 1
+    path: Assets/Scenes/game_house_2_patient_1.unity
+    guid: 7e928e7d055ed499aa32b76d89dfb075
+  - enabled: 1
+    path: Assets/Scenes/game_house_2_patient_2.unity
+    guid: 99ae017a3bf4b499d89ccb130996cb4c
+  - enabled: 1
+    path: Assets/Scenes/game_house_2_patient_3.unity
+    guid: f3b41976f5c3e4f1496aed9f0fa11268
+  - enabled: 1
+    path: Assets/Scenes/game_house_2_patient_4.unity
+    guid: b9a8e5319439646bf9c14bf70776c593
+  - enabled: 1
+    path: Assets/Scenes/game_house_3_patient_1.unity
+    guid: 617c5ba28e7df4c4aa46460d0b391a76
+  - enabled: 1
+    path: Assets/Scenes/game_house_3_patient_2.unity
+    guid: de737c410a58f43bfb5fd9888f58cbd5
+  - enabled: 1
+    path: Assets/Scenes/game_house_3_patient_3.unity
+    guid: 29d4240e030da4c5fbf87cec2658d86b
+  - enabled: 1
+    path: Assets/Scenes/game_house_3_patient_4.unity
+    guid: aa68d4a93e6d74d9b99202e18a730246
   m_configObjects: {}
