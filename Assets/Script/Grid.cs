@@ -60,7 +60,7 @@ public class Grid : MonoBehaviour
 #region Implementation
 	private void Place_Puzzle( int index )
 	{
-		transform.position = transform.position + transform.right * GameSettings.Instance.grid_spawn_distance;
+		transform.position = position_start + transform.right * GameSettings.Instance.grid_spawn_distance;
 
 		CurrentLevelData.Instance.levelData.grid_data_index = index;
 
@@ -68,7 +68,8 @@ public class Grid : MonoBehaviour
 		Place_Slots( index );
 
 		transform.DOMove( position_start, GameSettings.Instance.grid_spawn_duration )
-			.SetEase( GameSettings.Instance.grid_spawn_ease );
+			.SetEase( GameSettings.Instance.grid_spawn_ease )
+			.OnComplete( manager_selection.ResetSelectionMethods );
 	}
 
     private void Place_Separators( int index )
@@ -169,8 +170,6 @@ public class Grid : MonoBehaviour
 
 	private void PuzzleFilledCompleteListener()
 	{
-		ReturnAllSeparators();
-		ReturnAllSlots();
 
 		var level_data = CurrentLevelData.Instance.levelData;
 
@@ -179,10 +178,13 @@ public class Grid : MonoBehaviour
 		if( level_data.grid_data_index + 1 < level_data.grid_data_array.Length )
 		{
 			FFLogger.Log( "New Puzzle" );
-			Place_Puzzle( level_data.grid_data_index + 1 );
-			manager_selection.ResetSelectionMethods();
+			manager_selection.NullSelectionMethod();
+
+			transform.DOMove( transform.position + transform.right * -1f * GameSettings.Instance.grid_spawn_distance,
+				GameSettings.Instance.grid_spawn_duration )
+				.OnComplete( PlaceNextPuzzle );
 		}
-		else
+		else //TODO: After all puzzled are solved, contiune sequence
 			FFLogger.Log( "No puzzle left!Q" );
 	}
 
@@ -192,6 +194,14 @@ public class Grid : MonoBehaviour
 		Place_Puzzle( 0 );
 
 		palate_movement_table_listener.response = ExtensionMethods.EmptyMethod;
+	}
+
+	private void PlaceNextPuzzle()
+	{
+		ReturnAllSeparators();
+		ReturnAllSlots();
+
+		Place_Puzzle( CurrentLevelData.Instance.levelData.grid_data_index + 1 );
 	}
 #endregion
 
