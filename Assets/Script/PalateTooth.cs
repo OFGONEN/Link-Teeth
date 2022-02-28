@@ -85,14 +85,14 @@ public class PalateTooth : MonoBehaviour
 
 
 		// Add transparent child
-		// tooth_transparent_child = GameObject.Instantiate( GameSettings.Instance.palateTooth_transparent_prefab );
+		tooth_transparent_child = GameObject.Instantiate( GameSettings.Instance.palateTooth_transparent_prefab );
 
-		// tooth_transparent_child.transform.SetParent( tooth_renderer.transform );
-		// tooth_transparent_child.transform.localPosition    = Vector3.zero;
-		// tooth_transparent_child.transform.localEulerAngles = Vector3.zero;
+		tooth_transparent_child.transform.SetParent( tooth_renderer.transform );
+		tooth_transparent_child.transform.localPosition    = Vector3.zero;
+		tooth_transparent_child.transform.localEulerAngles = Vector3.zero;
 
-		// tooth_transparent_child.GetComponent< MeshFilter >().sharedMesh = tooth_renderer.GetComponent< MeshFilter >().sharedMesh;
-		// tooth_transparent_child.SetActive( false );
+		tooth_transparent_child.GetComponent< MeshFilter >().sharedMesh = tooth_renderer.GetComponent< MeshFilter >().sharedMesh;
+		tooth_transparent_child.SetActive( false );
 	}
 
 	public void Fill()
@@ -134,11 +134,12 @@ public class PalateTooth : MonoBehaviour
 		tooth_setter_fill.SetFillRate( 0 );
 
 		onPuzzleSolvedComplete = ExtensionMethods.EmptyMethod;
-		// tooth_transparent_child.SetActive( true );
+		tooth_transparent_child.SetActive( true );
 	}
 
 	private void ChangeToSmoothMaterial()
 	{
+		tooth_transparent_child.SetActive( false );
 		tooth_renderer.sharedMaterial = GameSettings.Instance.material_smooth;
 		tooth_setter_color.SetFinalColor();
 	}
