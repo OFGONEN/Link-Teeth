@@ -10,7 +10,9 @@ using Sirenix.OdinInspector;
 public class Tooth : MonoBehaviour
 {
 #region Fields
-    [ BoxGroup( "Shared Variables" ) ] public GameEvent tooth_jump_complete;
+    [ BoxGroup( "Fired Events" ) ] public GameEvent tooth_jump_complete;
+    [ BoxGroup( "Fired Events" ) ] public GameEvent tooth_spawn_complete;
+
     [ BoxGroup( "Shared Variables" ) ] public ToothPool tooth_pool;
     [ BoxGroup( "Shared Variables" ) ] public ToothSet tooth_set;
     [ BoxGroup( "Shared Variables" ) ] public PalateToothSet palateTooth_set;
@@ -94,7 +96,8 @@ public class Tooth : MonoBehaviour
 	private void OnSpawnComplete()
 	{
 		if( tooth_index == tooth_set.itemList.Count - 1 )
-			manager_selection.ResetSelectionMethods();
+			tooth_spawn_complete.Raise();
+			// manager_selection.ResetSelectionMethods();
 	}
 #endregion
 

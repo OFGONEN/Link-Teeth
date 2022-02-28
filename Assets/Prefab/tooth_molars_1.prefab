@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tooth_jump_complete: {fileID: 11400000, guid: 1d38b70f5cb9b4a298fb857feb32a86f, type: 2}
+  tooth_spawn_complete: {fileID: 11400000, guid: fe3694158ce7849d590a8d29c06c1bec, type: 2}
   tooth_pool: {fileID: 11400000, guid: 218679afc1a140e47b510fd29237f89e, type: 2}
   tooth_set: {fileID: 11400000, guid: cd918f2d1ec6f46ada855b712c51e816, type: 2}
   palateTooth_set: {fileID: 11400000, guid: dd4a0d5e485da4468a69e25abe2ac235, type: 2}
