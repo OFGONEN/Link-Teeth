@@ -82,6 +82,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a685b2b6ae3ba47489c681c43b119939, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 905737217477e29428825f1ea06de131, type: 2}
     - target: {fileID: 919132149155446097, guid: a685b2b6ae3ba47489c681c43b119939, type: 3}
       propertyPath: m_Name
       value: prop_canine_teeth
