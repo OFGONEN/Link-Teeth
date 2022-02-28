@@ -13,6 +13,8 @@ public class CameraTween : MonoBehaviour
 #region Fields
     [ SerializeField ] private SharedReferenceNotifier camera_reference;
     [ SerializeField ] private CameraTweenData[] cameraTweenData_array;
+
+	private int lastIndex = -1;
 #endregion
 
 #region Properties
@@ -24,20 +26,22 @@ public class CameraTween : MonoBehaviour
 #region API
     public void PlayCameraTween( int index )
     {
-		var camera = camera_reference.SharedValue as Transform;
+		if( index == lastIndex ) return;
 
-		var data = cameraTweenData_array[ index ];
+		lastIndex = index;
+
+		var camera = camera_reference.SharedValue as Transform;
+		var data   = cameraTweenData_array[ index ];
 
 		var sequence = DOTween.Sequence();
 
-		if( data.tween_complete_event )
-			sequence.OnComplete( data.tween_complete_event.Raise );
-        
         if( data.does_tween_position )
 			sequence.Join( camera.DOMove( data.target.position, data.duration ).SetEase( data.ease_position ) );
 
         if( data.does_tween_rotation )
 			sequence.Join( camera.DORotate( data.target.eulerAngles, data.duration ).SetEase( data.ease_rotation ) );
+
+		sequence.OnComplete( data.tween_complete_event.Invoke );
 	}
 #endregion
 

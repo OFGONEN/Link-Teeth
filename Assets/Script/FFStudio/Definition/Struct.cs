@@ -72,6 +72,6 @@ namespace FFStudio
 		public bool does_tween_rotation;
 		[ ShowIf( "does_tween_position" ) ] public Ease ease_position;
 		[ ShowIf( "does_tween_rotation" ) ] public Ease ease_rotation;
-		public GameEvent tween_complete_event;
+		public UnityEvent tween_complete_event;
 	}
 }
