@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FFStudio;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 
 [ CreateAssetMenu( fileName = "manager_selection", menuName = "FF/Manager/Selection" ) ]
@@ -206,7 +207,9 @@ public class SelectionManager : ScriptableObject
         {
             FFLogger.Log( "Puzzle Solved" );
 			NullSelectionMethod();
-			puzzle_solved_event.Raise();
+
+			DOVirtual.DelayedCall( GameSettings.Instance.line_disappear_delay, puzzle_solved_event.Raise );
+			// puzzle_solved_event.Raise();
 		}
 	}
 #endregion
