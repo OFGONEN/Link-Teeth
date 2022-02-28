@@ -26,7 +26,13 @@ public class CameraTween : MonoBehaviour
 #region API
     public void PlayCameraTween( int index )
     {
-		if( index == lastIndex ) return;
+		if( index == lastIndex ) 
+		{
+			if( cameraTweenData_array[ index ].always_invoke_complete_event )
+				cameraTweenData_array[ index ].tween_complete_event.Invoke();
+
+			return;
+		}
 
 		lastIndex = index;
 

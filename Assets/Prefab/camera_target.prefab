@@ -54,6 +54,7 @@ MonoBehaviour:
     does_tween_rotation: 1
     ease_position: 1
     ease_rotation: 1
+    always_invoke_complete_event: 1
     tween_complete_event:
       m_PersistentCalls:
         m_Calls:
@@ -75,6 +76,7 @@ MonoBehaviour:
     does_tween_rotation: 1
     ease_position: 1
     ease_rotation: 1
+    always_invoke_complete_event: 0
     tween_complete_event:
       m_PersistentCalls:
         m_Calls:
