@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4684278216112045699
 Transform:
@@ -45,4 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnParticleListener:
     gameEvent: {fileID: 11400000, guid: fe240f220ab36cc44923227184f9c2a7, type: 2}
-  particleEffectPools: []
+  particleEffectPools:
+  - {fileID: 11400000, guid: 29c1aeb461c425a428e54013ae358c2f, type: 2}
+  - {fileID: 11400000, guid: 10306d77581e95b48b25f230c9c09d79, type: 2}
+  - {fileID: 11400000, guid: 48ba7e4665f31ba479bfb2a224154ae0, type: 2}
