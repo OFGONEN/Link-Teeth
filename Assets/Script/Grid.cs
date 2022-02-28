@@ -69,7 +69,8 @@ public class Grid : MonoBehaviour
 
 		transform.DOMove( position_start, GameSettings.Instance.grid_spawn_duration )
 			.SetEase( GameSettings.Instance.grid_spawn_ease )
-			.OnComplete( manager_selection.ResetSelectionMethods );
+			// .OnComplete( manager_selection.ResetSelectionMethods );
+			.OnComplete( OnPuzzlePlace );
 	}
 
     private void Place_Separators( int index )
@@ -202,6 +203,12 @@ public class Grid : MonoBehaviour
 		ReturnAllSlots();
 
 		Place_Puzzle( CurrentLevelData.Instance.levelData.grid_data_index + 1 );
+	}
+
+	private void OnPuzzlePlace()
+	{
+		for( var i = 0; i < active_slots.Count; i++ )
+			active_slots[ i ].SpawnTooth();
 	}
 #endregion
 
