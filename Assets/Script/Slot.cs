@@ -14,7 +14,7 @@ public class Slot : MonoBehaviour
     [ BoxGroup( "Shared" ) ] public LinePool pool_line;
     [ BoxGroup( "Shared" ) ] public SlotPool pool_slot;
 
-    [ BoxGroup( "Setup" ) ] public ColorSetter tooth_selection_plane;
+    [ BoxGroup( "Setup" ) ] public Shapes.Rectangle tooth_selection_plane;
     [ BoxGroup( "Setup" ) ] public BoxCollider tooth_selection_collider;
 
     // Private \\
@@ -97,7 +97,7 @@ public class Slot : MonoBehaviour
 		//! Cannot connect to a tooth that is connected to this!
 		if( FindPairedTooth() == slot.FindConnectedTooth() ) return;
 
-		tooth_selection_plane.SetColor( slot_color.SetAlpha( GameSettings.Instance.grid_plane_alpha ) );
+		tooth_selection_plane.Color = slot_color.SetAlpha( GameSettings.Instance.grid_plane_alpha );
 		slot_occupied = true;
 
 		slot_connected = slot;
@@ -115,7 +115,7 @@ public class Slot : MonoBehaviour
 	{
 		var color = slot.SlotColor;
 
-		tooth_selection_plane.SetColor( color.SetAlpha( GameSettings.Instance.grid_plane_alpha ) );
+		tooth_selection_plane.Color = color.SetAlpha( GameSettings.Instance.grid_plane_alpha );
 
 		if( tooth_data.tooth_type == ToothType.None )
 		{
@@ -145,7 +145,7 @@ public class Slot : MonoBehaviour
 	{
 		if( ToothType != ToothType.None && SetNewPair() ) return;
 
-		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
+		tooth_selection_plane.Color = GameSettings.Instance.grid_default_color;
 
 		if( ToothType == ToothType.None )
 			ClearNoneType();
@@ -172,7 +172,7 @@ public class Slot : MonoBehaviour
 
 		if( !slot_paired )
 		{
-			tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
+			tooth_selection_plane.Color = GameSettings.Instance.grid_default_color;
 
 			if( ToothType == ToothType.None )
 				ClearNoneType();
@@ -262,7 +262,7 @@ public class Slot : MonoBehaviour
 		slot_occupied = true;
 		slot_color    = tooth_data.tooth_color;
 
-		tooth_selection_plane.SetColor( slot_color.SetAlpha( GameSettings.Instance.grid_plane_alpha ) );
+		tooth_selection_plane.Color = slot_color.SetAlpha( GameSettings.Instance.grid_plane_alpha );
 		manager_selection.slot_tooth_list.Add( this );
 	}
 
@@ -271,7 +271,7 @@ public class Slot : MonoBehaviour
 		slot_occupied  = false;
 		slot_color     = GameSettings.Instance.grid_default_color;
 
-		tooth_selection_plane.SetColor( GameSettings.Instance.grid_default_color );
+		tooth_selection_plane.Color = GameSettings.Instance.grid_default_color;
 	}
 
 	private void ClearNoneType()
