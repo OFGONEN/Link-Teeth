@@ -78,9 +78,11 @@ namespace FFStudio
 
 		[ BoxGroup( "Puzzle" ) ] public GameEvent puzzle_solved_event;
 		[ BoxGroup( "Puzzle" ) ] public GameEvent puzzle_fill_event;
+		[ BoxGroup( "Puzzle" ) ] public GameEvent puzzle_complete_event;
 
         [ BoxGroup( "Material" ) ] public Material material_flashing;
         [ BoxGroup( "Material" ) ] public Material material_filling;
+        [ BoxGroup( "Material" ) ] public Material material_smooth;
 
         [ BoxGroup( "Debug" ) ] public float debug_ui_text_float_height;
         [ BoxGroup( "Debug" ) ] public float debug_ui_text_float_duration;

@@ -22,8 +22,9 @@ public class PalateTooth : MonoBehaviour
 	private Vector3 start_position_local;
 	private GameObject tooth_transparent_child;
 
-	private EventListenerDelegateResponse puzzle_solved_listener = new EventListenerDelegateResponse();
-	private EventListenerDelegateResponse puzzle_fill_listener   = new EventListenerDelegateResponse();
+	private EventListenerDelegateResponse puzzle_solved_listener   = new EventListenerDelegateResponse();
+	private EventListenerDelegateResponse puzzle_fill_listener     = new EventListenerDelegateResponse();
+	private EventListenerDelegateResponse puzzle_complete_listener = new EventListenerDelegateResponse();
 
 	// Delegates
 	private UnityMessage onPuzzleSolvedComplete;
@@ -41,6 +42,7 @@ public class PalateTooth : MonoBehaviour
 		tooth_set.RemoveList( this );
 		puzzle_solved_listener.OnDisable();
 		puzzle_fill_listener.OnDisable();
+		puzzle_complete_listener.OnDisable();
 	}
 #endregion
 
@@ -71,6 +73,11 @@ public class PalateTooth : MonoBehaviour
 		puzzle_fill_listener.gameEvent = GameSettings.Instance.puzzle_fill_event;
 		puzzle_fill_listener.response  = PuzzleFilledResponse;
 		puzzle_fill_listener.OnEnable();
+
+		// Palate tooth fill is done
+		puzzle_complete_listener.gameEvent = GameSettings.Instance.puzzle_fill_event;
+		puzzle_complete_listener.response  = ChangeToSmoothMaterial;
+		puzzle_complete_listener.OnEnable();
 
 		onPuzzleSolvedComplete = ChangeToFillMaterial;
 
@@ -128,6 +135,12 @@ public class PalateTooth : MonoBehaviour
 
 		onPuzzleSolvedComplete = ExtensionMethods.EmptyMethod;
 		// tooth_transparent_child.SetActive( true );
+	}
+
+	private void ChangeToSmoothMaterial()
+	{
+		tooth_renderer.sharedMaterial = GameSettings.Instance.material_smooth;
+		tooth_setter_color.SetFinalColor();
 	}
 #endregion
 
