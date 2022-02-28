@@ -45,6 +45,11 @@ namespace FFStudio
 		[ BoxGroup( "Tooth" ) ] public float tooth_jump_delay;
 		[ BoxGroup( "Tooth" ) ] public Ease tooth_jump_ease;
 		[ BoxGroup( "Tooth" ) ] public float tooth_jump_power;
+		[ BoxGroup( "Tooth" ) ] public float tooth_spawn_length;
+		[ BoxGroup( "Tooth" ) ] public float tooth_spawn_delay;
+		[ BoxGroup( "Tooth" ) ] public float tooth_spawn_duration;
+		[ BoxGroup( "Tooth" ) ] public Ease tooth_spawn_ease;
+
 
 		[ BoxGroup( "Tooth" ) ] public ToothPool tooth_pool_canine;
 		[ BoxGroup( "Tooth" ) ] public ToothPool tooth_pool_molar;
@@ -62,6 +67,9 @@ namespace FFStudio
 		[ BoxGroup( "Grid" ) ] public Color grid_default_color;
 		[ BoxGroup( "Grid" ) ] public float grid_plane_alpha;
 		[ BoxGroup( "Grid" ) ] public float grid_line_height;
+		[ BoxGroup( "Grid" ) ] public float grid_spawn_distance;
+		[ BoxGroup( "Grid" ) ] public float grid_spawn_duration;
+		[ BoxGroup( "Grid" ) ] public Ease grid_spawn_ease;
 
 		[ BoxGroup( "Line" ) ] public float line_width;
 

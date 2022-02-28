@@ -3,6 +3,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 
 namespace FFStudio
@@ -60,5 +61,18 @@ namespace FFStudio
 	{
 		public ToothType tooth_type;
 		public Color tooth_color;
+	}
+
+	[ Serializable ]
+	public struct CameraTweenData
+	{
+		public Transform target;
+		public float duration;
+		public bool does_tween_position;
+		public bool does_tween_rotation;
+		[ ShowIf( "does_tween_position" ) ] public Ease ease_position;
+		[ ShowIf( "does_tween_rotation" ) ] public Ease ease_rotation;
+		public bool always_invoke_complete_event;
+		public UnityEvent tween_complete_event;
 	}
 }

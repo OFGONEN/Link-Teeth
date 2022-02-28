@@ -59,14 +59,7 @@ public class Slot : MonoBehaviour
 		tooth_data = data;
 		grid_index = new Vector2Int( grid_index_x, grid_index_y );
 
-		if( tooth_data.tooth_type == ToothType.Canine )
-			SpawnTooth( GameSettings.Instance.tooth_pool_canine );
-        else if( tooth_data.tooth_type == ToothType.Molar )
-			SpawnTooth( GameSettings.Instance.tooth_pool_molar );
-        else if( tooth_data.tooth_type == ToothType.PreMolar )
-			SpawnTooth( GameSettings.Instance.tooth_pool_premolar );
-        else // Tooth type is null
-			SpawnNull();
+		SpawnNull();
 
 		slot_connected_tooth       = tooth_data.tooth_type;
 		slot_connected_tooth_color = tooth_data.tooth_color;
@@ -76,6 +69,16 @@ public class Slot : MonoBehaviour
 		slot_paired    = null;
 	
 		pool_slot.pool_dictionary.Add( grid_index, this ); // Removed when returned to pool
+	}
+
+	public void SpawnTooth()
+	{
+		if( tooth_data.tooth_type == ToothType.Canine )
+			SpawnTooth( GameSettings.Instance.tooth_pool_canine );
+        else if( tooth_data.tooth_type == ToothType.Molar )
+			SpawnTooth( GameSettings.Instance.tooth_pool_molar );
+        else if( tooth_data.tooth_type == ToothType.PreMolar )
+			SpawnTooth( GameSettings.Instance.tooth_pool_premolar );
 	}
 
     public void OnSelect()
@@ -253,11 +256,7 @@ public class Slot : MonoBehaviour
     private void SpawnTooth( ToothPool pool )
     {
 		var tooth = pool.GetEntity();
-
-		tooth.transform.position = transform.position;
-		tooth.transform.rotation = transform.rotation;
-
-		tooth.Spawn( tooth_data );
+		tooth.Spawn( tooth_data, transform );
 
 		tooth_spawned = tooth;
 		slot_occupied = true;

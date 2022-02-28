@@ -49,6 +49,13 @@ public class SelectionManager : ScriptableObject
 		selection_current = null;
 	}
 
+    public void NullSelectionMethod()
+    {
+		onSlot_Select        = ExtensionMethods.EmptyMethod;
+		onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
+		onSlot_SelectionStop = ExtensionMethods.EmptyMethod;
+    }
+
     public void OnSlot_Select( Slot slot )
     {
 		onSlot_Select( slot );
@@ -202,13 +209,6 @@ public class SelectionManager : ScriptableObject
 			puzzle_solved_event.Raise();
 		}
 	}
-
-    private void NullSelectionMethod()
-    {
-		onSlot_Select        = ExtensionMethods.EmptyMethod;
-		onSlot_DeSelect      = ExtensionMethods.EmptyMethod;
-		onSlot_SelectionStop = ExtensionMethods.EmptyMethod;
-    }
 #endregion
 
 #region Editor Only

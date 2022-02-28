@@ -10,10 +10,13 @@ using Sirenix.OdinInspector;
 public class Tooth : MonoBehaviour
 {
 #region Fields
-    [ BoxGroup( "Shared Variables" ) ] public GameEvent tooth_jump_complete;
+    [ BoxGroup( "Fired Events" ) ] public GameEvent tooth_jump_complete;
+    [ BoxGroup( "Fired Events" ) ] public GameEvent tooth_spawn_complete;
+
     [ BoxGroup( "Shared Variables" ) ] public ToothPool tooth_pool;
     [ BoxGroup( "Shared Variables" ) ] public ToothSet tooth_set;
     [ BoxGroup( "Shared Variables" ) ] public PalateToothSet palateTooth_set;
+    [ BoxGroup( "Shared Variables" ) ] public SelectionManager manager_selection;
 
     [ BoxGroup( "Setup" ) ] public ToothType tooth_type;
     [ BoxGroup( "Setup" ) ] public ColorSetter tooth_color_setter;
@@ -30,14 +33,22 @@ public class Tooth : MonoBehaviour
 #endregion
 
 #region API
-    public void Spawn( GridToothData data )
+    public void Spawn( GridToothData data, Transform target )
     {
 		gameObject.SetActive( true );
+		transform.rotation = target.rotation;
+		transform.position = target.position + Vector3.up * GameSettings.Instance.tooth_spawn_length;
+
 		tooth_color_setter.SetColor( data.tooth_color );
 
 		tooth_data  = data;
 		tooth_index = tooth_set.itemList.Count;
 		tooth_set.AddList( this );
+
+		transform.DOMove( target.position, GameSettings.Instance.tooth_spawn_duration )
+			.SetEase( GameSettings.Instance.tooth_spawn_ease )
+			.SetDelay( GameSettings.Instance.tooth_spawn_delay * tooth_index )
+			.OnComplete( OnSpawnComplete );
 	}
 
     public void OnPuzzleSolved() // Called from Unity Event
@@ -80,6 +91,13 @@ public class Tooth : MonoBehaviour
 
 		if( tooth_set.itemList.Count == 0 )
 			tooth_jump_complete.Raise();
+	}
+
+	private void OnSpawnComplete()
+	{
+		if( tooth_index == tooth_set.itemList.Count - 1 )
+			tooth_spawn_complete.Raise();
+			// manager_selection.ResetSelectionMethods();
 	}
 #endregion
 

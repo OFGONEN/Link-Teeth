@@ -36,6 +36,10 @@ MonoBehaviour:
   tooth_jump_delay: 0.2
   tooth_jump_ease: 23
   tooth_jump_power: 0.4
+  tooth_spawn_length: 3
+  tooth_spawn_delay: 0.12
+  tooth_spawn_duration: 0.35
+  tooth_spawn_ease: 5
   tooth_pool_canine: {fileID: 11400000, guid: 8e89686192fb06e4fa4e4cf6f4cc346e, type: 2}
   tooth_pool_molar: {fileID: 11400000, guid: 218679afc1a140e47b510fd29237f89e, type: 2}
   tooth_pool_premolar: {fileID: 11400000, guid: fd8cacce86331a44184cad5fc7db32e7, type: 2}
@@ -49,6 +53,9 @@ MonoBehaviour:
   grid_default_color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
   grid_plane_alpha: 0.3
   grid_line_height: 0.0125
+  grid_spawn_distance: 2
+  grid_spawn_duration: 1
+  grid_spawn_ease: 28
   line_width: 0.0125
   puzzle_solved_event: {fileID: 11400000, guid: de06fc325eb584611b4d52fda7ed9e8d, type: 2}
   puzzle_fill_event: {fileID: 11400000, guid: 1d38b70f5cb9b4a298fb857feb32a86f, type: 2}
