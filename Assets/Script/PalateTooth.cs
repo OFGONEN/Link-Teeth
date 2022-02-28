@@ -75,7 +75,7 @@ public class PalateTooth : MonoBehaviour
 		puzzle_fill_listener.OnEnable();
 
 		// Palate tooth fill is done
-		puzzle_complete_listener.gameEvent = GameSettings.Instance.puzzle_fill_event;
+		puzzle_complete_listener.gameEvent = GameSettings.Instance.puzzle_complete_event;
 		puzzle_complete_listener.response  = ChangeToSmoothMaterial;
 		puzzle_complete_listener.OnEnable();
 
