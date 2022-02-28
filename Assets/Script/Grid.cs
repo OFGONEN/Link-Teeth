@@ -191,7 +191,7 @@ public class Grid : MonoBehaviour
 			manager_selection.NullSelectionMethod();
 			transform.DOMove( transform.position + transform.right * -1f * GameSettings.Instance.grid_spawn_distance,
 				GameSettings.Instance.grid_spawn_duration )
-				.OnComplete( puzzle_complete_event.Raise );
+				.OnComplete( ClearAllPuzzle );
 		}
 	}
 
@@ -209,6 +209,14 @@ public class Grid : MonoBehaviour
 		ReturnAllSlots();
 
 		Place_Puzzle( CurrentLevelData.Instance.levelData.grid_data_index + 1 );
+	}
+
+	private void ClearAllPuzzle()
+	{
+		ReturnAllSeparators();
+		ReturnAllSlots();
+
+		puzzle_complete_event.Raise();
 	}
 
 	private void OnPuzzlePlace()
