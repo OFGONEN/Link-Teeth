@@ -49,10 +49,8 @@ MonoBehaviour:
     gameEvent: {fileID: 11400000, guid: 85a2841f6d1394acc89e7c07563e0bf3, type: 2}
   particleEffectPools:
   - {fileID: 11400000, guid: 29c1aeb461c425a428e54013ae358c2f, type: 2}
-  - {fileID: 11400000, guid: 10306d77581e95b48b25f230c9c09d79, type: 2}
-  - {fileID: 11400000, guid: 48ba7e4665f31ba479bfb2a224154ae0, type: 2}
+  - {fileID: 11400000, guid: 20be30f96fb74524fa324cad303f5c2a, type: 2}
   randomParticlePools:
   - alias: emoji
     particleEffectPools:
-    - {fileID: 11400000, guid: 10306d77581e95b48b25f230c9c09d79, type: 2}
-    - {fileID: 11400000, guid: 48ba7e4665f31ba479bfb2a224154ae0, type: 2}
+    - {fileID: 11400000, guid: 20be30f96fb74524fa324cad303f5c2a, type: 2}
