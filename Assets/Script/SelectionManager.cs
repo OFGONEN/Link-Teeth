@@ -169,6 +169,7 @@ public class SelectionManager : ScriptableObject
         {
 			slot.ClearStrayConnections();
 			selection_current.PairSlot( slot );
+			selection_current = slot;
 
 			CheckIfPuzzleSolved();
 		}
