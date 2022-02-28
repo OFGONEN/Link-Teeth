@@ -75,4 +75,16 @@ namespace FFStudio
 		public bool always_invoke_complete_event;
 		public UnityEvent tween_complete_event;
 	}
+
+	[ Serializable ]
+	public struct RandomParticlePool
+	{
+		public string alias;
+		public ParticleEffectPool[] particleEffectPools;
+
+		public ParticleEffect GiveRandomEntity()
+		{
+			return particleEffectPools.ReturnRandom< ParticleEffectPool >().GetEntity();
+		}
+	}
 }

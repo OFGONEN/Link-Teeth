@@ -10,10 +10,13 @@ namespace FFStudio
 #region Fields
 		[ Header( "Event Listeners" ) ]
 		public EventListenerDelegateResponse spawnParticleListener;
+		public EventListenerDelegateResponse randomParticleListener;
 
-		[ SerializeField ]
-		private ParticleEffectPool[] particleEffectPools;
+		
+		[ SerializeField ] private ParticleEffectPool[] particleEffectPools;
+		[ SerializeField ] private RandomParticlePool[] randomParticlePools;
 		private Dictionary< string, ParticleEffectPool > particleEffectDictionary;
+		private Dictionary< string, RandomParticlePool > randomParticleEffectDictionary;
 #endregion
 
 #region UnityAPI
@@ -21,16 +24,19 @@ namespace FFStudio
 		private void OnEnable()
 		{
 			spawnParticleListener.OnEnable();
+			randomParticleListener.OnEnable();
 		}
 
 		private void OnDisable()
 		{
 			spawnParticleListener.OnDisable();
+			randomParticleListener.OnDisable();
 		}
 
 		private void Awake()
 		{
-			spawnParticleListener.response = SpawnParticle;
+			spawnParticleListener.response  = SpawnParticle;
+			randomParticleListener.response = RandomSpawnParticle;
 
 			particleEffectDictionary = new Dictionary< string, ParticleEffectPool >( particleEffectPools.Length );
 
@@ -38,6 +44,13 @@ namespace FFStudio
 			{
 				particleEffectPools[ i ].InitPool( transform, false, ParticleEffectStopped );
 				particleEffectDictionary.Add( particleEffectPools[ i ].pool_entity.alias, particleEffectPools[ i ] );
+			}
+
+			randomParticleEffectDictionary = new Dictionary< string, RandomParticlePool >( randomParticlePools.Length );
+
+			for( var i = 0; i < randomParticlePools.Length; i++ )
+			{
+				randomParticleEffectDictionary.Add( randomParticlePools[ i ].alias, randomParticlePools[ i ] );
 			}
 		}
 #endregion
@@ -56,6 +69,22 @@ namespace FFStudio
 			}
 
 			var effect = pool.GetEntity();
+			effect.PlayParticle( spawnEvent );
+		}
+
+		private void RandomSpawnParticle()
+		{
+			var spawnEvent = randomParticleListener.gameEvent as ParticleSpawnEvent;
+
+			RandomParticlePool randomPool;
+
+			if( !randomParticleEffectDictionary.TryGetValue( spawnEvent.particle_alias, out randomPool ) )
+			{
+				FFLogger.Log( "Particle:" + spawnEvent.particle_alias + " is missing!" );
+				return;
+			}
+
+			var effect = randomPool.GiveRandomEntity();
 			effect.PlayParticle( spawnEvent );
 		}
 
