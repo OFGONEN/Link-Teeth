@@ -10,6 +10,7 @@ using Sirenix.OdinInspector;
 public class Grid : MonoBehaviour
 {
 #region Fields
+    [ BoxGroup( "Setup" ) ] public GameEvent palate_mouth_event;
     [ BoxGroup( "Setup" ) ] public EventListenerDelegateResponse puzzle_fill_complete_listener;
     [ BoxGroup( "Setup" ) ] public EventListenerDelegateResponse palate_movement_table_listener;
     [ BoxGroup( "Setup" ) ] public SelectionManager manager_selection;
@@ -186,7 +187,12 @@ public class Grid : MonoBehaviour
 				.OnComplete( PlaceNextPuzzle );
 		}
 		else //TODO: After all puzzled are solved, contiune sequence
-			FFLogger.Log( "No puzzle left!Q" );
+		{
+			manager_selection.NullSelectionMethod();
+			transform.DOMove( transform.position + transform.right * -1f * GameSettings.Instance.grid_spawn_distance,
+				GameSettings.Instance.grid_spawn_duration )
+				.OnComplete( palate_mouth_event.Raise );
+		}
 	}
 
 	private void PalateMovementEndListener()
