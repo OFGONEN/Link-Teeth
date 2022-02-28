@@ -10,7 +10,7 @@ public class Line : MonoBehaviour
 {
 #region Fields
     [ BoxGroup( "Setup" ) ] public LinePool linePool;
-    [ BoxGroup( "Setup" ) ] public LineRenderer lineRenderer;
+    [ BoxGroup( "Setup" ) ] public Shapes.Line line;
 #endregion
 
 #region Properties
@@ -24,15 +24,11 @@ public class Line : MonoBehaviour
     {
 		gameObject.SetActive( true );
 
-		lineRenderer.startWidth = GameSettings.Instance.line_width;
-		lineRenderer.endWidth   = GameSettings.Instance.line_width;
+		transform.position = position.AddY( GameSettings.Instance.line_height );
+		line.Start         = Vector3.zero;
+		line.End           = Vector3.zero;
 
-		lineRenderer.positionCount = 2;
-		lineRenderer.SetPosition( 0, position );
-		lineRenderer.SetPosition( 1, position );
-
-		lineRenderer.startColor = color;
-		lineRenderer.endColor   = color;
+		line.Color = color;
 	}
 
     public void Spawn( Vector3 firstPosition, Vector3 secondPosition, Color color )
@@ -43,24 +39,12 @@ public class Line : MonoBehaviour
 
     public void DeSpawn()
     {
-		lineRenderer.positionCount = 0;
 		linePool.ReturnEntity( this );
 	}
 
-    public void AppendPoint( Vector3 position )
-    {
-		lineRenderer.positionCount += 1;
-		UpdatePoint( position );
-	}
-
-    public void RemovePoint()
-    {
-		lineRenderer.positionCount -= 1;
-	}
-    
     public void UpdatePoint( Vector3 position )
     {
-		lineRenderer.SetPosition( lineRenderer.positionCount - 1, position );
+		line.End = transform.InverseTransformPoint( position );
     }
 #endregion
 
