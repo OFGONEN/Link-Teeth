@@ -256,11 +256,7 @@ public class Slot : MonoBehaviour
     private void SpawnTooth( ToothPool pool )
     {
 		var tooth = pool.GetEntity();
-
-		tooth.transform.position = transform.position;
-		tooth.transform.rotation = transform.rotation;
-
-		tooth.Spawn( tooth_data );
+		tooth.Spawn( tooth_data, transform );
 
 		tooth_spawned = tooth;
 		slot_occupied = true;

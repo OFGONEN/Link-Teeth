@@ -49,6 +49,7 @@ MonoBehaviour:
   tooth_pool: {fileID: 11400000, guid: fd8cacce86331a44184cad5fc7db32e7, type: 2}
   tooth_set: {fileID: 11400000, guid: cd918f2d1ec6f46ada855b712c51e816, type: 2}
   palateTooth_set: {fileID: 11400000, guid: dd4a0d5e485da4468a69e25abe2ac235, type: 2}
+  manager_selection: {fileID: 11400000, guid: 32c547734c2d242a697ffdcf3641fc63, type: 2}
   tooth_type: 3
   tooth_color_setter: {fileID: 3977017405296417103}
 --- !u!114 &6465124264754789338

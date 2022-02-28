@@ -45,6 +45,11 @@ namespace FFStudio
 		[ BoxGroup( "Tooth" ) ] public float tooth_jump_delay;
 		[ BoxGroup( "Tooth" ) ] public Ease tooth_jump_ease;
 		[ BoxGroup( "Tooth" ) ] public float tooth_jump_power;
+		[ BoxGroup( "Tooth" ) ] public float tooth_spawn_length;
+		[ BoxGroup( "Tooth" ) ] public float tooth_spawn_delay;
+		[ BoxGroup( "Tooth" ) ] public float tooth_spawn_duration;
+		[ BoxGroup( "Tooth" ) ] public Ease tooth_spawn_ease;
+
 
 		[ BoxGroup( "Tooth" ) ] public ToothPool tooth_pool_canine;
 		[ BoxGroup( "Tooth" ) ] public ToothPool tooth_pool_molar;
