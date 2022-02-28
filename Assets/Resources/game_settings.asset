@@ -21,6 +21,7 @@ MonoBehaviour:
   ui_Entity_FloatingMove_TweenDuration: 0.5
   ui_Entity_JoyStick_Gap: 50
   swipeThreshold: 2
+  ui_level_complete_delay: 1
   patient_movement_duration: 1
   patient_look_speed: 3
   tooth_transparent_start: 0.15
