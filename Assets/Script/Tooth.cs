@@ -12,6 +12,7 @@ public class Tooth : MonoBehaviour
 #region Fields
     [ BoxGroup( "Fired Events" ) ] public GameEvent tooth_jump_complete;
     [ BoxGroup( "Fired Events" ) ] public GameEvent tooth_spawn_complete;
+    [ BoxGroup( "Fired Events" ) ] public ParticleSpawnEvent tooth_jump_particle;
 
     [ BoxGroup( "Shared Variables" ) ] public ToothPool tooth_pool;
     [ BoxGroup( "Shared Variables" ) ] public ToothSet tooth_set;
@@ -88,6 +89,8 @@ public class Tooth : MonoBehaviour
 		tooth_set.RemoveList( this );
 		tooth_pool.ReturnEntity( this );
 		target_palateTooth.Fill_Visual();
+
+		tooth_jump_particle.Raise( "tooth_restored", transform.position, null, 0.1f );
 
 		if( tooth_set.itemList.Count == 0 )
 			tooth_jump_complete.Raise();
