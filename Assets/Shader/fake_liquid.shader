@@ -16,14 +16,14 @@ Shader "Unlit/FakeLiquid"
     }
     SubShader
     {
-        Tags { "Queue" = "Geometry" }
+        Tags { "Queue" = "Transparent" }
         LOD 100
         
         Pass
         {
-            ZWrite On
+            ZWrite Off
             Cull Off // Need both faces.
-            AlphaToMask On // For transparency.
+            Blend SrcAlpha OneMinusSrcAlpha
             
             CGPROGRAM
             
