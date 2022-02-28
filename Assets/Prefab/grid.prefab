@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a83d295f9f86b340af527ed574f8e36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  palate_mouth_event: {fileID: 11400000, guid: ee98a0ee2d91a934e85902eb670b15d8, type: 2}
+  puzzle_complete_event: {fileID: 11400000, guid: 562f2394ecaf74ceaac30f1a2be8be1c, type: 2}
   puzzle_fill_complete_listener:
     gameEvent: {fileID: 11400000, guid: 1d38b70f5cb9b4a298fb857feb32a86f, type: 2}
   palate_movement_table_listener:
