@@ -727,10 +727,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: manager_particle
       objectReference: {fileID: 0}
-    - target: {fileID: 4684278216112045697, guid: 2ea5e574568ad7340b89b21804947141, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
-      objectReference: {fileID: 0}
     - target: {fileID: 4684278216112045699, guid: 2ea5e574568ad7340b89b21804947141, type: 3}
       propertyPath: m_RootOrder
       value: 8
