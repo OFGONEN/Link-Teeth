@@ -31,6 +31,10 @@ public class Tooth : MonoBehaviour
 #endregion
 
 #region Unity API
+	private void OnDisable()
+	{
+		tooth_set.RemoveList( this );
+	}
 #endregion
 
 #region API
