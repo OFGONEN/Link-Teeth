@@ -13,7 +13,6 @@ namespace FFStudio
         public EventListenerDelegateResponse levelLoadedListener;
         public EventListenerDelegateResponse levelRevealedListener;
         public EventListenerDelegateResponse levelStartedListener;
-        public EventListenerDelegateResponse palate_mouth_end_listener;
 
         [ Header( "Fired Events" ) ]
         public GameEvent levelFailedEvent;
@@ -32,8 +31,6 @@ namespace FFStudio
             levelLoadedListener.OnEnable();
             levelRevealedListener.OnEnable();
             levelStartedListener.OnEnable();
-
-			palate_mouth_end_listener.OnEnable();
 		}
 
         private void OnDisable()
@@ -41,8 +38,6 @@ namespace FFStudio
             levelLoadedListener.OnDisable();
             levelRevealedListener.OnDisable();
             levelStartedListener.OnDisable();
-
-			palate_mouth_end_listener.OnDisable();
         }
 
         private void Awake()
@@ -50,7 +45,6 @@ namespace FFStudio
             levelLoadedListener.response       = LevelLoadedResponse;
             levelRevealedListener.response     = LevelRevealedResponse;
             levelStartedListener.response      = LevelStartedResponse;
-            palate_mouth_end_listener.response = PalateMouthEndResponse;
 
 			manager_selection.LevelAwake();
 		}
@@ -77,11 +71,6 @@ namespace FFStudio
 
         private void LevelStartedResponse()
         {
-		}
-
-        private void PalateMouthEndResponse()
-        {
-			DOVirtual.DelayedCall( GameSettings.Instance.ui_level_complete_delay, levelCompleted.Raise );
 		}
 #endregion
     }
