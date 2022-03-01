@@ -57,7 +57,7 @@ public class CameraTween : MonoBehaviour
 
 		for( var i = 0; i < cameraTweenData_array.Length; i++ )
 		{
-			if( tag.Equals( cameraTweenData_array[ i ].target_tag ) )
+			if( cameraTweenData_array[ i ].target_tag.Equals( tag ) )
 			{
 				index = i;
 				break;
