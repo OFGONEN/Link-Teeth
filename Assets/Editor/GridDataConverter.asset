@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: GridDataConverter
   m_EditorClassIdentifier: 
   base_gridData: {fileID: 11400000, guid: a80bfefd640ae49c3b903810937bb384, type: 2}
-  target_gridData: {fileID: 11400000, guid: 5c46ef506c00b475095806088366e0cf, type: 2}
+  target_gridData: {fileID: 0}

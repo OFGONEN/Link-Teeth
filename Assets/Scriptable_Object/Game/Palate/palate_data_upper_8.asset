@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   palateToothData:
   - tooth_index: 7
-    tooth_health: 1
+    tooth_health: 2
     tooth_type: 3
     tooth_color: {r: 1, g: 0, b: 0, a: 1}
   - tooth_index: 8
@@ -22,10 +22,14 @@ MonoBehaviour:
     tooth_type: 3
     tooth_color: {r: 1, g: 0, b: 1, a: 1}
   - tooth_index: 11
-    tooth_health: 1
+    tooth_health: 2
     tooth_type: 1
     tooth_color: {r: 0, g: 0, b: 1, a: 1}
   - tooth_index: 10
-    tooth_health: 1
+    tooth_health: 2
     tooth_type: 1
     tooth_color: {r: 0, g: 1, b: 0, a: 1}
+  - tooth_index: 0
+    tooth_health: 2
+    tooth_type: 2
+    tooth_color: {r: 1, g: 1, b: 0, a: 1}

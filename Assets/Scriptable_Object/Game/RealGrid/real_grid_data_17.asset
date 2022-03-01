@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zoom_tag: zoom_6
   gridToothData:
-  - tooth_type: 1
+  - tooth_type: 3
     tooth_color: {r: 1, g: 0, b: 0.8, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
@@ -24,7 +24,7 @@ MonoBehaviour:
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
-  - tooth_type: 2
+  - tooth_type: 1
     tooth_color: {r: 0, g: 1, b: 0, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
@@ -36,7 +36,7 @@ MonoBehaviour:
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
-  - tooth_type: 1
+  - tooth_type: 2
     tooth_color: {r: 1, g: 1, b: 0, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
@@ -52,29 +52,29 @@ MonoBehaviour:
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
-  - tooth_type: 2
+  - tooth_type: 1
     tooth_color: {r: 0, g: 1, b: 0, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
-  - tooth_type: 2
+  - tooth_type: 3
     tooth_color: {r: 1, g: 0, b: 0, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
-  - tooth_type: 1
-    tooth_color: {r: 1, g: 0, b: 0.8, a: 1}
-  - tooth_type: 1
-    tooth_color: {r: 1, g: 1, b: 0, a: 1}
   - tooth_type: 3
+    tooth_color: {r: 1, g: 0, b: 0.8, a: 1}
+  - tooth_type: 2
+    tooth_color: {r: 1, g: 1, b: 0, a: 1}
+  - tooth_type: 1
     tooth_color: {r: 0.003921569, g: 0, b: 1, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
-  - tooth_type: 2
+  - tooth_type: 3
     tooth_color: {r: 1, g: 0, b: 0, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,7 +84,7 @@ MonoBehaviour:
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
-  - tooth_type: 3
+  - tooth_type: 1
     tooth_color: {r: 0.003921569, g: 0, b: 1, a: 1}
   gridWidth: 6
   gridHeight: 6
