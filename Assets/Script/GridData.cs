@@ -6,7 +6,7 @@ using UnityEngine;
 using FFStudio;
 using Sirenix.OdinInspector;
 using Sirenix.Utilities;
-using Sirenix.Utilities.Editor;
+// using Sirenix.Utilities.Editor;
 
 [ CreateAssetMenu( fileName = "grid_data_", menuName = "FF/Game/GridData" ) ]
 public class GridData : SerializedScriptableObject
@@ -17,13 +17,13 @@ public class GridData : SerializedScriptableObject
 	public int GridHeight => gridToothData.GetLength( 1 );
 
 #if UNITY_EDITOR
-	static GridToothData DrawElement( Rect rect, GridToothData data )
-	{
-		data.tooth_color = SirenixEditorFields.ColorField( rect.SubXMax( 100 ), data.tooth_color );
-		data.tooth_type = ( ToothType )SirenixEditorFields.EnumDropdown( rect.AddXMin( 100 ), data.tooth_type );
+	// static GridToothData DrawElement( Rect rect, GridToothData data )
+	// {
+	// 	data.tooth_color = SirenixEditorFields.ColorField( rect.SubXMax( 100 ), data.tooth_color );
+	// 	data.tooth_type = ( ToothType )SirenixEditorFields.EnumDropdown( rect.AddXMin( 100 ), data.tooth_type );
 
-		return data;
-	}
+	// 	return data;
+	// }
 
 	[ Button() ]
 	private void LogGridToothData()
