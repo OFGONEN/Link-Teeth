@@ -15,7 +15,8 @@ MonoBehaviour:
   sceneIndex: 2
   overrideAsActiveScene: 0
   grid_data_array:
-  - {fileID: 11400000, guid: 51f559ef2a83e4221bf4ddc1c71e45be, type: 2}
+  - {fileID: 11400000, guid: 972346e9e9f4548948aad1583552524f, type: 2}
+  - {fileID: 11400000, guid: 029382b68dcb5416191d9cae67ad8d63, type: 2}
   palate_data_upper: {fileID: 11400000, guid: d77ffffcb684e004fa0f711c2599fa5e, type: 2}
   palate_data_lower: {fileID: 11400000, guid: 3237038d7567a1f43ad4a47cf15476f7, type: 2}
   grid_data_index: 0
