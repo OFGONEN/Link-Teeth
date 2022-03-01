@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22a80580f1f804921b60ca5d52880eef, type: 3}
   m_Name: real_grid_data_5x_white_base
   m_EditorClassIdentifier: 
+  zoom_tag: zoom_5
   gridToothData:
   - tooth_type: 0
     tooth_color: {r: 1, g: 1, b: 1, a: 1}
