@@ -31,6 +31,8 @@ Transform:
   m_Children:
   - {fileID: 88273111560398260}
   - {fileID: 5822808638418192586}
+  - {fileID: 863612573359795628}
+  - {fileID: 6459285586787460196}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,6 +51,7 @@ MonoBehaviour:
   camera_reference: {fileID: 11400000, guid: 488e798dd6f140e4a84fa7485b885dd3, type: 2}
   cameraTweenData_array:
   - target: {fileID: 88273111560398260}
+    target_tag: 
     duration: 0.75
     does_tween_position: 1
     does_tween_rotation: 1
@@ -71,6 +74,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
   - target: {fileID: 5822808638418192586}
+    target_tag: 
     duration: 0.75
     does_tween_position: 1
     does_tween_rotation: 1
@@ -92,6 +96,28 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - target: {fileID: 863612573359795628}
+    target_tag: zoom_3
+    duration: 0.75
+    does_tween_position: 1
+    does_tween_rotation: 1
+    ease_position: 1
+    ease_rotation: 1
+    always_invoke_complete_event: 1
+    tween_complete_event:
+      m_PersistentCalls:
+        m_Calls: []
+  - target: {fileID: 6459285586787460196}
+    target_tag: zoom_7
+    duration: 0.75
+    does_tween_position: 1
+    does_tween_rotation: 1
+    ease_position: 1
+    ease_rotation: 1
+    always_invoke_complete_event: 1
+    tween_complete_event:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!114 &88273110658274282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,8 +138,8 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 88273110658274280}
           m_TargetAssemblyTypeName: CameraTween, Assembly-CSharp
-          m_MethodName: PlayCameraTween
-          m_Mode: 3
+          m_MethodName: PlayCameraTween_Zoom
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -169,6 +195,36 @@ Transform:
   m_Father: {fileID: 88273110658274283}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
+--- !u!1 &1635006654238420933
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6459285586787460196}
+  m_Layer: 0
+  m_Name: camera_target_zoom_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6459285586787460196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635006654238420933}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 2.524, z: 2.841}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 88273110658274283}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!1 &5336614621708411967
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,3 +255,33 @@ Transform:
   m_Father: {fileID: 88273110658274283}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+--- !u!1 &7224559365925264104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 863612573359795628}
+  m_Layer: 0
+  m_Name: camera_target_zoom_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &863612573359795628
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7224559365925264104}
+  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0, y: 1.9, z: 3.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 88273110658274283}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}

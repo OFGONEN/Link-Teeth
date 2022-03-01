@@ -9,6 +9,7 @@ using Sirenix.OdinInspector;
 [ CreateAssetMenu( fileName = "real_grid_data_", menuName = "FF/Game/RealGridData" ) ]
 public class RealGridData : ScriptableObject
 {
+	public string zoom_tag;
 	public GridToothData[] gridToothData;
 
 	public int GridWidth => gridWidth;

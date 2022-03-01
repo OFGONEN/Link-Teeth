@@ -49,6 +49,46 @@ public class CameraTween : MonoBehaviour
 
 		sequence.OnComplete( data.tween_complete_event.Invoke );
 	}
+
+	public void PlayCameraTween_Zoom()
+	{
+		var index = -1;
+		var tag = CurrentLevelData.Instance.levelData.CurrentGridData.zoom_tag;
+
+		for( var i = 0; i < cameraTweenData_array.Length; i++ )
+		{
+			if( tag.Equals( cameraTweenData_array[ i ].target_tag ) )
+			{
+				index = i;
+				break;
+			}
+		}
+
+		if( index < 0 )
+			return;
+		else if( index == lastIndex ) 
+		{
+			if( cameraTweenData_array[ index ].always_invoke_complete_event )
+				cameraTweenData_array[ index ].tween_complete_event.Invoke();
+
+			return;
+		}
+
+		lastIndex = index;
+
+		var camera = camera_reference.SharedValue as Transform;
+		var data   = cameraTweenData_array[ index ];
+
+		var sequence = DOTween.Sequence();
+
+        if( data.does_tween_position )
+			sequence.Join( camera.DOMove( data.target.position, data.duration ).SetEase( data.ease_position ) );
+
+        if( data.does_tween_rotation )
+			sequence.Join( camera.DORotate( data.target.eulerAngles, data.duration ).SetEase( data.ease_rotation ) );
+
+		sequence.OnComplete( data.tween_complete_event.Invoke );
+	}
 #endregion
 
 #region Implementation

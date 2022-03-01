@@ -67,6 +67,7 @@ namespace FFStudio
 	public struct CameraTweenData
 	{
 		public Transform target;
+		public string target_tag;
 		public float duration;
 		public bool does_tween_position;
 		public bool does_tween_rotation;
