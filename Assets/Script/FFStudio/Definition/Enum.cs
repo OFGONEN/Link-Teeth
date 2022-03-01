@@ -14,4 +14,20 @@ namespace FFStudio
         Vector3_Y,
         Vector3_Z
     }
+
+    public enum AnimationParameterType
+    {
+        Trigger,
+        Bool,
+        Int,
+        Float
+    }
+
+    public enum ToothType
+    {
+        None,
+        Canine,
+        Molar,
+        PreMolar
+    }
 }

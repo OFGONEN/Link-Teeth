@@ -15,6 +15,7 @@ namespace FFStudio
         public EventListenerDelegateResponse levelCompleteResponse;
         public EventListenerDelegateResponse levelFailResponse;
         public EventListenerDelegateResponse tapInputListener;
+        public EventListenerDelegateResponse puzzle_fill_complete_listener;
 
         [ Header( "UI Elements" ) ]
         public UI_Patrol_Scale level_loadingBar_Scale;
@@ -39,7 +40,8 @@ namespace FFStudio
             levelFailResponse.OnEnable();
             levelCompleteResponse.OnEnable();
             tapInputListener.OnEnable();
-        }
+			puzzle_fill_complete_listener.OnEnable();
+		}
 
         private void OnDisable()
         {
@@ -47,7 +49,8 @@ namespace FFStudio
             levelFailResponse.OnDisable();
             levelCompleteResponse.OnDisable();
             tapInputListener.OnDisable();
-        }
+			puzzle_fill_complete_listener.OnDisable();
+		}
 
         private void Awake()
         {
@@ -55,12 +58,19 @@ namespace FFStudio
             levelFailResponse.response     = LevelFailResponse;
             levelCompleteResponse.response = LevelCompleteResponse;
             tapInputListener.response      = ExtensionMethods.EmptyMethod;
+			puzzle_fill_complete_listener.response = PuzzleFillResponse;
 
+			level_information_text.color = Color.white;
 			level_information_text.text = "Tap to Start";
         }
 #endregion
 
 #region Implementation
+        private void PuzzleFillResponse()
+        {
+			level_count_text.text = $"Puzzle {CurrentLevelData.Instance.levelData.grid_data_index + 1}/{CurrentLevelData.Instance.levelData.grid_data_array.Length}";
+        }
+
         private void LevelLoadedResponse()
         {
 			var sequence = DOTween.Sequence()
@@ -68,9 +78,9 @@ namespace FFStudio
 								.Append( loadingScreenImage.DOFade( 0, GameSettings.Instance.ui_Entity_Fade_TweenDuration ) )
 								.AppendCallback( () => tapInputListener.response = StartLevel );
 
-			level_count_text.text = "Level " + CurrentLevelData.Instance.currentLevel_Shown;
+			level_count_text.text = $"Puzzle 0/{CurrentLevelData.Instance.levelData.grid_data_array.Length}";
 
-            levelLoadedResponse.response = NewLevelLoaded;
+			levelLoadedResponse.response = NewLevelLoaded;
         }
 
         private void LevelCompleteResponse()
@@ -96,7 +106,6 @@ namespace FFStudio
             var sequence = DOTween.Sequence();
 
 			// Tween tween = null;
-
 			level_information_text.text = "Level Failed \n\n Tap to Continue";
 
 			sequence.Append( foreGroundImage.DOFade( 0.5f, GameSettings.Instance.ui_Entity_Fade_TweenDuration ) )
@@ -111,19 +120,23 @@ namespace FFStudio
 
         private void NewLevelLoaded()
         {
-			level_count_text.text = "Level " + CurrentLevelData.Instance.currentLevel_Shown;
+			level_count_text.text = $"Puzzle 0/{CurrentLevelData.Instance.levelData.grid_data_array.Length}";
+
+			level_information_text.color = Color.white;
+			level_information_text.text = "Tap to Start";
 
 			var sequence = DOTween.Sequence();
 
 			// Tween tween = null;
 
-			sequence.Append( foreGroundImage.DOFade( 0, GameSettings.Instance.ui_Entity_Fade_TweenDuration ) )
+			sequence.Append( foreGroundImage.DOFade( 0.5f, GameSettings.Instance.ui_Entity_Fade_TweenDuration ) )
 					// .Append( tween ) // TODO: UIElements tween.
-					.AppendCallback( levelRevealedEvent.Raise );
+					.Append( level_information_text_Scale.DoScale_Start( GameSettings.Instance.ui_Entity_Scale_TweenDuration ) )
+					.AppendCallback( () => tapInputListener.response = StartLevel );
 
-            elephantLevelEvent.level             = CurrentLevelData.Instance.currentLevel_Shown;
-            elephantLevelEvent.elephantEventType = ElephantEvent.LevelStarted;
-            elephantLevelEvent.Raise();
+            // elephantLevelEvent.level             = CurrentLevelData.Instance.currentLevel_Shown;
+            // elephantLevelEvent.elephantEventType = ElephantEvent.LevelStarted;
+            // elephantLevelEvent.Raise();
         }
 
 		private void StartLevel()

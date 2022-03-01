@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ea3c0b9fd00fd441b6cebc5941ee13b, type: 3}
+  m_Name: level_data_5
+  m_EditorClassIdentifier: 
+  sceneIndex: 5
+  overrideAsActiveScene: 0
+  grid_data_array:
+  - {fileID: 11400000, guid: 7af5fc5af3b3f4eb2a32616a6c092646, type: 2}
+  - {fileID: 11400000, guid: baaea00d6d8fd41f4b3a1f84fc73664e, type: 2}
+  palate_data_upper: {fileID: 11400000, guid: 874b5267f4eff9649a1b96a4b399cee5, type: 2}
+  palate_data_lower: {fileID: 11400000, guid: 582ff045579f27944b235872858adb5e, type: 2}
+  grid_data_index: 0

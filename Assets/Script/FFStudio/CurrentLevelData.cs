@@ -1,15 +1,19 @@
 ﻿/* Created by and for usage of FF Studios (2021). */
 
 using UnityEngine;
+using Sirenix.OdinInspector;
 
 namespace FFStudio
 {
     public class CurrentLevelData : ScriptableObject
     {
 #region Fields
-		public int currentLevel_Real;
-		public int currentLevel_Shown;
-		public LevelData levelData;
+		[ HideInInspector ] public int currentLevel_Real;
+		[ HideInInspector ] public int currentLevel_Shown;
+		[ HideInInspector ] public LevelData levelData;
+
+        [ BoxGroup( "Shared" ) ] public PalateData current_palate_data_upper;
+        [ BoxGroup( "Shared" ) ] public PalateData current_palate_data_lower;
 
         private static CurrentLevelData instance;
 
@@ -31,7 +35,10 @@ namespace FFStudio
 			if( currentLevel_Real > GameSettings.Instance.maxLevelCount )
 				currentLevel_Real = Random.Range( 1, GameSettings.Instance.maxLevelCount );
 
-			levelData = Resources.Load<LevelData>( "level_data_" + currentLevel_Real );
+			levelData = Resources.Load< LevelData >( "level_data_" + currentLevel_Real );
+
+			current_palate_data_upper.palateToothData = levelData.palate_data_upper.palateToothData;
+			current_palate_data_lower.palateToothData = levelData.palate_data_lower.palateToothData;
 		}
 #endregion
 

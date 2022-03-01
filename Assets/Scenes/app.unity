@@ -20,7 +20,7 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
@@ -726,10 +726,6 @@ PrefabInstance:
     - target: {fileID: 4684278216112045697, guid: 2ea5e574568ad7340b89b21804947141, type: 3}
       propertyPath: m_Name
       value: manager_particle
-      objectReference: {fileID: 0}
-    - target: {fileID: 4684278216112045697, guid: 2ea5e574568ad7340b89b21804947141, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4684278216112045699, guid: 2ea5e574568ad7340b89b21804947141, type: 3}
       propertyPath: m_RootOrder

@@ -25,6 +25,12 @@ namespace FFStudio
 		}
 
 		[ System.Diagnostics.Conditional( LOGGER_SYMBOL ) ]
+		public static void LogFrame( object message, Object context )
+		{
+			Debug.Log( message.ToString() + Time.frameCount, context );
+		}
+
+		[ System.Diagnostics.Conditional( LOGGER_SYMBOL ) ]
 		public static void LogFormat( string message, params object[] args )
 		{
 			Debug.LogFormat( message, args );

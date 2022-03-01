@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e75b0fba70348ad85350c33671631b, type: 3}
+  m_Name: manager_selection
+  m_EditorClassIdentifier: 
+  pool_line: {fileID: 11400000, guid: a6a9d9662222d2248818aa71854bca5a, type: 2}
+  pool_slot: {fileID: 11400000, guid: c7ac4f7789c1b43ada1bc486837e7956, type: 2}
+  puzzle_solved_event: {fileID: 11400000, guid: de06fc325eb584611b4d52fda7ed9e8d, type: 2}

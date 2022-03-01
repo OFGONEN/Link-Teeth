@@ -1,5 +1,6 @@
 /* Created by and for usage of FF Studios (2021). */
 using UnityEngine;
+using DG.Tweening;
 
 namespace FFStudio
 {
@@ -10,6 +11,33 @@ namespace FFStudio
 #region Fields
 		public GameSettings gameSettings;
 		public CurrentLevelData currentLevelData;
+
+		public Material shared_transparent_material;
+
+		public ToothPool[] toothPools;
+		public TransformPool[] transformPools;
+		public SlotPool slotPool;
+		public LinePool linePool;
+
+
+		private void Awake()
+		{
+			// Flashing material
+			shared_transparent_material.color = shared_transparent_material.color.SetAlpha( GameSettings.Instance.tooth_transparent_start );
+
+			shared_transparent_material.DOFade( GameSettings.Instance.tooth_transparent_end, GameSettings.Instance.tooth_transparent_duration )
+				.SetLoops( -1, LoopType.Yoyo );
+			
+			for( var i = 0; i < transformPools.Length; i++ )
+				transformPools[ i ].InitPool( transform, false );
+
+			for( var i = 0; i < toothPools.Length; i++ )
+				toothPools[ i ].InitPool( transform, false );
+
+
+			slotPool.InitPool( transform, false );
+			linePool.InitPool( transform, false );
+		}
 #endregion
 	}
 }
