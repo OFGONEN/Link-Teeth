@@ -32,6 +32,9 @@ Transform:
   - {fileID: 88273111560398260}
   - {fileID: 5822808638418192586}
   - {fileID: 863612573359795628}
+  - {fileID: 3000132051542416886}
+  - {fileID: 1551890131332454462}
+  - {fileID: 6362476957536120754}
   - {fileID: 6459285586787460196}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -106,7 +109,88 @@ MonoBehaviour:
     always_invoke_complete_event: 1
     tween_complete_event:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 32c547734c2d242a697ffdcf3641fc63, type: 2}
+          m_TargetAssemblyTypeName: SelectionManager, Assembly-CSharp
+          m_MethodName: ResetSelectionMethods
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - target: {fileID: 3000132051542416886}
+    target_tag: zoom_4
+    duration: 0.75
+    does_tween_position: 1
+    does_tween_rotation: 1
+    ease_position: 1
+    ease_rotation: 1
+    always_invoke_complete_event: 1
+    tween_complete_event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 32c547734c2d242a697ffdcf3641fc63, type: 2}
+          m_TargetAssemblyTypeName: SelectionManager, Assembly-CSharp
+          m_MethodName: ResetSelectionMethods
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - target: {fileID: 1551890131332454462}
+    target_tag: zoom_5
+    duration: 0.75
+    does_tween_position: 1
+    does_tween_rotation: 1
+    ease_position: 1
+    ease_rotation: 1
+    always_invoke_complete_event: 1
+    tween_complete_event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 32c547734c2d242a697ffdcf3641fc63, type: 2}
+          m_TargetAssemblyTypeName: SelectionManager, Assembly-CSharp
+          m_MethodName: ResetSelectionMethods
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - target: {fileID: 6362476957536120754}
+    target_tag: zoom_6
+    duration: 0.75
+    does_tween_position: 1
+    does_tween_rotation: 1
+    ease_position: 1
+    ease_rotation: 1
+    always_invoke_complete_event: 1
+    tween_complete_event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 32c547734c2d242a697ffdcf3641fc63, type: 2}
+          m_TargetAssemblyTypeName: SelectionManager, Assembly-CSharp
+          m_MethodName: ResetSelectionMethods
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
   - target: {fileID: 6459285586787460196}
     target_tag: zoom_7
     duration: 0.75
@@ -117,7 +201,19 @@ MonoBehaviour:
     always_invoke_complete_event: 1
     tween_complete_event:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 32c547734c2d242a697ffdcf3641fc63, type: 2}
+          m_TargetAssemblyTypeName: SelectionManager, Assembly-CSharp
+          m_MethodName: ResetSelectionMethods
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &88273110658274282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,8 +336,68 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 88273110658274283}
-  m_RootOrder: 3
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!1 &2738957087250568116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1551890131332454462}
+  m_Layer: 0
+  m_Name: camera_target_zoom_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1551890131332454462
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2738957087250568116}
+  m_LocalRotation: {x: 0.3214394, y: 0, z: 0, w: 0.94693017}
+  m_LocalPosition: {x: 0, y: 2.236, z: 3.39}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 88273110658274283}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 37.5, y: 0, z: 0}
+--- !u!1 &3246524888673458028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6362476957536120754}
+  m_Layer: 0
+  m_Name: camera_target_zoom_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6362476957536120754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3246524888673458028}
+  m_LocalRotation: {x: 0.30070576, y: 0, z: 0, w: 0.953717}
+  m_LocalPosition: {x: 0, y: 2.4, z: 3.18}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 88273110658274283}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 35, y: 0, z: 0}
 --- !u!1 &5336614621708411967
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,3 +458,33 @@ Transform:
   m_Father: {fileID: 88273110658274283}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!1 &8742818585657451588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3000132051542416886}
+  m_Layer: 0
+  m_Name: camera_target_zoom_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3000132051542416886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8742818585657451588}
+  m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
+  m_LocalPosition: {x: 0, y: 2, z: 3.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 88273110658274283}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
