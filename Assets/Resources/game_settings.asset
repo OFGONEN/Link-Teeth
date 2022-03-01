@@ -57,7 +57,7 @@ MonoBehaviour:
   grid_spawn_distance: 2
   grid_spawn_duration: 1
   grid_spawn_ease: 28
-  line_width: 0.0125
+  line_width: 0.00625
   line_height: 0.01
   line_disappear_delay: 0.2
   puzzle_solved_event: {fileID: 11400000, guid: de06fc325eb584611b4d52fda7ed9e8d, type: 2}

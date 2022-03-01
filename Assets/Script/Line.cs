@@ -28,6 +28,8 @@ public class Line : MonoBehaviour
 		line.Start         = Vector3.zero;
 		line.End           = Vector3.zero;
 
+		line.Thickness = GameSettings.Instance.line_width;
+
 		line.Color = color;
 	}
 
