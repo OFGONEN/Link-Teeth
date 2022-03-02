@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10b3ab6127857407da32e3f74f269001, type: 3}
+  m_Name: palate_data_lower_16
+  m_EditorClassIdentifier: 
+  palateToothData:
+  - tooth_index: 0
+    tooth_health: 1
+    tooth_type: 2
+    tooth_color: {r: 1, g: 0, b: 0, a: 1}
+  - tooth_index: 3
+    tooth_health: 1
+    tooth_type: 1
+    tooth_color: {r: 1, g: 0, b: 1, a: 1}
+  - tooth_index: 11
+    tooth_health: 2
+    tooth_type: 1
+    tooth_color: {r: 0, g: 0, b: 1, a: 1}
+  - tooth_index: 4
+    tooth_health: 1
+    tooth_type: 1
+    tooth_color: {r: 1, g: 1, b: 0, a: 1}
+  - tooth_index: 2
+    tooth_health: 1
+    tooth_type: 2
+    tooth_color: {r: 0, g: 1, b: 0, a: 1}
+  - tooth_index: 1
+    tooth_health: 1
+    tooth_type: 2
+    tooth_color: {r: 1, g: 1, b: 0, a: 1}
+  - tooth_index: 5
+    tooth_health: 1
+    tooth_type: 1
+    tooth_color: {r: 1, g: 0, b: 0, a: 1}
+  - tooth_index: 8
+    tooth_health: 1
+    tooth_type: 3
+    tooth_color: {r: 0, g: 1, b: 0, a: 1}
+  - tooth_index: 16
+    tooth_health: 1
+    tooth_type: 2
+    tooth_color: {r: 1, g: 0, b: 1, a: 1}
