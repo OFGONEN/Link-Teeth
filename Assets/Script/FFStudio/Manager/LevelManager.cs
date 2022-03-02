@@ -72,8 +72,8 @@ namespace FFStudio
 
         private void LevelRevealedResponse()
         {
-
-        }
+			palate_mouth_end_listener.response = PalateMouthEndResponse;
+		}
 
         private void LevelStartedResponse()
         {
@@ -82,6 +82,7 @@ namespace FFStudio
         private void PalateMouthEndResponse()
         {
 			DOVirtual.DelayedCall( GameSettings.Instance.ui_level_complete_delay, levelCompleted.Raise );
+			palate_mouth_end_listener.response = ExtensionMethods.EmptyMethod;
 		}
 #endregion
     }

@@ -8,9 +8,9 @@ namespace FFStudio
     public class CurrentLevelData : ScriptableObject
     {
 #region Fields
-		[ HideInInspector ] public int currentLevel_Real;
-		[ HideInInspector ] public int currentLevel_Shown;
-		[ HideInInspector ] public LevelData levelData;
+		[ ReadOnly ] public int currentLevel_Real;
+		[ ReadOnly ] public int currentLevel_Shown;
+		[ ReadOnly ] public LevelData levelData;
 
         [ BoxGroup( "Shared" ) ] public PalateData current_palate_data_upper;
         [ BoxGroup( "Shared" ) ] public PalateData current_palate_data_lower;

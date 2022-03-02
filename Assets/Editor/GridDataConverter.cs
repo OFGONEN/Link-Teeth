@@ -48,8 +48,8 @@ namespace FFEditor
 			{
 				for( var y = 0; y < base_height; y++ )
 				{
-					target_data.gridToothData[ x + ( y * base_width ) ] = base_data.gridToothData[ x, y ];
 					target_data.zoom_tag = "zoom_" + target_data.GridWidth;
+					target_data.gridToothData[ x + ( y * base_width ) ] = base_data.gridToothData[ x, y ];
 				}
 			}
 		}
