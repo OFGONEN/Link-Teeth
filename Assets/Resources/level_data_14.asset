@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ea3c0b9fd00fd441b6cebc5941ee13b, type: 3}
   m_Name: level_data_14
   m_EditorClassIdentifier: 
-  sceneIndex: 5
+  sceneIndex: 6
   overrideAsActiveScene: 0
   grid_data_array:
   - {fileID: 11400000, guid: ae6f44f7b625e4da586c3d35e2da409a, type: 2}
