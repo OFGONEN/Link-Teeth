@@ -75,6 +75,8 @@ namespace FFStudio
 		[ BoxGroup( "Line" ) ] public float line_width;
 		[ BoxGroup( "Line" ) ] public float line_height;
 		[ BoxGroup( "Line" ) ] public float line_disappear_delay;
+		[ BoxGroup( "Line" ) ] public float line_spawn_duration;
+		[ BoxGroup( "Line" ) ] public Ease line_spawn_ease;
 
 		[ BoxGroup( "Puzzle" ) ] public GameEvent puzzle_solved_event;
 		[ BoxGroup( "Puzzle" ) ] public GameEvent puzzle_fill_event;

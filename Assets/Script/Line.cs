@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using FFStudio;
 using Sirenix.OdinInspector;
+using DG.Tweening;
 
 public class Line : MonoBehaviour
 {
 #region Fields
     [ BoxGroup( "Setup" ) ] public LinePool linePool;
     [ BoxGroup( "Setup" ) ] public Shapes.Line line;
+
+	private Vector3 updatePoint;
 #endregion
 
 #region Properties
@@ -46,11 +49,19 @@ public class Line : MonoBehaviour
 
     public void UpdatePoint( Vector3 position )
     {
-		line.End = transform.InverseTransformPoint( position );
-    }
+		updatePoint = transform.position;
+
+		DOTween.To( () => updatePoint, x => updatePoint = x, position, GameSettings.Instance.line_spawn_duration )
+			.SetEase( GameSettings.Instance.line_spawn_ease )
+			.OnUpdate( OnUpdatePoint );
+	}
 #endregion
 
 #region Implementation
+	private void OnUpdatePoint()
+	{
+		line.End = transform.InverseTransformPoint( updatePoint );
+	}
 #endregion
 
 #region Editor Only
