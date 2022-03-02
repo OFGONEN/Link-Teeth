@@ -68,7 +68,7 @@ namespace FFStudio
 #region Implementation
         private void PuzzleFillResponse()
         {
-			level_count_text.text = $"Puzzle {CurrentLevelData.Instance.levelData.grid_data_index + 1}/{CurrentLevelData.Instance.levelData.grid_data_array.Length}";
+			level_count_text.text = $"Puzzle {CurrentLevelData.Instance.currentLevel_Shown} ({CurrentLevelData.Instance.levelData.grid_data_index + 1}/{CurrentLevelData.Instance.levelData.grid_data_array.Length})";
         }
 
         private void LevelLoadedResponse()
@@ -78,7 +78,7 @@ namespace FFStudio
 								.Append( loadingScreenImage.DOFade( 0, GameSettings.Instance.ui_Entity_Fade_TweenDuration ) )
 								.AppendCallback( () => tapInputListener.response = StartLevel );
 
-			level_count_text.text = $"Puzzle 0/{CurrentLevelData.Instance.levelData.grid_data_array.Length}";
+			level_count_text.text = $"Puzzle {CurrentLevelData.Instance.currentLevel_Shown} (0/{CurrentLevelData.Instance.levelData.grid_data_array.Length})";
 
 			levelLoadedResponse.response = NewLevelLoaded;
         }
@@ -120,7 +120,7 @@ namespace FFStudio
 
         private void NewLevelLoaded()
         {
-			level_count_text.text = $"Puzzle 0/{CurrentLevelData.Instance.levelData.grid_data_array.Length}";
+			level_count_text.text = $"Puzzle {CurrentLevelData.Instance.currentLevel_Shown} (0/{CurrentLevelData.Instance.levelData.grid_data_array.Length})";
 
 			level_information_text.color = Color.white;
 			level_information_text.text = "Tap to Start";

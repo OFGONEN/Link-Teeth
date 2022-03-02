@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useRemoteConfig_GameSettings: 0
   useRemoteConfig_Components: 0
-  maxLevelCount: 12
+  maxLevelCount: 20
   ui_Entity_Move_TweenDuration: 0.5
   ui_Entity_Fade_TweenDuration: 0.5
   ui_Entity_Scale_TweenDuration: 0.5
@@ -38,8 +38,8 @@ MonoBehaviour:
   tooth_jump_ease: 23
   tooth_jump_power: 0.4
   tooth_spawn_length: 3
-  tooth_spawn_delay: 0.12
-  tooth_spawn_duration: 0.35
+  tooth_spawn_delay: 0.06
+  tooth_spawn_duration: 0.175
   tooth_spawn_ease: 5
   tooth_pool_canine: {fileID: 11400000, guid: 8e89686192fb06e4fa4e4cf6f4cc346e, type: 2}
   tooth_pool_molar: {fileID: 11400000, guid: 218679afc1a140e47b510fd29237f89e, type: 2}
@@ -60,6 +60,8 @@ MonoBehaviour:
   line_width: 0.00625
   line_height: 0.01
   line_disappear_delay: 0.2
+  line_spawn_duration: 0.125
+  line_spawn_ease: 1
   puzzle_solved_event: {fileID: 11400000, guid: de06fc325eb584611b4d52fda7ed9e8d, type: 2}
   puzzle_fill_event: {fileID: 11400000, guid: 1d38b70f5cb9b4a298fb857feb32a86f, type: 2}
   puzzle_complete_event: {fileID: 11400000, guid: 562f2394ecaf74ceaac30f1a2be8be1c, type: 2}
